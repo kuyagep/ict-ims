@@ -118,17 +118,17 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                                 Log In</button>
                         </div> -->
                         <div class="row">
-                            <div class="col-8">
+                            <!-- <div class="col-8">
                                 <div class="icheck-success">
                                     <input type="checkbox" id="remember">
                                     <label for="remember">
                                         Remember Me
                                     </label>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="col-4">
-                                <button type="submit" class="btn btn-block bg-gradient-success">Sign In</button>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-block bg-gradient-success">Login</button>
                             </div>
                         </div>
                     </form>
