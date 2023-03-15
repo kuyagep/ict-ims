@@ -23,7 +23,7 @@
                 if($_SESSION['role_id'] == '1'){
                     echo "sidebar-dark-red";
                 }elseif($_SESSION['role_id'] == '2'){
-                    echo "sidebar-dark-red";
+                    echo "sidebar-dark-success";
                 }elseif($_SESSION['role_id'] == '3'){
                     echo "sidebar-light-red";
                 } 
