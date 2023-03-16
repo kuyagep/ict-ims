@@ -18,7 +18,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            
+
             <!-- /.col (left) -->
 
             <!-- /.col (right) -->
@@ -45,7 +45,7 @@
                                 <p>Inventory</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-bag"></i>
+                                <i class="fas fa-laptop"></i>
                             </div>
                             <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                         </div>
@@ -102,7 +102,7 @@
                                 <p>Employees</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-person-add"></i>
+                                <i class="fas fa-users"></i>
                             </div>
                             <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                         </div>
@@ -129,7 +129,7 @@
                                 <p>Total Amount</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
+                            <i class="fas fa-dollar-sign"></i>
                             </div>
                             <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                         </div>

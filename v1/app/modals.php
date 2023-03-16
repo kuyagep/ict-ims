@@ -274,7 +274,7 @@
                             <select class="custom-select" id="end_user" name="end_user" required>
                                 <option value="" class="text-muted" selected>Choose Employee...</option>
                                 <?php
-                                    $result = mysqli_query($con,"SELECT * FROM employee;");
+                                    $result = mysqli_query($con,"SELECT * FROM employee WHERE division_id != 0;");
                                     $rowCount = mysqli_num_rows($result);
                                     if($rowCount > 0){
                                         while($row = mysqli_fetch_assoc($result)){ ?>
@@ -319,17 +319,24 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="category" class="col-sm-3 col-form-label">Category <span class="text-danger">
+                        <label for="date_acquired" class="col-sm-3 col-form-label">Date Acq. <span class="text-danger">
+                                *</span> </label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="date_acquired" name="date_acquired"  required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="category" class="col-sm-3 col-form-label">Classification <span class="text-danger">
                                 *</span></label>
                         <div class="col-sm-9">
                             <select class="custom-select" id="category" name="category" required>
-                                <option value="" class="text-muted" selected>Choose Category...</option>
+                                <option value="" class="text-muted" selected>Choose Classification...</option>
                                 <?php
-                                    $result = mysqli_query($con,"SELECT * FROM procurement_category;");
+                                    $result = mysqli_query($con,"SELECT * FROM category;");
                                     $rowCount = mysqli_num_rows($result);
                                     if($rowCount > 0){
                                         while($row = mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo $row['pcategory_id']; ?>">
+                                <option value="<?php echo $row['category_id']; ?>">
                                     <?php echo $row['category_name']; ?>
                                 </option>
 
@@ -338,82 +345,21 @@
                                 ?>
                             </select>
                         </div>
-                    </div>
+                    </div> 
                     <div class="form-group row">
-                        <label for="particulars" class="col-sm-3 col-form-label">Particulars <span class="text-danger">
-                                *</span></label>
+                        <label for="date_inspection" class="col-sm-3 col-form-label">Date of Ins. <span class="text-danger">
+                                *</span> </label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" name="particulars" placeholder="Enter Description"
-                                id="particulars" value="" required></textarea>
+                            <input type="date" class="form-control" id="date_inspection" name="date_inspection"  required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="amount" class="col-sm-3 col-form-label">Amount <span class="text-danger">
-                                *</span></label>
+                        <label for="inspected_by" class="col-sm-3 col-form-label">Inspected by <span class="text-danger">
+                                *</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="amount" name="amount"
-                                placeholder="Enter Total Amount" required>
+                            <input type="text" class="form-control" id="inspected_by" name="inspected_by" placeholder="Inspected By" required>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="src_fund" class="col-sm-3 col-form-label">Source of Fund <span class="text-danger">
-                                *</span></label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="src_fund" name="src_fund"
-                                placeholder="Enter Source of Fund">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="end_user" class="col-sm-3 col-form-label">End User <span class="text-danger">
-                                *</span></label>
-                        <div class="col-sm-9">
-                            <select class="custom-select" id="end_user" name="end_user" required>
-                                <option value="" class="text-muted" selected>Choose Employee...</option>
-                                <?php
-                                    $result = mysqli_query($con,"SELECT * FROM employee;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo $row['employee_id']; ?>">
-                                    <?php echo $row['firstname']." ".$row['lastname']; ?>
-                                </option>
-
-                                <?php   }
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="status" class="col-sm-3 col-form-label">Status <span class="text-danger">
-                                *</span></label>
-                        <div class="col-sm-9">
-                            <select class="custom-select" id="status" name="status" required>
-                                <option value="" class="text-muted" selected>Choose Employee...</option>
-                                <?php
-                                    $result = mysqli_query($con,"SELECT * FROM po_status;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo $row['pstatus_id']; ?>">
-                                    <?php echo $row['pstatus_name']; ?>
-                                </option>
-
-                                <?php   }
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="remarks" class="col-sm-3 col-form-label">Remarks</label>
-                        <div class="col-sm-9">
-                            <textarea class="form-control" name="remarks" placeholder="Enter Remarks"
-                                id="remarks"></textarea>
-                        </div>
-                    </div>
-                </div>
+                    </div>                 
                 <div class="modal-footer justify-content-right">
                     <button type="button" class="btn bg-gradient-danger " data-dismiss="modal">Close</button>
                     <button type="submit" name="add-purchase" class="btn bg-gradient-primary ">Save & Record</button>
