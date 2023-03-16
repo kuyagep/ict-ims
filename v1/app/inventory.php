@@ -65,18 +65,17 @@
                                 `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
                                 `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`
                                 FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
-                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE deleted=1 ORDER BY `inv_ict`.`updated_at` DESC;");
+                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id`  ORDER BY `inv_ict`.`updated_at` DESC;");
                                 $count=1;
                                 $rowCount = mysqli_num_rows($result);
                                 if($rowCount > 0){
                                     while($row = mysqli_fetch_assoc($result)){
-                                         $id=$row['inv_id'];
+                                         $id=$row['pmr_id'];
                                          ?>
                                 <tr>
                                     <td style='width: 100px;'><?php echo $row['inv_no']; ?></td>
                                     <td style='width: 100px;'><?php echo $row['office_name']; ?></td>
                                     <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
-                                    <td><?php echo $row['item_name']; ?></td>
                                     <td><?php echo $row['specs']; ?></td>
                                     <td><?php 
                                     echo number_format($row['amount'], 2);

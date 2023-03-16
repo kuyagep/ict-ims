@@ -74,6 +74,53 @@ $view = mysqli_fetch_array($query);
 
 
                 </div>
+                <div class="col-lg-4">
+                    <!-- Application buttons -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Action Section</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Quick Access</p>
+                            <a class="btn btn-app" data-toggle="modal" data-target="#issuance">
+                                <i class="fas fa-share-square"></i> Issue Item
+                            </a>
+                            <!-- <a class="btn btn-app" data-toggle="modal" data-target="#employee">
+                                <i class="fas fa-undo-alt"></i> Add Employee
+                            </a>
+                            <a class="btn btn-app" data-toggle="modal" data-target="#addItems">
+                                <i class="fas fa-edit"></i> Add Item
+                            </a> -->
+
+                            <p>Quick Access</p>
+                            <a class="btn btn-app bg-secondary">
+                                <span class="badge bg-warning">New</span>
+                                <i class="fas fa-database"></i> Backup DB
+                            </a>
+                            <!-- <a class="btn btn-app bg-purple">
+                                <span class="badge bg-success">300</span>
+                                <i class="fas fa-barcode"></i> Items
+                            </a>
+                            <a class="btn btn-app bg-success">
+                                <span class="badge bg-purple">891</span>
+                                <i class="fas fa-users"></i> Users
+                            </a>
+                            <a class="btn btn-app bg-danger">
+                                <span class="badge bg-teal">67</span>
+                                <i class="fas fa-inbox"></i> Issuance
+                            </a>
+                            <a class="btn btn-app bg-warning">
+                                <span class="badge bg-info">12</span>
+                                <i class="fas fa-envelope"></i> Inbox
+                            </a>
+                            <a class="btn btn-app bg-info">
+                                <span class="badge bg-danger">531</span>
+                                <i class="fas fa-heart"></i> Likes
+                            </a> -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
             </div>
         </form>
     </div>
