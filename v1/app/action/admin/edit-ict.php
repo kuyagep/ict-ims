@@ -49,18 +49,18 @@ $view = mysqli_fetch_array($query);
                                         <option selected>Choose Employee...
                                         </option>
                                         <?php
-                                    $result = mysqli_query($con,"SELECT * FROM employee;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
-                                        <option value="<?php echo $row['employee_id'];?>"
-                                            <?php if($row['employee_id'] == $view['employee_id']){echo 'selected';} ?>>
-                                            <?php echo $row['employee_name']; ?>
-                                        </option>
+                                            $result = mysqli_query($con,"SELECT * FROM employee;");
+                                            $rowCount = mysqli_num_rows($result);
+                                            if($rowCount > 0){
+                                                while($row = mysqli_fetch_assoc($result)){ ?>
+                                                <option value="<?php echo $row['employee_id'];?>"
+                                                    <?php if($row['employee_id'] == $view['employee_id']){echo 'selected';} ?>>
+                                                    <?php echo $row['firstname'] ." ".$row['lastname']; ?>
+                                                </option>
 
-                                        <?php   }
-                                    }
-                                ?>
+                                                <?php   }
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -81,14 +81,14 @@ $view = mysqli_fetch_array($query);
                             <div class="form-group row">
                                 <label for="amount" class="col-sm-3 col-form-label">Amount</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" name="amount" id="amount""
+                                    <input type="text" class="form-control" name="amount" id="amount""
                                         value=" <?php echo $view['amount']; ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="serial_no" class="col-sm-3 col-form-label">S/N</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" name="amoserial_nount" id="serial_no""
+                                    <input type="text" class="form-control" name="serial_no" id="serial_no""
                                         value=" <?php echo $view['serial_no']; ?>">
                                 </div>
                             </div>
@@ -122,95 +122,26 @@ $view = mysqli_fetch_array($query);
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="particulars" class="col-sm-3 col-form-label">Particulars</label>
+                                <label for="date_inspection" class="col-sm-3 col-form-label">Date of Inspection</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" name="particulars" placeholder="Enter Description"
-                                        id="particulars" value="" rows=""
-                                        cols=""><?php echo $view['particulars']; ?></textarea>
-
-                                </div>
-                            </div>
-                            <!-- <div class="form-group row">
-                                <label for="pr" class="col-sm-3 col-form-label">Particulars</label>
-                                <div class="col-sm-9">
-                                    <input style="height: 100px;" type="text" class="form-control align-items-lg-end" name="pr"
-                                        value="<?php //cho $view['particulars']; ?>">
-                                </div>
-                            </div> -->
-                            <div class="form-group row">
-                                <label for="amount" class="col-sm-3 col-form-label">Amount</label>
-                                <div class="col-sm-9">
-                                    <input type="number" step=any class="form-control" name="amount"
-                                        value="<?php echo $view['amount']; ?>">
+                                    <input type="date" class="form-control" name="date_inspection" id="date_inspection""
+                                        value=" <?php echo $view['date_inspection']; ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="src_fund" class="col-sm-3 col-form-label">Source of Fund</label>
+                                <label for="inspected_by" class="col-sm-3 col-form-label">Inspected by</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="src_fund"
-                                        value="<?php echo $view['src_fund']; ?>">
+                                    <input type="text" class="form-control" name="inspected_by" id="inspected_by""
+                                        value=" <?php echo $view['inspected_by']; ?>">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="end_user" class="col-sm-3 col-form-label">End User </label>
-                                <div class="col-sm-9">
-                                    <select class="custom-select" id="end_user" name="end_user" required>
-                                        <option selected>Choose End User...
-                                        </option>
-                                        <?php
-                                            $result = mysqli_query($con,"SELECT * FROM employee;");
-                                            $rowCount = mysqli_num_rows($result);
-                                            if($rowCount > 0){
-                                                while($row = mysqli_fetch_assoc($result)){ ?>
-                                        <option value="<?php echo $row['employee_id'];?>"
-                                            <?php if($row['employee_id'] == $view['employee_id']){echo 'selected';} ?>>
-                                            <?php echo $row['firstname']."".$row['lastname']; ?>
-                                        </option>
-                                        <?php   }
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="status" class="col-sm-3 col-form-label">Status </label>
-                                <div class="col-sm-9">
-                                    <select class="custom-select" id="status" name="status" required>
-                                        <option selected>Choose Status...
-                                        </option>
-                                        <?php
-                                            $result = mysqli_query($con,"SELECT * FROM po_status;");
-                                            $rowCount = mysqli_num_rows($result);
-                                            if($rowCount > 0){
-                                                while($row = mysqli_fetch_assoc($result)){ ?>
-                                        <option value="<?php echo $row['pstatus_id'];?>"
-                                            <?php if($row['pstatus_id'] == $view['pstatus_id']){echo 'selected';} ?>>
-                                            <?php echo $row['pstatus_name']; ?>
-                                        </option>
-                                        <?php   }
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="remarks" class="col-sm-3 col-form-label">Remarks</label>
-                                <div class="col-sm-9">
-                                    <textarea class="form-control" name="remarks" placeholder="Enter Description"
-                                        id="remarks" value="" rows="" cols=""><?php echo $view['remarks']; ?></textarea>
-
-                                </div>
-                            </div>
-
-
-
+                            
                         </div>
                         <div class="card-footer">
                             <button type="submit" name="updateItem" class="btn btn-primary float-right ml-3 ">
                                 <i class="fas fa-save"></i> Update Record </button>
 
-                            <a href="pmr">
+                            <a href="inventory">
                                 <button type="button" class="btn btn-danger float-right ml-3 "> <i
                                         class="fas fa-arrow-left"></i>
                                     Return
@@ -223,54 +154,6 @@ $view = mysqli_fetch_array($query);
 
 
                 </div>
-
-                <div class="col-lg-4">
-                    <!-- Application buttons -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Action Section</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Quick Access</p>
-                            <a class="btn btn-app" data-toggle="modal" data-target="#issuance">
-                                <i class="fas fa-share-square"></i> Issue Item
-                            </a>
-                            <a class="btn btn-app" data-toggle="modal" data-target="#employee">
-                                <i class="fas fa-undo-alt"></i> Add Employee
-                            </a>
-                            <a class="btn btn-app" data-toggle="modal" data-target="#addItems">
-                                <i class="fas fa-edit"></i> Add Item
-                            </a>
-
-                            <p>Quick Access</p>
-                            <a class="btn btn-app bg-secondary">
-                                <span class="badge bg-warning">New</span>
-                                <i class="fas fa-database"></i> Backup DB
-                            </a>
-                            <a class="btn btn-app bg-purple">
-                                <span class="badge bg-success">300</span>
-                                <i class="fas fa-barcode"></i> Items
-                            </a>
-                            <a class="btn btn-app bg-success">
-                                <span class="badge bg-purple">891</span>
-                                <i class="fas fa-users"></i> Users
-                            </a>
-                            <a class="btn btn-app bg-danger">
-                                <span class="badge bg-teal">67</span>
-                                <i class="fas fa-inbox"></i> Issuance
-                            </a>
-                            <a class="btn btn-app bg-warning">
-                                <span class="badge bg-info">12</span>
-                                <i class="fas fa-envelope"></i> Inbox
-                            </a>
-                            <a class="btn btn-app bg-info">
-                                <span class="badge bg-danger">531</span>
-                                <i class="fas fa-heart"></i> Likes
-                            </a>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                </div>
             </div>
         </form>
     </div>
@@ -281,28 +164,4 @@ $view = mysqli_fetch_array($query);
 <script>
 $('.file-upload').file_upload();
 
-function delete_employee(data_id) {
-    //alert('ok');
-    // window.location = ("action/admin/delete-employee.php?id=" + data_id);
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this Data!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-
-            window.location = ("action/admin/delete-employee.php?id=" + data_id);
-            // Swal.fire(
-            //             'Deleted!',
-            //             'The data has been deleted.',
-            //             'success'
-            // )
-        }
-
-    })
-}
 </script>

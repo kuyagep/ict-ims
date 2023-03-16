@@ -97,8 +97,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="purchase-category"
-                        class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "purchase-category"){ echo 'active'; } ?>">
+                    <a href="category"
+                        class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "category"){ echo 'active'; } ?>">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Classification
@@ -108,55 +108,7 @@
 
             </ul>
         </li>
-        <!-- <li class="nav-item">
-            <a href="position" class="nav-link ">
-                <i class="nav-icon fas fa-layer-group"></i>
-                <p>
-                    Position
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="office" class="nav-link ">
-                <i class="nav-icon fas fa-briefcase"></i>
-                <p>
-                    Office
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="suppliers" class="nav-link ">
-                <i class="nav-icon fas fa-solid fa-store"></i>
-                <p>
-                    Supplier
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="category" class="nav-link ">
-                <i class="nav-icon fas fa-list"></i>
-                <p>
-                    Category
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="status" class="nav-link ">
-                <i class="nav-icon fas fa-heart"></i>
-                <p>
-                    Status
-                </p>
-            </a>
-        </li>
-        <li class="nav-header">Reports</li>
-        <li class="nav-item">
-            <a href="reports" class="nav-link ">
-                <i class="nav-icon fas fa-print"></i>
-                <p>
-                    Report
-                </p>
-            </a>
-        </li> -->
+        
         <li class="nav-header">Account</li>
         <li class="nav-item">
             <a href="profile" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "profile"){ echo 'active'; } ?>">

@@ -3,30 +3,30 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $id = validate($_POST["id"]);
-        $pr = validate($_POST["pr_no"]);
-        $po = validate($_POST["po_no"]);
-        $date = validate($_POST["date"]);
-        $category = validate($_POST["category"]);
-        $particulars = validate($_POST["particulars"]);
-        $amount = validate($_POST["amount"]);
-        $src_fund = validate($_POST["src_fund"]);
+        $inv_no = validate($_POST["inv_no"]);
         $end_user = validate($_POST["end_user"]);
-        $status = validate($_POST["status"]);
-        $remarks = validate($_POST["remarks"]);
+        $item_name = validate($_POST["item_name"]);
+        $specs = validate($_POST["specs"]);
+        $amount = validate($_POST["amount"]);
+        $serial_no = validate($_POST["serial_no"]);
+        $date_acquired = validate($_POST["date_acquired"]);
+        $category = validate($_POST["category"]);
+        $date_inspection = validate($_POST["date_inspection"]);
+        $inspected_by = validate($_POST["inspected_by"]);
 
-        $query=mysqli_query($con,"UPDATE `pmr_table` SET 
-        `pr_no`='".$pr."',
-        `po_no`='".$po."',
-        `date`='".$date."',
-        `pcategory_id`='".$category."',
-        `particulars`='".$particulars."',
-        `amount`='".$amount."',
-        `src_fund`='".$src_fund."',
+        $query=mysqli_query($con,"UPDATE `inv_ict` SET 
+        `inv_id`='".$id."',
         `employee_id`='".$end_user."',
-        `pstatus_id`='".$status."', 
-        `remarks`='".$remarks."' 
+        `item_name`='".$item_name."',
+        `specs`='".$specs."',
+        `amount`='".$amount."',
+        `serial_no`='".$serial_no."',
+        `date_acquired`='".$date_acquired."',
+        `category_id`='".$category."',
+        `date_inspection`='".$date_inspection."', 
+        `inspected_by`='".$inspected_by."' 
         
-        WHERE  `pmr_id`='".$id."'");
+        WHERE  `inv_id`='".$id."'");
         header("Location: ../../index.php?page=ict-edit&id=".$id);
 
     }
