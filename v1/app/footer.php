@@ -94,14 +94,6 @@ $.widget.bridge('uibutton', $.ui.button)
 
 <script>
 $(document).ready(function() {
-    $('#dataTable').DataTable({
-        "paging": true,
-        "lengthChange": true,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": auto,
-        "responsive": true,
-    });
+    $('#dataTable').DataTable();
 });
 </script>
