@@ -250,7 +250,7 @@
 <div class="modal fade" id="add-purchase-order" data-backdrop="static" data-keyboard="true" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form class="form-horizontal" action="action/admin/add-purchase.php" method="POST">
+            <form class="form-horizontal" action="action/admin/add-inventory.php" method="POST">
                 <div class="modal-header">
                     <h4 class="modal-title">Add Inventory</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

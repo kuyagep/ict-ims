@@ -25,14 +25,7 @@
                 <div class="card">
                     <div class="card-header p-2">
                         <div class="float-left">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link active" href="#osds" data-toggle="tab">OSDS</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="#cid" data-toggle="tab">CID</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="#sgod" data-toggle="tab">SGOD</a>
-                                </li>
-                            </ul>
+                            <h4>Inventory List</h4>
                         </div>
                         <div class="float-right">
                             <button type="button" class="btn bg-gradient-success float-right" data-toggle="modal"
@@ -44,236 +37,76 @@
 
                     </div><!-- /.card-header -->
                     <div class="card-body">
-                        <div class="tab-content">
-                            <div class="active tab-pane" id="osds">
-                                <!-- Content Here -->
-                                <table id="dataTable" class="table table-hover table-responsive-lg " width="100%"
-                                    cellspacing="0"">
+
+
+                        <!-- Content Here -->
+                        <table id="dataTable" class="table table-hover table-responsive-lg " width="100%"
+                            cellspacing="0"">
                             <thead class=" thead-dark">
-                                    <tr>
-                                        <th>PR #</th>
-                                        <th>PO #</th>
-                                        <th>Category</th>
-                                        <th>Particular</th>
-                                        <th>Amount</th>
-                                        <th>Source of Fund</th>
-                                        <th>End User</th>
-                                        <th>Office/Section</th>
-                                        <th>Delivered</th>
-                                        <th>Remarks</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                //SELECT pmr_table.particulars FROM pmr_table INNER JOIN employee ON `employee`.`office_id`=pmr_table.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=pmr_table.pcategory_id ORDER BY `pmr_table`.`updated_at` DESC;
-                                $result = mysqli_query($con,"SELECT pmr_table.pmr_id, pmr_table.pr_no, procurement_category.category_name, pmr_table.po_no, pmr_table.particulars, pmr_table.amount, pmr_table.src_fund, employee.firstname, employee.lastname, office.office_name, po_status.pstatus_name, pmr_table.remarks FROM pmr_table LEFT JOIN employee ON pmr_table.employee_id=employee.employee_id INNER JOIN office ON employee.office_id=office.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=pmr_table.pcategory_id  INNER JOIN po_status ON po_status.pstatus_id=pmr_table.pstatus_id WHERE employee.division_id=1 ORDER BY `pmr_table`.`updated_at` DESC;");
+                            <tr>
+                                <th>INVENTORY NO</th>
+                                <th>OFFICE</th>
+                                <th>END USER</th>
+                                <th>ITEM NAME</th>
+                                <th>SPECS</th>
+                                <th>AMOUNT</th>
+                                <th>S/N</th>
+                                <th>DATE ACQUIRED</th>
+                                <th>CLASSIFICATION</th>
+                                <th>DATE OF INSPECTION</th>
+                                <th>INSPECTED BY</th>
+                                <th>ACTION</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                //SELECT inv_ict.particulars FROM inv_ict INNER JOIN employee ON `employee`.`office_id`=inv_ict.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=inv_ict.pcategory_id ORDER BY `inv_ict`.`updated_at` DESC;
+                                $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`inv_ict`.`inv_no`, `office`.`office_name`, `employee`.`firstname`, `employee`.`lastname`, 
+                                `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
+                                `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`
+                                FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
+                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id`  ORDER BY `inv_ict`.`updated_at` DESC;");
                                 $count=1;
                                 $rowCount = mysqli_num_rows($result);
                                 if($rowCount > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                                          $id=$row['pmr_id'];
                                          ?>
-                                        <tr>
-                                            <td style='width: 100px;'><?php echo $row['pr_no']; ?></td>
-                                            <td style='width: 100px;'><?php echo $row['po_no']; ?></td>
-                                            <td><?php echo $row['category_name']; ?></td>
-                                            <td><?php echo $row['particulars']; ?></td>
-                                            <td><?php 
+                                <tr>
+                                    <td style='width: 100px;'><?php echo $row['inv_no']; ?></td>
+                                    <td style='width: 100px;'><?php echo $row['office_name']; ?></td>
+                                    <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
+                                    <td><?php echo $row['specs']; ?></td>
+                                    <td><?php 
                                     echo number_format($row['amount'], 2);
                                     ?></td>
-                                            <td><?php echo $row['src_fund']; ?></td>
-                                            <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
-                                            <td><?php echo $row['office_name']; ?></td>
-                                            <td>
-                                                <?php 
-                                            if ($row['pstatus_name']=="Delivered") {
-                                                # code...
-                                            }
-                                        ?>
-                                                <span
-                                                    class="badge badge-primary"><?php echo $row['pstatus_name']; ?></span>
-                                            </td>
-                                            <td><?php echo $row['remarks']; ?></td>
+                                    <td><?php echo $row['serial_no']; ?></td>
+                                    <td><?php echo $row['date_acquired']; ?></td>
+                                    <td><?php echo $row['category_name']; ?></td>
 
-                                            <td style='width: 100px;'>
-                                                <a href="index.php?page=pmr-edit&id=<?php echo $id; ?>"
-                                                    class="text-primary " title="Edit">
-                                                    <i class="fas fa-solid fa-pen"></i>
-                                                </a>
+                                    <td><?php echo $row['date_inspection']; ?></td>
+                                    <td><?php echo $row['inspected_by']; ?></td>
+                                    <td style='width: 100px;'>
+                                        <a href="index.php?page=ict-edit&id=<?php echo $id; ?>" class="text-primary "
+                                            title="Edit">
+                                            <i class="fas fa-solid fa-pen"></i>
+                                        </a>
 
-                                                <a onclick="delete_item('<?php echo $id; ?>')" class="text-danger ml-2"
-                                                    title="Delete">
-                                                    <i class="fas fa-solid fa-trash"></i></a>
-                                            </td>
+                                        <a onclick="delete_item('<?php echo $id; ?>')" class="text-danger ml-2"
+                                            title="Delete">
+                                            <i class="fas fa-solid fa-trash"></i></a>
+                                    </td>
 
-                                        </tr>
-                                        <?php
+                                </tr>
+                                <?php
                                     $count++;
                                 }
                                     
                                 }
                                 
                             ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="cid">
-                                <!-- Content Here -->
-                                <table id="dataTable" class="table table-hover table-responsive-lg " width="100%"
-                                    cellspacing="0">
-                            <thead class=" thead-dark">
-                                    <tr>
-                                        <th>PR #</th>
-                                        <th>PO #</th>
-                                        <th>Category</th>
-                                        <th>Particular</th>
-                                        <th>Amount</th>
-                                        <th>Source of Fund</th>
-                                        <th>End User</th>
-                                        <th>Office/Section</th>
-                                        <th>Delivered</th>
-                                        <th>Remarks</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                //SELECT pmr_table.particulars FROM pmr_table INNER JOIN employee ON `employee`.`office_id`=pmr_table.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=pmr_table.pcategory_id ORDER BY `pmr_table`.`updated_at` DESC;
-                                $result = mysqli_query($con,"SELECT pmr_table.pmr_id, pmr_table.pr_no, procurement_category.category_name, pmr_table.po_no, pmr_table.particulars, 
-                                pmr_table.amount, pmr_table.src_fund, employee.firstname, employee.lastname, office.office_name, po_status.pstatus_name, pmr_table.remarks 
-                                FROM pmr_table LEFT JOIN employee ON pmr_table.employee_id=employee.employee_id INNER JOIN office ON employee.office_id=office.office_id 
-                                INNER JOIN procurement_category ON procurement_category.pcategory_id=pmr_table.pcategory_id  INNER JOIN po_status ON 
-                                po_status.pstatus_id=pmr_table.pstatus_id WHERE employee.division_id=2 ORDER BY `pmr_table`.`updated_at` DESC;");
-                                $count=1;
-                                $rowCount = mysqli_num_rows($result);
-                                if($rowCount > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                         $id=$row['pmr_id'];
-                                         ?>
-                                        <tr>
-                                            <td style='width: 100px;'><?php echo $row['pr_no']; ?></td>
-                                            <td style='width: 100px;'><?php echo $row['po_no']; ?></td>
-                                            <td><?php echo $row['category_name']; ?></td>
-                                            <td><?php echo $row['particulars']; ?></td>
-                                            <td><?php 
-                                    echo number_format($row['amount'], 2);
-                                    ?></td>
-                                            <td><?php echo $row['src_fund']; ?></td>
-                                            <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
-                                            <td><?php echo $row['office_name']; ?></td>
-                                            <td>
-                                                <?php 
-                                            if ($row['pstatus_name']=="Delivered") {
-                                                # code...
-                                            }
-                                        ?>
-                                                <span
-                                                    class="badge badge-primary"><?php echo $row['pstatus_name']; ?></span>
-                                            </td>
-                                            <td><?php echo $row['remarks']; ?></td>
-
-                                            <td style='width: 100px;'>
-                                                <a href="index.php?page=pmr-edit&id=<?php echo $id; ?>"
-                                                    class="text-warning " title="Edit">
-                                                    <i class="fas fa-solid fa-pen"></i>
-                                                </a>
-
-                                                <a onclick="delete_item('<?php echo $id; ?>')" class="text-danger ml-2"
-                                                    title="Delete">
-                                                    <i class="fas fa-solid fa-trash"></i></a>
-                                            </td>
-
-                                        </tr>
-                                        <?php
-                                    $count++;
-                                }
-                                    
-                                }
-                                
-                            ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.tab-pane -->
-
-                            <div class="tab-pane" id="sgod">
-                                <!-- Content Here -->
-                                <table id="dataTable" class="table table-hover table-responsive-lg " width="100%"
-                                    cellspacing="0"">
-                            <thead class=" thead-dark">
-                                    <tr>
-                                        <th>PR #</th>
-                                        <th>PO #</th>
-                                        <th>Category</th>
-                                        <th>Particular</th>
-                                        <th>Amount</th>
-                                        <th>Source of Fund</th>
-                                        <th>End User</th>
-                                        <th>Office/Section</th>
-                                        <th>Delivered</th>
-                                        <th>Remarks</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                //SELECT pmr_table.particulars FROM pmr_table INNER JOIN employee ON `employee`.`office_id`=pmr_table.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=pmr_table.pcategory_id ORDER BY `pmr_table`.`updated_at` DESC;
-                                $result = mysqli_query($con,"SELECT pmr_table.pmr_id, pmr_table.pr_no, procurement_category.category_name, pmr_table.po_no, pmr_table.particulars, pmr_table.amount, pmr_table.src_fund, employee.firstname, employee.lastname, office.office_name, po_status.pstatus_name, pmr_table.remarks FROM pmr_table LEFT JOIN employee ON pmr_table.employee_id=employee.employee_id INNER JOIN office ON employee.office_id=office.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=pmr_table.pcategory_id  INNER JOIN po_status ON po_status.pstatus_id=pmr_table.pstatus_id WHERE employee.division_id=3 ORDER BY `pmr_table`.`updated_at` DESC;");
-                                $count=1;
-                                $rowCount = mysqli_num_rows($result);
-                                if($rowCount > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                         $id=$row['pmr_id'];
-                                         ?>
-                                        <tr>
-                                            <td style='width: 100px;'><?php echo $row['pr_no']; ?></td>
-                                            <td style='width: 100px;'><?php echo $row['po_no']; ?></td>
-                                            <td><?php echo $row['category_name']; ?></td>
-                                            <td><?php echo $row['particulars']; ?></td>
-                                            <td><?php 
-                                    echo number_format($row['amount'], 2);
-                                    ?></td>
-                                            <td><?php echo $row['src_fund']; ?></td>
-                                            <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
-                                            <td><?php echo $row['office_name']; ?></td>
-                                            <td>
-                                                <?php 
-                                            if ($row['pstatus_name']=="Delivered") {
-                                                # code...
-                                            }
-                                        ?>
-                                                <span
-                                                    class="badge badge-primary"><?php echo $row['pstatus_name']; ?></span>
-                                            </td>
-                                            <td><?php echo $row['remarks']; ?></td>
-
-                                            <td style='width: 100px;'>
-                                                <a href="index.php?page=pmr-edit&id=<?php echo $id; ?>"
-                                                    class="text-primary " title="Edit">
-                                                    <i class="fas fa-solid fa-pen"></i>
-                                                </a>
-
-                                                <a onclick="delete_item('<?php echo $id; ?>')" class="text-danger ml-2"
-                                                    title="Delete">
-                                                    <i class="fas fa-solid fa-trash"></i></a>
-                                            </td>
-
-                                        </tr>
-                                        <?php
-                                    $count++;
-                                }
-                                    
-                                }
-                                
-                            ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.tab-pane -->
-                        </div>
-                        <!-- /.tab-content -->
+                            </tbody>
+                        </table>
                     </div><!-- /.card-body -->
                 </div>
                 <!-- /.card -->
@@ -307,7 +140,7 @@ function delete_item(data_id) {
         closeOnCancel: false
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location = ("action/admin/delete-purchase.php?id=" + data_id);
+            window.location = ("action/admin/delete-ict.php?id=" + data_id);
         }
 
     })
