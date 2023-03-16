@@ -27,7 +27,7 @@
         <li class="nav-item">
             <a href="add-order" class="nav-link <?php if ($_GET['page'] == "add-order"){ echo 'active'; } ?>"
                 data-toggle="modal" data-target="#add-purchase-order">
-                <i class="fas fa-shopping-cart nav-icon"></i>
+                <i class="fas fa-plus nav-icon"></i> 
                 <p>
                     Add Inventory
                     <span class="right badge badge-success">New</span>

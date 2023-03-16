@@ -42,7 +42,7 @@
                                     ?>
                                 </h3>
 
-                                <p>Purchase Orders</p>
+                                <p>Inventory</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -99,7 +99,7 @@
                                                 echo $rowcount;
                                             }
                                     ?></h3>
-                                <p>Employee</p>
+                                <p>Employees</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
