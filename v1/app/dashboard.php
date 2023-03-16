@@ -17,211 +17,11 @@
 <!-- End Content Header -->
 <section class="content">
     <div class="container-fluid">
-    <div class="row">
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Statistics</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                
-                <?php 
-                     $result = mysqli_query($con,"SELECT * FROM pmr_table;");
-                     $rowCount = mysqli_num_rows($result);
-                     if($rowCount > 0){
-                        $count=0;
-                        $delivered=0;
-                         while($row = mysqli_fetch_assoc($result)){
-                            if($row['pstatus_id'] == 1){
-                                $delivered++;
-                            }
-                            $count++;
-                         }
-                    }
-                    $cal =  ($delivered/$count)*100;
-                    echo  "<p><b>Delivered </b>         ".number_format($cal,2).'% <span class="float-right"><b>'.$delivered.'</b></span></p>';
-                ?>
+        <div class="row">
             
-                <div class="progress progress-sm active">
-                  <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
-                       aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: <?php  echo $cal; ?>%" title="<?php  echo number_format($cal,2); ?>%">
-                  </div>
-                </div>
+            <!-- /.col (left) -->
 
-                <!-- Not Delivered -->
-                <?php 
-                     $result = mysqli_query($con,"SELECT * FROM pmr_table;");
-                     $rowCount = mysqli_num_rows($result);
-                     if($rowCount > 0){
-                        $count=0;
-                        $delivered=0;
-                         while($row = mysqli_fetch_assoc($result)){
-                            if($row['pstatus_id'] == 2){
-                                $delivered++;
-                            }
-                            $count++;
-                         }
-                    }
-                    $cal =  ($delivered/$count)*100;
-                    echo  "<p><b>Not Delivered </b>         ".number_format($cal,2).'% <span class="float-right"><b>'.$delivered.'</b></span></p>';
-                ?>
-                
-                <div class="progress progress-sm active">
-                  <div class="progress-bar bg-info progress-bar-striped" role="progressbar"
-                       aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: <?php  echo $cal; ?>%" title="<?php  echo number_format($cal,2); ?>%">
-                  </div>
-                </div>
-                <!-- Pending -->
-                <?php 
-                     $result = mysqli_query($con,"SELECT * FROM pmr_table;");
-                     $rowCount = mysqli_num_rows($result);
-                     if($rowCount > 0){
-                        $count=0;
-                        $delivered=0;
-                         while($row = mysqli_fetch_assoc($result)){
-                            if($row['pstatus_id'] == 3){
-                                $delivered++;
-                            }
-                            $count++;
-                         }
-                    }
-                    $cal =  ($delivered/$count)*100;
-                    echo  "<p><b>Pending </b>         ".number_format($cal,2).'% <span class="float-right"><b>'.$delivered.'</b></span></p>';
-                ?>
-                
-                
-                <div class="progress progress-sm active">
-                  <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                       aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: <?php  echo $cal; ?>%" title="<?php  echo number_format($cal,2); ?>%">
-                  </div>
-                </div>
-                <!-- Failed -->
-                <?php 
-                     $result = mysqli_query($con,"SELECT * FROM pmr_table;");
-                     $rowCount = mysqli_num_rows($result);
-                     if($rowCount > 0){
-                        $count=0;
-                        $delivered=0;
-                         while($row = mysqli_fetch_assoc($result)){
-                            if($row['pstatus_id'] == 6){
-                                $delivered++;
-                            }
-                            $count++;
-                         }
-                    }
-                    $cal =  ($delivered/$count)*100;
-                    echo  "<p><b>Failed </b>         ".number_format($cal,2).'% <span class="float-right"><b>'.$delivered.'</b></span> </p>';
-                ?>
-                
-                <div class="progress progress-sm active">
-                  <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
-                       aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: <?php  echo $cal; ?>%" title="<?php  echo number_format($cal,2); ?>%">
-                  </div>
-                </div>
-                <!-- Proccesing -->
-                <?php 
-                     $result = mysqli_query($con,"SELECT * FROM pmr_table;");
-                     $rowCount = mysqli_num_rows($result);
-                     if($rowCount > 0){
-                        $count=0;
-                        $delivered=0;
-                         while($row = mysqli_fetch_assoc($result)){
-                            if($row['pstatus_id'] == 4){
-                                $delivered++;
-                            }
-                            $count++;
-                         }
-                    }
-                    $cal =  ($delivered/$count)*100;
-                    echo  "<p><b>Proccesing </b>         ".number_format($cal,2).'% <span class="float-right"><b>'.$delivered.'</b></span> </p>';
-                ?>
-                
-                <div class="progress progress-sm active">
-                  <div class="progress-bar bg-default progress-bar-striped" role="progressbar"
-                       aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: <?php  echo $cal; ?>%" title="<?php  echo number_format($cal,2); ?>%">
-                  </div>
-                </div>
-                <!-- Forwarded -->
-                <?php 
-                     $result = mysqli_query($con,"SELECT * FROM pmr_table;");
-                     $rowCount = mysqli_num_rows($result);
-                     if($rowCount > 0){
-                        $count=0;
-                        $delivered=0;
-                         while($row = mysqli_fetch_assoc($result)){
-                            if($row['pstatus_id'] == 5){
-                                $delivered++;
-                            }
-                            $count++;
-                         }
-                    }
-                    $cal =  ($delivered/$count)*100;
-                    echo  "<p><b>Forwarded </b>         ".number_format($cal,2).'% <span class="float-right"><b>'.$delivered.'</b></span> </p>';
-                ?>
-                
-                <div class="progress progress-sm active">
-                  <div class="progress-bar bg-secondary progress-bar-striped" role="progressbar"
-                       aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: <?php  echo $cal; ?>%" title="<?php  echo number_format($cal,2); ?>%">
-                  </div>
-                </div>
-                                
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <div class="col-md-6">
-            <!-- Application buttons -->
-            <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Action Section</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Quick Access</p>
-                        <a class="btn btn-app" data-toggle="modal" data-target="#add-purchase-order">
-                        <i class="fas fa-shopping-cart"></i> Add Purchase Order
-                        </a>
-                        <a class="btn btn-app" data-toggle="modal" data-target="#employee">
-                        <i class="fas fa-user-plus"></i>Add Employee
-                        </a>
-                        <!-- <a class="btn btn-app" data-toggle="modal" data-target="#addItems">
-                            <i class="fas fa-edit"></i> Add Item
-                        </a> -->
-
-                        <p>Quick Access</p>
-                        <a class="btn btn-app bg-secondary">
-                            <span class="badge bg-warning">New</span>
-                            <i class="fas fa-database"></i> Backup DB
-                        </a>
-                        <a class="btn btn-app bg-purple">
-                            <span class="badge bg-success">300</span>
-                            <i class="fas fa-barcode"></i> Items
-                        </a>
-                        <a class="btn btn-app bg-success">
-                            <span class="badge bg-purple">891</span>
-                            <i class="fas fa-users"></i> Users
-                        </a>
-                        <a class="btn btn-app bg-danger">
-                            <span class="badge bg-teal">67</span>
-                            <i class="fas fa-inbox"></i> Issuance
-                        </a>
-                        <a class="btn btn-app bg-warning">
-                            <span class="badge bg-info">12</span>
-                            <i class="fas fa-envelope"></i> Inbox
-                        </a>
-                        <a class="btn btn-app bg-info">
-                            <span class="badge bg-danger">531</span>
-                            <i class="fas fa-heart"></i> Likes
-                        </a>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col (left) -->
-          
-          <!-- /.col (right) -->
+            <!-- /.col (right) -->
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -256,7 +56,7 @@
                         <div class="small-box bg-white callout callout-warning">
                             <div class="inner">
                                 <h3>
-                                <?php 
+                                    <?php 
                      $result = mysqli_query($con,"SELECT * FROM pmr_table;");
                      $rowCount = mysqli_num_rows($result);
                      if($rowCount > 0){
@@ -272,7 +72,8 @@
                     $cal =  ($delivered/$count)*100;
                     echo  number_format($cal,2).'% ';
                 ?>
-                        <sup style="font-size: 20px"></sup></h3>
+                                    <sup style="font-size: 20px"></sup>
+                                </h3>
 
                                 <p>Delivered</p>
                             </div>
@@ -309,7 +110,7 @@
                     <!-- ./col -->
                     <div class="col-md-6">
                         <!-- small box -->
-                        <div class="small-box bg-white callout callout-info">
+                        <div class="small-box  callout callout-info" style="background: #8775a7;">
                             <div class="inner">
                                 <h3>
                                     <?php
@@ -337,11 +138,12 @@
                 </div>
             </div>
             <div class="col-md-4">
-                
+
             </div>
         </div>
         <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.container-fluid -->
 </section>
 <div class="modal fade" id="employee">
     <div class="modal-dialog">

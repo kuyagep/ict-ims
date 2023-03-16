@@ -43,7 +43,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 $_SESSION["email"] = $row['emp_email_add']; 
 
                                     
-                 header("location: ../app/");
+                 header("location: ../app/dashboard");
 		        exit();
             }else{
 				header("Location: ../index.php?error=Incorect password");

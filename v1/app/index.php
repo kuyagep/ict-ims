@@ -8,7 +8,7 @@
     include('header.php'); ?>
 <?php include('../conf/config.php');?>
 
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
+<body class="hold-transition sidebar-mini  layout-fixed layout-navbar-fixed">
     <div class="wrapper">
 
         <!-- Preloader -->
@@ -23,7 +23,7 @@
                 if($_SESSION['role_id'] == '1'){
                     echo "sidebar-dark-red";
                 }elseif($_SESSION['role_id'] == '2'){
-                    echo "sidebar-dark-success";
+                    echo "sidebar-dark-success bg-black";
                 }elseif($_SESSION['role_id'] == '3'){
                     echo "sidebar-light-red";
                 } 

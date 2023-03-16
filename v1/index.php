@@ -38,7 +38,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     #login-background {
         width: 100%;
         height: 100vh;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)), url('app/dist/img/background-login.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)), url('app/dist/img/background-login-network.jpg');
         background-position: center;
         background-size: cover;
     }
@@ -85,6 +85,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
                     <p class="text-center text-dark">Login to start your session</p>
                     <!-- Alert when login error -->
+                    <hr>
                     <?php 
                             if(isset($_GET['error'])){
                                 echo '<div class="alert alert-light text-center text-danger alert-dismissible fade show">
@@ -118,14 +119,14 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                                 Log In</button>
                         </div> -->
                         <div class="row">
-                            <!-- <div class="col-8">
+                            <div class="col-8">
                                 <div class="icheck-success">
                                     <input type="checkbox" id="remember">
                                     <label for="remember">
                                         Remember Me
                                     </label>
                                 </div>
-                            </div> -->
+                            </div>
 
                             <div class="col-12">
                                 <button type="submit" class="btn btn-block bg-gradient-success">Login</button>
