@@ -25,10 +25,11 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="add-order" class="nav-link <?php if ($_GET['page'] == "add-order"){ echo 'active'; } ?>" data-toggle="modal" data-target="#add-purchase-order">
+            <a href="add-order" class="nav-link <?php if ($_GET['page'] == "add-order"){ echo 'active'; } ?>"
+                data-toggle="modal" data-target="#add-purchase-order">
                 <i class="fas fa-shopping-cart nav-icon"></i>
                 <p>
-                    Add Purchase Order
+                    Add Inventory
                     <span class="right badge badge-success">New</span>
                 </p>
             </a>
@@ -37,7 +38,7 @@
             <a href="pmr" class="nav-link <?php if ($_GET['page'] == "pmr"){ echo 'active'; } ?>">
                 <i class="fas fa-cubes nav-icon"></i>
                 <p>
-                    Purchase Orders
+                    Inventory List
                 </p>
             </a>
         </li>
@@ -46,18 +47,10 @@
             <a href="pmr-report" class="nav-link <?php if ($_GET['page'] == "pmr-report"){ echo 'active'; } ?>">
                 <i class="fas fa-cubes nav-icon"></i>
                 <p>
-                    PMR
+                    Reports
                 </p>
             </a>
         </li>
-        <!-- <li class="nav-item">
-            <a href="items" class="nav-link ">
-                <i class="fas fa-cubes nav-icon"></i>
-                <p>
-                    Items
-                </p>
-            </a>
-        </li> -->
         <li class="nav-item">
             <a href="employee" class="nav-link <?php if ($_GET['page'] == "employee"){ echo 'active'; } ?>">
                 <i class="fas fa-users nav-icon"></i>
@@ -104,10 +97,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="purchase-category" class="nav-link <?php if ($_GET['page'] == "purchase-category"){ echo 'active'; } ?>">
+                    <a href="purchase-category"
+                        class="nav-link <?php if ($_GET['page'] == "purchase-category"){ echo 'active'; } ?>">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
-                            Purchase Category
+                            Classification
                         </p>
                     </a>
                 </li>

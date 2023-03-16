@@ -110,7 +110,7 @@
                     <!-- ./col -->
                     <div class="col-md-6">
                         <!-- small box -->
-                        <div class="small-box  callout callout-info" style="background: #8775a7;">
+                        <div class="small-box  callout callout-info">
                             <div class="inner">
                                 <h3>
                                     <?php
