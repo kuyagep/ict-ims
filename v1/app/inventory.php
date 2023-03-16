@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">PMR</h1>
+                <h1 class="m-0">Inventory</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active">PMR</li>
+                    <li class="breadcrumb-item active">Inventory</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,10 +35,10 @@
                             </ul>
                         </div>
                         <div class="float-right">
-                            <button type="button" class="btn bg-gradient-primary float-right" data-toggle="modal"
+                            <button type="button" class="btn bg-gradient-success float-right" data-toggle="modal"
                                 data-target="#add-purchase-order">
-                                <i class="fas fa-solid fa-tag mr-2"></i>
-                                Add Purchase Order
+                                <i class="fas fa-plus mr-2"></i>
+                                Add Inventory
                             </button>
                         </div>
 

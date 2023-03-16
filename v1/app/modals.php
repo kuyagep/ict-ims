@@ -252,7 +252,7 @@
         <div class="modal-content">
             <form class="form-horizontal" action="action/admin/add-purchase.php" method="POST">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Purchase Order</h4>
+                    <h4 class="modal-title">Add Inventory</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -261,24 +261,61 @@
 
                     <!-- form -->
                     <div class="form-group row">
-                        <label for="pr" class="col-sm-3 col-form-label">PR # <span class="text-danger">
+                        <label for="pr" class="col-sm-3 col-form-label">Inv. No. <span class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="pr" name="pr" placeholder="Enter PR #" required>
+                            <input type="text" class="form-control" id="inv_no" name="inv_no" placeholder="Enter Inventory Number" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="po" class="col-sm-3 col-form-label">PO # <span class="text-danger">
-                                *</span> </label>
+                        <label for="end_user" class="col-sm-3 col-form-label">End User <span class="text-danger">
+                                *</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="po" name="po" placeholder="Enter PO #" required>
+                            <select class="custom-select" id="end_user" name="end_user" required>
+                                <option value="" class="text-muted" selected>Choose Employee...</option>
+                                <?php
+                                    $result = mysqli_query($con,"SELECT * FROM employee;");
+                                    $rowCount = mysqli_num_rows($result);
+                                    if($rowCount > 0){
+                                        while($row = mysqli_fetch_assoc($result)){ ?>
+                                <option value="<?php echo $row['employee_id']; ?>">
+                                    <?php echo $row['firstname']." ".$row['lastname']; ?>
+                                </option>
+
+                                <?php   }
+                                    }
+                                ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="date" class="col-sm-3 col-form-label">PO Date <span class="text-danger">
+                        <label for="item_name" class="col-sm-3 col-form-label">Item Name <span class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" id="date" name="date" placeholder="Date" required>
+                            <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Enter Item Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="specs" class="col-sm-3 col-form-label">Specs. <span class="text-danger">
+                                *</span></label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" name="specs" placeholder="Enter Specifications"
+                                id="specs" value="" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="amount" class="col-sm-3 col-form-label">Amount <span class="text-danger">
+                                *</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="amount" name="amount"
+                                placeholder="Enter Amount" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="serial_no" class="col-sm-3 col-form-label">Serial No. <span class="text-danger">
+                                *</span> </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="serial_no" name="serial_no" placeholder="Enter Serial Number" required>
                         </div>
                     </div>
                     <div class="form-group row">

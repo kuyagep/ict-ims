@@ -16,7 +16,7 @@
                with font-awesome or any other icon font library -->
         <li class="nav-header">Home</li>
         <li class="nav-item">
-            <a href="dashboard" class="nav-link <?php if ($_GET['page'] == "dashboard"){ echo 'active'; } ?>">
+            <a href="dashboard" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "dashboard"){ echo 'active'; } ?>">
                 <i class="fas fa-chart-pie nav-icon"></i>
                 <p>
                     Dashboard
@@ -25,7 +25,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="add-order" class="nav-link <?php if ($_GET['page'] == "add-order"){ echo 'active'; } ?>"
+            <a href="add-order" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "add-order"){ echo 'active'; } ?>"
                 data-toggle="modal" data-target="#add-purchase-order">
                 <i class="fas fa-plus nav-icon"></i> 
                 <p>
@@ -35,7 +35,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="pmr" class="nav-link <?php if ($_GET['page'] == "pmr"){ echo 'active'; } ?>">
+            <a href="inventory" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "inventory"){ echo 'active'; } ?>">
                 <i class="fas fa-cubes nav-icon"></i>
                 <p>
                     Inventory List
@@ -44,7 +44,7 @@
         </li>
         <li class="nav-header">Reports</li>
         <li class="nav-item">
-            <a href="pmr-report" class="nav-link <?php if ($_GET['page'] == "pmr-report"){ echo 'active'; } ?>">
+            <a href="pmr-report" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "pmr-report"){ echo 'active'; } ?>">
                 <i class="fas fa-cubes nav-icon"></i>
                 <p>
                     Reports
@@ -52,7 +52,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="employee" class="nav-link <?php if ($_GET['page'] == "employee"){ echo 'active'; } ?>">
+            <a href="employee" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "employee"){ echo 'active'; } ?>">
                 <i class="fas fa-users nav-icon"></i>
                 <p>
                     Manage Employee
@@ -81,7 +81,7 @@
             <ul class="nav nav-treeview">
 
                 <li class="nav-item">
-                    <a href="position" class="nav-link <?php if ($_GET['page'] == "position"){ echo 'active'; } ?>">
+                    <a href="position" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "position"){ echo 'active'; } ?>">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Position
@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="office" class="nav-link <?php if ($_GET['page'] == "office"){ echo 'active'; } ?>">
+                    <a href="office" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "office"){ echo 'active'; } ?>">
                         <i class="nav-icon fas fa-briefcase"></i>
                         <p>
                             Office
@@ -98,7 +98,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="purchase-category"
-                        class="nav-link <?php if ($_GET['page'] == "purchase-category"){ echo 'active'; } ?>">
+                        class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "purchase-category"){ echo 'active'; } ?>">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Classification
@@ -159,7 +159,7 @@
         </li> -->
         <li class="nav-header">Account</li>
         <li class="nav-item">
-            <a href="profile" class="nav-link <?php if ($_GET['page'] == "profile"){ echo 'active'; } ?>">
+            <a href="profile" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "profile"){ echo 'active'; } ?>">
                 <i class="nav-icon fas fa-user-circle"></i>
                 <p>
                     My Account
