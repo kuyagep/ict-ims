@@ -33,7 +33,7 @@
                                 <h3>
 
                                     <?php
-                                            $sql = "SELECT * from inv_ict";
+                                            $sql = "SELECT * from pmr_table";
                                             if ($result = mysqli_query($con, $sql)) {
                                                 // Return the number of rows in result set
                                                 $rowcount = mysqli_num_rows( $result );
@@ -114,7 +114,7 @@
                             <div class="inner">
                                 <h3>
                                     <?php
-                                            $sql = "SELECT * from inv_ict";
+                                            $sql = "SELECT * from pmr_table";
                                             $amount = 0;
                                             if ($result = mysqli_query($con, $sql)) {
                                                 // Return the number of rows in result set
