@@ -211,7 +211,7 @@
                     <div class="card-body">
 
                         <table id="dataTable" class="table table-hover table-responsive-lg " width="100%" cellspacing="0"">
-                            <thead class=" thead-dark">
+                            <thead >
                             <tr>
                                 <th>No.</th>
                                 <th>Name</th>

@@ -42,7 +42,7 @@
                         <!-- Content Here -->
                         <table id="dataTable" class="table table-hover table-responsive-lg " width="100%"
                             cellspacing="0"">
-                            <thead class=" thead-dark">
+                            <thead >
                             <tr>
                                 <th>INVENTORY NO</th>
                                 <th>OFFICE</th>

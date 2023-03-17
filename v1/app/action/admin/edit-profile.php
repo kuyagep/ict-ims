@@ -94,8 +94,12 @@ $view = mysqli_fetch_array($query);
                                 </li>
 
                             </ul>
+                            
                         </div>
+                        
                     </div>
+                    <button type="submit" name="updateEmployee" class="btn btn-block btn-primary float-right ml-3 ">
+                                <i class="fa-regular fa-floppy-disk mr-1"></i> Update </button>
                     <!-- /.widget-user -->
                 </div>
                 <div class="col-lg-8">
@@ -105,14 +109,6 @@ $view = mysqli_fetch_array($query);
                         </div>
                         <div class="card-body">
 
-                            <!-- <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Full Name</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">Firstname Middlename Lastname</p>
-                            </div>
-                        </div> -->
                             <input type="hidden" name="id" value="<?php echo $view['employee_id']; ?>">
                             <div class="form-group row">
                                 <label for="input-file-now-custom-1" class="col-sm-3 col-form-label">Upload
@@ -245,15 +241,6 @@ $view = mysqli_fetch_array($query);
                                 ?></p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" name="updateEmployee" class="btn btn-primary float-right ml-3 ">
-                                <i class="fa-regular fa-floppy-disk mr-1"></i> Update </button>
-                            <!-- <button type="button" class="btn btn-warning float-right ml-3 "> <i
-                                    class="fa-solid fa-arrows-rotate mr-1"></i>
-                                Reset Password
-                            </button> -->
-
                         </div>
                     </div>
 

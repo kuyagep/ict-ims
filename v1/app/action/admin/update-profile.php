@@ -13,7 +13,6 @@
         $email=$_POST['email'];
         $position=$_POST['position'];
         $office=$_POST['office'];
-        $role=$_POST['role'];
         //picture//
         $file_name = $_FILES['picture']['name'];
         

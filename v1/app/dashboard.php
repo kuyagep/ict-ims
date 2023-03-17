@@ -17,12 +17,7 @@
 <!-- End Content Header -->
 <section class="content">
     <div class="container-fluid">
-        <div class="row">
 
-            <!-- /.col (left) -->
-
-            <!-- /.col (right) -->
-        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
@@ -129,7 +124,7 @@
                                 <p>Total Amount</p>
                             </div>
                             <div class="icon">
-                            <i class="fas fa-dollar-sign"></i>
+                                <i class="fas fa-dollar-sign"></i>
                             </div>
                             <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                         </div>
@@ -142,6 +137,92 @@
             </div>
         </div>
         <!-- /.row (main row) -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <div class="float-left">
+                            <h4>Inventory List</h4>
+                        </div>
+                        <div class="float-right">
+                            <button type="button" class="btn bg-gradient-success float-right" data-toggle="modal"
+                                data-target="#add-purchase-order">
+                                <i class="fas fa-plus mr-2"></i>
+                                Add Inventory
+                            </button>
+                        </div>
+
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+
+
+                        <!-- Content Here -->
+                        <table id="dataTable" class="table table-hover table-responsive-lg " width="100%"
+                            cellspacing="0"">
+                            <thead >
+                            <tr>
+                                <th>INVENTORY NO</th>
+                                <th>OFFICE</th>
+                                <th>END USER</th>
+                                <th>ITEM NAME</th>
+                                <th>SPECS</th>
+                                <th>AMOUNT</th>
+                                <th>S/N</th>
+                                <th>DATE ACQUIRED</th>
+                                <th>CLASSIFICATION</th>
+                                <th>DATE OF INSPECTION</th>
+                                <th>INSPECTED BY</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                //SELECT inv_ict.particulars FROM inv_ict INNER JOIN employee ON `employee`.`office_id`=inv_ict.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=inv_ict.pcategory_id ORDER BY `inv_ict`.`updated_at` DESC;
+                                $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`inv_ict`.`inv_no`, `office`.`office_name`, `employee`.`firstname`, `employee`.`lastname`, 
+                                `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
+                                `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`
+                                FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
+                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id`  ORDER BY `inv_ict`.`updated_at` DESC;");
+                                $count=1;
+                                $rowCount = mysqli_num_rows($result);
+                                if($rowCount > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                         $id=$row['inv_id'];
+                                         ?>
+                                <tr>
+                                    <td style='width: 100px;'><?php echo $row['inv_no']; ?></td>
+                                    <td style='width: 100px;'><?php echo $row['office_name']; ?></td>
+                                    <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
+                                    <td><?php echo $row['item_name']; ?></td>
+                                    <td><?php echo $row['specs']; ?></td>
+                                    <td><?php 
+                                    echo number_format($row['amount'], 2);
+                                    ?></td>
+                                    <td><?php echo $row['serial_no']; ?></td>
+                                    <td><?php echo $row['date_acquired']; ?></td>
+                                    <td><?php echo $row['category_name']; ?></td>
+
+                                    <td><?php echo $row['date_inspection']; ?></td>
+                                    <td><?php echo $row['inspected_by']; ?></td>
+                                    
+                                </tr>
+                                <?php
+                                    $count++;
+                                }
+                                    
+                                }
+                                
+                            ?>
+                            </tbody>
+                        </table>
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+
+
+
+
+        </div>
     </div>
     <!-- /.container-fluid -->
 </section>
