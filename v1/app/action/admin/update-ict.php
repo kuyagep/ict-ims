@@ -26,7 +26,7 @@ include('../../../conf/config.php');
     `date_inspection`='".$date_inspection."', 
     `inspected_by`='".$inspected_by."' 
     WHERE  `inv_id`='".$id."'");
-    header("Location: ../../index.php?page=ict-edit&id=".$id);
+    header("Location: ../../index.php?page=inventory");
     }
 
     function validate($data) {
