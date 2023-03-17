@@ -38,11 +38,22 @@ $view = mysqli_fetch_array($query);
                                     $img = $view['picture'];
                                 }
                             ?>
-                        <div class="widget-user-header text-white"
-                            style="background: url('dist/img/photo1.png') center center;">
-                            <h3 class="widget-user-username text-right">
+                        
+
+                    </div>
+                    <!-- Profiles -->
+                    <div class="card card-primary card-outline"> 
+                        <!-- style="background: url('dist/img/photo1.png') center center;" -->
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle"
+                                    src="dist/img/users/<?php echo $img; ?>" alt="User profile picture">
+                            </div>
+
+                            <h3 class="profile-username text-center">
                                 <?php echo $view['firstname']." ".$view['lastname']; ?></h3>
-                            <h5 class="widget-user-desc text-right"><?php
+
+                            <p class="text-muted text-center"><?php
                                     $result = mysqli_query($con,"SELECT * FROM position;");
                                     $rowCount = mysqli_num_rows($result);
                                     if($rowCount > 0){
@@ -51,55 +62,26 @@ $view = mysqli_fetch_array($query);
                                 <?php if($row['position_id'] == $view['position_id']){echo $row['position_name'];} ?>
                                 <?php   }
                                     }
-                                ?></h5>
-                        </div>
-                        <div class="widget-user-image">
-                            <img class="img-circle" src="dist/img/users/<?php echo $img; ?>" alt="User Avatar">
-                        </div>
-                        <div class="card-footer p-0">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Owned Items <span class="float-right badge bg-danger">
-                                            <?php
-                                            $sql = "SELECT * from issuance WHERE issued_to='".$view['employee_id']."'";
-                                            if ($result = mysqli_query($con, $sql)) {
-                                                // Return the number of rows in result set
-                                                $rowcount = mysqli_num_rows( $result );
-                                                echo $rowcount;
-                                            }
-                                    ?>
-                                        </span>
-                                    </a>
+                                ?></p>
+
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Followers</b> <a class="float-right">1,322</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Total Amount <span class="float-right badge bg-warning">
-
-                                            <?php
-                                        $result = mysqli_query($con,"SELECT issuance.issued_id, issuance.issuance_code, issuance.issued_date, items.item_amount, employee.firstname, employee.lastname, office.office_name, category.category_name, con.con_desc, item_status.status_desc FROM issuance INNER JOIN items ON issuance.issued_item=items.item_id LEFT JOIN employee ON issuance.issued_to=employee.employee_id INNER JOIN office ON employee.office_id=office.office_id INNER JOIN con ON items.con_id=con.con_id INNER JOIN category ON items.category_id=category.category_id  INNER JOIN item_status ON items.status_id=item_status.status_id  WHERE issued_to ='".$view['employee_id']."' ORDER BY `issuance`.`issued_id` DESC;");
-                                            if ($result) {
-                                                // Return the number of rows in result set
-                                                $rowcount = mysqli_num_rows( $result );
-                                                $amount = 0;
-                                                while($row = mysqli_fetch_assoc($result)){
-                                                    $amount = $amount + $row['item_amount'];
-
-                                                }
-                                                echo $amount;
-                                            }
-                                        ?>
-                                        </span>
-                                    </a>
+                                <li class="list-group-item">
+                                    <b>Following</b> <a class="float-right">543</a>
                                 </li>
-
+                                <li class="list-group-item">
+                                    <b>Friends</b> <a class="float-right">13,287</a>
+                                </li>
                             </ul>
-                            
+
+                            <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Update
+                                    Profile</b></button>
                         </div>
-                        
+                        <!-- /.card-body -->
                     </div>
-                    <button type="submit" name="updateEmployee" class="btn btn-block btn-primary float-right ml-3 ">
-                                <i class="fa-regular fa-floppy-disk mr-1"></i> Update </button>
+
                     <!-- /.widget-user -->
                 </div>
                 <div class="col-lg-8">
@@ -154,8 +136,8 @@ $view = mysqli_fetch_array($query);
                             <div class="form-group row">
                                 <label for="change_password" class="col-sm-3 col-form-label">Change Password</label>
                                 <div class="col-sm-9">
-                                    <input type="password" class="form-control" name="change_password"
-                                        value="" placeholder="Enter New Password">
+                                    <input type="password" class="form-control" name="change_password" value=""
+                                        placeholder="Enter New Password">
                                 </div>
                             </div>
                             <hr>
