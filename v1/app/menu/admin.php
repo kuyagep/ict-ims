@@ -99,5 +99,13 @@
                 </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "#"){ echo 'active'; } ?>">
+                <i class="nav-icon fas fa-user-circle"></i>
+                <p>
+                    Settings
+                </p>
+            </a>
+        </li>
     </ul>
 </nav>
