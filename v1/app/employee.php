@@ -221,7 +221,7 @@
                                 <th>Office</th>
                                 <th>Division</th>
                                 <th>Role</th>
-                                <th style='width: 200px;'>Action</th>
+                                <th style='width: 100px;'>Action</th>
                             </tr>
                             </thead>
                             <tbody>

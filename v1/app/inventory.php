@@ -70,12 +70,13 @@
                                 $rowCount = mysqli_num_rows($result);
                                 if($rowCount > 0){
                                     while($row = mysqli_fetch_assoc($result)){
-                                         $id=$row['pmr_id'];
+                                         $id=$row['inv_id'];
                                          ?>
                                 <tr>
                                     <td style='width: 100px;'><?php echo $row['inv_no']; ?></td>
                                     <td style='width: 100px;'><?php echo $row['office_name']; ?></td>
                                     <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
+                                    <td><?php echo $row['item_name']; ?></td>
                                     <td><?php echo $row['specs']; ?></td>
                                     <td><?php 
                                     echo number_format($row['amount'], 2);

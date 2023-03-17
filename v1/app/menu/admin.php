@@ -24,16 +24,6 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="add-order" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "add-order"){ echo 'active'; } ?>"
-                data-toggle="modal" data-target="#add-purchase-order">
-                <i class="fas fa-plus nav-icon"></i> 
-                <p>
-                    Add Inventory
-                    <span class="right badge badge-success">New</span>
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
             <a href="inventory" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "inventory"){ echo 'active'; } ?>">
                 <i class="fas fa-cubes nav-icon"></i>
                 <p>
