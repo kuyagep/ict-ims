@@ -64,7 +64,7 @@ $view = mysqli_fetch_array($query);
                                     }
                                 ?></p>
 
-                            <ul class="list-group list-group-unbordered mb-3">
+                            <!-- <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
                                     <b>Followers</b> <a class="float-right">1,322</a>
                                 </li>
@@ -74,7 +74,7 @@ $view = mysqli_fetch_array($query);
                                 <li class="list-group-item">
                                     <b>Friends</b> <a class="float-right">13,287</a>
                                 </li>
-                            </ul>
+                            </ul> -->
 
                             <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Update
                                     Profile</b></button>
