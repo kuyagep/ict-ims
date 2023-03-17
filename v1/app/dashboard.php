@@ -75,7 +75,7 @@
                                     <sup style="font-size: 20px"></sup>
                                 </h3>
 
-                                <p>Delivered</p>
+                                <p>Inventory Percentage</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>

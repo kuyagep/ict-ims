@@ -31,6 +31,14 @@
                 </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="employee" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "employee"){ echo 'active'; } ?>">
+                <i class="fas fa-users nav-icon"></i>
+                <p>
+                    Manage Employee
+                </p>
+            </a>
+        </li>
         <li class="nav-header">Reports</li>
         <li class="nav-item">
             <a href="pmr-report" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "pmr-report"){ echo 'active'; } ?>">
@@ -40,16 +48,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="employee" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "employee"){ echo 'active'; } ?>">
-                <i class="fas fa-users nav-icon"></i>
-                <p>
-                    Manage Employee
-                    
-                </p>
-            </a>
-           
-        </li>
+        
         <li class="nav-header">Components</li>
         <li class="nav-item">
             <a href="#" class="nav-link">
