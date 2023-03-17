@@ -1,4 +1,27 @@
 <!-- Add Modal -->
+<!-- Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>Are you sure you want to logout?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <form action="action/allcode.php" method="post">
+                    <button type="submit" name="logout" class="btn btn-danger">Proceed</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="addItems">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -264,7 +287,8 @@
                         <label for="pr" class="col-sm-3 col-form-label">Inv. No. <span class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inv_no" name="inv_no" placeholder="Enter Inventory Number" required>
+                            <input type="text" class="form-control" id="inv_no" name="inv_no"
+                                placeholder="Enter Inventory Number" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -274,17 +298,17 @@
                             <select class="custom-select" id="end_user" name="end_user" required>
                                 <option value="" class="text-muted" selected>Choose Employee...</option>
                                 <?php
-                                    $result = mysqli_query($con,"SELECT * FROM employee WHERE division_id != 0;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
+                                $result = mysqli_query($con,"SELECT * FROM employee WHERE division_id != 0;");
+                                $rowCount = mysqli_num_rows($result);
+                                if($rowCount > 0){
+                                    while($row = mysqli_fetch_assoc($result)){ ?>
                                 <option value="<?php echo $row['employee_id']; ?>">
                                     <?php echo $row['firstname']." ".$row['lastname']; ?>
                                 </option>
 
                                 <?php   }
-                                    }
-                                ?>
+                                }
+                            ?>
                             </select>
                         </div>
                     </div>
@@ -292,37 +316,39 @@
                         <label for="item_name" class="col-sm-3 col-form-label">Item Name <span class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Enter Item Name" required>
+                            <input type="text" class="form-control" id="item_name" name="item_name"
+                                placeholder="Enter Item Name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="specs" class="col-sm-3 col-form-label">Specs. <span class="text-danger">
                                 *</span></label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" name="specs" placeholder="Enter Specifications"
-                                id="specs" value="" required></textarea>
+                            <textarea class="form-control" name="specs" placeholder="Enter Specifications" id="specs"
+                                value="" required></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="amount" class="col-sm-3 col-form-label">Amount <span class="text-danger">
                                 *</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="amount" name="amount"
-                                placeholder="Enter Amount" required>
+                            <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter Amount"
+                                required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="serial_no" class="col-sm-3 col-form-label">Serial No. <span class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="serial_no" name="serial_no" placeholder="Enter Serial Number" required>
+                            <input type="text" class="form-control" id="serial_no" name="serial_no"
+                                placeholder="Enter Serial Number" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="date_acquired" class="col-sm-3 col-form-label">Date Acq. <span class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" id="date_acquired" name="date_acquired"  required>
+                            <input type="date" class="form-control" id="date_acquired" name="date_acquired" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -332,38 +358,43 @@
                             <select class="custom-select" id="category" name="category" required>
                                 <option value="" class="text-muted" selected>Choose Classification...</option>
                                 <?php
-                                    $result = mysqli_query($con,"SELECT * FROM category;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
+                                $result = mysqli_query($con,"SELECT * FROM category;");
+                                $rowCount = mysqli_num_rows($result);
+                                if($rowCount > 0){
+                                    while($row = mysqli_fetch_assoc($result)){ ?>
                                 <option value="<?php echo $row['category_id']; ?>">
                                     <?php echo $row['category_name']; ?>
                                 </option>
 
                                 <?php   }
-                                    }
-                                ?>
+                                }
+                            ?>
                             </select>
-                        </div>
-                    </div> 
-                    <div class="form-group row">
-                        <label for="date_inspection" class="col-sm-3 col-form-label">Date of Ins. <span class="text-danger">
-                                *</span> </label>
-                        <div class="col-sm-9">
-                            <input type="date" class="form-control" id="date_inspection" name="date_inspection"  required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inspected_by" class="col-sm-3 col-form-label">Inspected by <span class="text-danger">
+                        <label for="date_inspection" class="col-sm-3 col-form-label">Date of Ins. <span
+                                class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inspected_by" name="inspected_by" placeholder="Inspected By" required>
+                            <input type="date" class="form-control" id="date_inspection" name="date_inspection"
+                                required>
                         </div>
-                    </div>                 
-                <div class="modal-footer justify-content-right">
-                    <button type="button" class="btn bg-gradient-danger " data-dismiss="modal">Close</button>
-                    <button type="submit" name="add-purchase" class="btn bg-gradient-primary ">Save & Record</button>
-                </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inspected_by" class="col-sm-3 col-form-label">Inspected by <span
+                                class="text-danger">
+                                *</span> </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inspected_by" name="inspected_by"
+                                placeholder="Inspected By" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-right">
+                        <button type="button" class="btn bg-gradient-danger " data-dismiss="modal">Close</button>
+                        <button type="submit" name="add-purchase" class="btn bg-gradient-primary ">Save &
+                            Record</button>
+                    </div>
 
             </form>
         </div>
