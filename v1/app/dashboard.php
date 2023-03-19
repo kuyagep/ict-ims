@@ -130,228 +130,114 @@
                 </div>
 
                 <div class="row">
-                    
+
                 </div>
             </div>
             <div class="col-md-4">
 
             </div>
         </div>
-        <!-- /.row (main row) -->
+
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header p-2">
-                        <div class="float-left">
-                            <h4>Inventory List</h4>
+                <form action="action/admin/search_result.php" method="post">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <div class="row">
+                                <!-- <div class="col-6">
+                                <div class="form-group">
+                                    <label>Result Type:</label>
+                                    <select class="form-control" multiple="multiple" data-placeholder="Any" style="width: 100%;">
+                                        <option>Text only</option>
+                                        <option>Images</option>
+                                        <option>Video</option>
+                                    </select>
+                                </div>
+                            </div> -->
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label>Item Category:</label>
+                                        <select class="select2 form-control" id="category" name="category" required>
+                                            <option value="" class="text-muted" selected>Choose Office...</option>
+                                            <?php
+                                                $result = mysqli_query($con,"SELECT * FROM category;");
+                                                $rowCount = mysqli_num_rows($result);
+                                                if($rowCount > 0){
+                                                    while($row = mysqli_fetch_assoc($result)){ ?>
+                                                            <option value="<?php echo $row['category_id']; ?>">
+                                                                <?php echo $row['category_name']; ?>
+                                                            </option>
+                                             <?php   }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label>Office:</label>
+                                        <select class="select2 form-control" id="office" name="office" required>
+                                            <option value="" class="text-muted" selected>Choose Office...</option>
+                                            <?php
+                                                $result = mysqli_query($con,"SELECT * FROM office;");
+                                                $rowCount = mysqli_num_rows($result);
+                                                if($rowCount > 0){
+                                                    while($row = mysqli_fetch_assoc($result)){ ?>
+                                                            <option value="<?php echo $row['office_id']; ?>">
+                                                                <?php echo $row['office_name']; ?>
+                                                            </option>
+                                             <?php   }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label>End User:</label>
+                                        <select class="select2 form-control" id="end_user" name="end_user" required>
+                                            <option value="" class="text-muted" selected>Choose Employee...</option>
+                                            <?php
+                                                $result = mysqli_query($con,"SELECT * FROM employee WHERE division_id != 0;");
+                                                $rowCount = mysqli_num_rows($result);
+                                                if($rowCount > 0){
+                                                    while($row = mysqli_fetch_assoc($result)){ ?>
+                                                            <option value="<?php echo $row['employee_id']; ?>">
+                                                                <?php echo $row['firstname']." ".$row['lastname']; ?>
+                                                            </option>
+
+                                                            <?php   }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label>Sort Order:</label>
+                                        <select class="select2 form-control" style="width: 100%;">
+                                            <option selected>ASC</option>
+                                            <option>DESC</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg">
+                                    <input type="search" class="form-control form-control-lg"
+                                        placeholder="Type your keywords here" value="">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-lg btn-default">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="float-right">
-                            <button type="button" class="btn bg-gradient-success float-right" data-toggle="modal"
-                                data-target="#add-purchase-order">
-                                <i class="fas fa-plus mr-2"></i>
-                                Add Inventory
-                            </button>
-                        </div>
-
-                    </div><!-- /.card-header -->
-                    <div class="card-body">
-
-
-                        <!-- Content Here -->
-                        <table id="dataTable" class="table table-hover table-responsive" width="100%"
-                            cellspacing="0"">
-                            <thead >
-                            <tr>
-                                <th>INVENTORY NO</th>
-                                <th>OFFICE</th>
-                                <th>END USER</th>
-                                <th>ITEM NAME</th>
-                                <th>SPECS</th>
-                                <th>AMOUNT</th>
-                                <th>S/N</th>
-                                <th>DATE ACQUIRED</th>
-                                <th>CLASSIFICATION</th>
-                                <th>DATE OF INSPECTION</th>
-                                <th>INSPECTED BY</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                //SELECT inv_ict.particulars FROM inv_ict INNER JOIN employee ON `employee`.`office_id`=inv_ict.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=inv_ict.pcategory_id ORDER BY `inv_ict`.`updated_at` DESC;
-                                $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`inv_ict`.`inv_no`, `office`.`office_name`, `employee`.`firstname`, `employee`.`lastname`, 
-                                `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
-                                `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`
-                                FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
-                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id`  ORDER BY `inv_ict`.`updated_at` DESC;");
-                                $count=1;
-                                $rowCount = mysqli_num_rows($result);
-                                if($rowCount > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                         $id=$row['inv_id'];
-                                         ?>
-                                <tr>
-                                    <td style='width: 100px;'><?php echo $row['inv_no']; ?></td>
-                                    <td style='width: 100px;'><?php echo $row['office_name']; ?></td>
-                                    <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
-                                    <td><?php echo $row['item_name']; ?></td>
-                                    <td><?php echo $row['specs']; ?></td>
-                                    <td><?php 
-                                    echo number_format($row['amount'], 2);
-                                    ?></td>
-                                    <td><?php echo $row['serial_no']; ?></td>
-                                    <td><?php echo $row['date_acquired']; ?></td>
-                                    <td><?php echo $row['category_name']; ?></td>
-
-                                    <td><?php echo $row['date_inspection']; ?></td>
-                                    <td><?php echo $row['inspected_by']; ?></td>
-                                    
-                                </tr>
-                                <?php
-                                    $count++;
-                                }
-                                    
-                                }
-                                
-                            ?>
-                            </tbody>
-                        </table>
-                    </div><!-- /.card-body -->
-                </div>
-                <!-- /.card -->
+                    </div>
+                </form>
             </div>
-
-
-
-
         </div>
     </div>
     <!-- /.container-fluid -->
 </section>
-<div class="modal fade" id="employee">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form class="form-horizontal" action="action/admin/add-employee.php" method="POST">
-                <div class="modal-header">
-                    <h4 class="modal-title">Create Employee Account</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <!-- form -->
-                    <div class="form-group row">
-                        <label for="firstname" class="col-sm-3 col-form-label">Firstname <span class="text-danger">
-                                *</span> </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="firstname" name="firstname"
-                                placeholder="Firstname" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="middlename" class="col-sm-3 col-form-label">M.N.</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="middlename" name="middlename"
-                                placeholder="Middlename">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="lastname" class="col-sm-3 col-form-label">Lastname <span class="text-danger">
-                                *</span></label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Lastname"
-                                required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="contact_no" class="col-sm-3 col-form-label">Contact</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="contact_no" name="contact_no"
-                                placeholder="Contact No">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="email" class="col-sm-3 col-form-label">Email <span class="text-danger">
-                                *</span></label>
-                        <div class="col-sm-9">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email"
-                                required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="position" class="col-sm-3 col-form-label">Position <span class="text-danger">
-                                *</span></label>
-                        <div class="col-sm-9">
-                            <select class="custom-select" id="position" name="position" required>
-                                <option value="" selected>Choose Position...</option>
-                                <?php
-                                    $result = mysqli_query($con,"SELECT * FROM position;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo $row['position_id']; ?>">
-                                    <?php echo $row['position_name']; ?>
-                                </option>
-
-                                <?php   }
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="office" class="col-sm-3 col-form-label">Office <span class="text-danger">
-                                *</span></label>
-                        <div class="col-sm-9">
-                            <select class="custom-select" id="office" name="office" required>
-                                <option value="" selected>Choose Office...</option>
-                                <?php
-                                    $result = mysqli_query($con,"SELECT * FROM office;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo $row['office_id']; ?>">
-                                    <?php echo $row['office_name']; ?>
-                                </option>
-
-                                <?php   }
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="role" class="col-sm-3 col-form-label">Role <span class="text-danger">
-                                *</span></label>
-                        <div class="col-sm-9">
-                            <select class="custom-select" id="role" name="role" required>
-                                <option value="" selected>Choose Role...</option>
-                                <?php
-                                    $result = mysqli_query($con,"SELECT * FROM role;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo $row['role_id']; ?>">
-                                    <?php echo $row['role_desc']; ?>
-                                </option>
-
-                                <?php   }
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="modal-footer justify-content-right">
-                    <button type="button" class="btn btn-danger " data-dismiss="modal">Cancel</button>
-                    <button type="submit" name="add-employee" class="btn btn-primary addEmployeeAlert">Create</button>
-                </div>
-
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
