@@ -157,7 +157,7 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label>Item Category:</label>
-                                        <select class="select2 form-control" id="category" name="category" required>
+                                        <select class="select2 form-control" id="category" name="category" >
                                             <option value="" class="text-muted" selected>Choose Office...</option>
                                             <?php
                                                 $result = mysqli_query($con,"SELECT * FROM category;");
@@ -176,7 +176,7 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label>Office:</label>
-                                        <select class="select2 form-control" id="office" name="office" required>
+                                        <select class="select2 form-control" id="office" name="office" >
                                             <option value="" class="text-muted" selected>Choose Office...</option>
                                             <?php
                                                 $result = mysqli_query($con,"SELECT * FROM office;");
@@ -195,7 +195,7 @@
                                 <div class="col-3">
                                     <div class="form-group">
                                         <label>End User:</label>
-                                        <select class="select2 form-control" id="end_user" name="end_user" required>
+                                        <select class="select2 form-control" id="end_user" name="end_user" >
                                             <option value="" class="text-muted" selected>Choose Employee...</option>
                                             <?php
                                                 $result = mysqli_query($con,"SELECT * FROM employee WHERE division_id != 0;");
@@ -225,7 +225,7 @@
                             <div class="form-group">
                                 <div class="input-group input-group-lg">
                                     <input type="search" class="form-control form-control-lg"
-                                        placeholder="Type your keywords here" value="">
+                                        placeholder="Type your keywords here" name="search" value="">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-lg btn-default">
                                             <i class="fa fa-search"></i>

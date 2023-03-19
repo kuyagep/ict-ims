@@ -1,21 +1,19 @@
 <?php
     include('../../../conf/config.php');
-    
-    $firstname = ucwords(trim($_POST['firstname']));
-    $middlename = ucwords(trim($_POST['middlename']));
-    $lastname = ucwords(trim($_POST['lastname']));
-    $contact = $_POST['contact_no'];
-    $email = trim($_POST['email']);
-    $position = $_POST['position'];
-    $office = $_POST['office'];
-    $division = $_POST['division'];
-    $role = $_POST['role'];
-    $username = $email;
-    $password = password_hash($username, PASSWORD_DEFAULT);
-    $date = date('Y-m-d H:i:s');
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $category = validate($_POST['category']);
+        $office = validate($_POST['office']);
+        $employee = validate($_POST['employee']);
+        $search = validate($_POST['search']);
 
-    $query=mysqli_query($con,"INSERT INTO `employee`(`firstname`, `middlename`, `lastname`, `emp_contact_no`, `emp_email_add`, `position_id`, `office_id`,`division_id`, `username`, `password`, `role_id`, `added_at`) 
-                                            VALUES ('".$firstname."','".$middlename."','".$lastname."','".$contact."','".$email."','".$position."','".$office."','".$division."','".$username."','".$password."','".$role."','".$date."')" );
+        header("location: ../../index.php?page=enhance_results&c='".$category."'&o='".$office."'&e='".$employee."'&s='".$search."'");
+    }  
+
+    function validate($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+     }
     
-    header("location: ../../employee");
 ?>

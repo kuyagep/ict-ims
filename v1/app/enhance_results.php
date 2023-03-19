@@ -1,3 +1,13 @@
+<?php 
+    if(isset($_GET['c']) || isset($_GET['o']) || isset($_GET['e'])|| isset($_GET['s']) ) {
+        $s_category = $_GET['c'];
+        $s_office = $_GET['o'];
+        $s_employee = $_GET['e'];
+        $s_search = $_GET['s']."%";
+        $result = mysqli_query($con,"SELECT * FROM inv_ict WHERE category_id = $s_category OR employee_id = '".$s_employee."' OR item_name LIKE '".$s_search."';");
+    }
+?>
+
 <!-- Content Header -->
 <div class="content-header">
     <div class="container-fluid">
@@ -18,7 +28,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
-        <form action="enhanced-results.html">
+        <form action="action/admin/search_result.php" method="post">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="row">
@@ -35,7 +45,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label>Item Category:</label>
-                                <select class="select2 form-control" id="office" name="office" required>
+                                <select class="select2 form-control" id="category" name="category">
                                     <option value="" class="text-muted" selected>Choose Office...</option>
                                     <?php
                                                 $result = mysqli_query($con,"SELECT * FROM category;");
@@ -54,7 +64,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label>Office:</label>
-                                <select class="select2 form-control" id="office" name="office" required>
+                                <select class="select2 form-control" id="office" name="office">
                                     <option value="" class="text-muted" selected>Choose Office...</option>
                                     <?php
                                                 $result = mysqli_query($con,"SELECT * FROM office;");
@@ -73,7 +83,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label>End User:</label>
-                                <select class="select2 form-control" id="end_user" name="end_user" required>
+                                <select class="select2 form-control" id="end_user" name="end_user">
                                     <option value="" class="text-muted" selected>Choose Employee...</option>
                                     <?php
                                                 $result = mysqli_query($con,"SELECT * FROM employee WHERE division_id != 0;");
@@ -103,7 +113,7 @@
                     <div class="form-group">
                         <div class="input-group input-group-lg">
                             <input type="search" class="form-control form-control-lg"
-                                placeholder="Type your keywords here" value="">
+                                placeholder="Type your keywords here" name="search" value="">
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-lg btn-default">
                                     <i class="fa fa-search"></i>
@@ -114,58 +124,40 @@
                 </div>
             </div>
         </form>
+
+        <?php 
+             $rowCount = mysqli_num_rows($result);
+
+        ?>
         <div class="row mt-3">
             <div class="col-md-10 offset-md-1">
                 <div class="list-group">
+                    <?php 
+                        if ($rowCount > 0 ) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $id=$row['inv_id'];
+
+                    ?>
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col px-4">
                                 <div>
-                                    <div class="float-right">2021-04-20 04:04pm</div>
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p class="mb-0">consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                                        nascetur ridiculus mus.</p>
+                                    <div class="float-right"><?php echo $row['created_at']; ?></div>
+                                    <h3><?php echo $row['item_name']; ?></h3>
+                                    <p class="mb-0">
+                                        <?php echo $row['specs']; ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-auto">
-                                <img class="img-fluid" src="../../dist/img/photo1.png" alt="Photo"
-                                    style="max-height: 160px;">
-                            </div>
-                            <div class="col px-4">
-                                <div>
-                                    <div class="float-right">2021-04-20 10:14pm</div>
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p class="mb-0">consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                                        nascetur ridiculus mus.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-auto">
-                                <iframe width="240" height="160"
-                                    src="https://www.youtube.com/embed/WEkSYw3o5is?controls=0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    class="border-0" allowfullscreen></iframe>
-                            </div>
-                            <div class="col px-4">
-                                <div>
-                                    <div class="float-right">2021-04-20 11:54pm</div>
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p class="mb-0">consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                                        nascetur ridiculus mus.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    <?php
+                            }
+                        }else{
+                            echo "<h3>No Result Found!</h3>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>
