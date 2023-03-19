@@ -4,8 +4,10 @@
         $s_office = $_GET['o'];
         $s_employee = $_GET['e'];
         $s_search = $_GET['s']."%";
-        $result = mysqli_query($con,"SELECT * FROM inv_ict WHERE category_id = $s_category OR employee_id = '".$s_employee."' OR item_name LIKE '".$s_search."';");
+        $query = mysqli_query($con,"SELECT * FROM inv_ict WHERE category_id = $s_category OR employee_id = '".$s_employee."';");
+        $view = mysqli_fetch_array($query);
     }
+    // $result = mysqli_query($con,"SELECT * FROM inv_ict WHERE category_id = 4 OR employee_id = 79 OR item_name LIKE 'laptop%';");
 ?>
 
 <!-- Content Header -->
@@ -46,18 +48,21 @@
                             <div class="form-group">
                                 <label>Item Category:</label>
                                 <select class="select2 form-control" id="category" name="category">
-                                    <option value="" class="text-muted" selected>Choose Office...</option>
-                                    <?php
-                                                $result = mysqli_query($con,"SELECT * FROM category;");
-                                                $rowCount = mysqli_num_rows($result);
-                                                if($rowCount > 0){
-                                                    while($row = mysqli_fetch_assoc($result)){ ?>
-                                    <option value="<?php echo $row['category_id']; ?>">
-                                        <?php echo $row['category_name']; ?>
-                                    </option>
-                                    <?php   }
-                                                }
-                                            ?>
+                                <option selected>Choose Classification...
+                                        </option>
+                                        <?php
+                                        $result = mysqli_query($con,"SELECT * FROM category;");
+                                        $rowCount = mysqli_num_rows($result);
+                                        if($rowCount > 0){
+                                        while($row = mysqli_fetch_assoc($result)){ ?>
+                                        <option value="<?php echo $row['category_id'];?>"
+                                            <?php if($row['category_id'] == $view['category_id']){echo 'selected';} ?>>
+                                            <?php echo $row['category_name']; ?>
+                                        </option>
+
+                                        <?php   }
+                                            }
+                                        ?>
                                 </select>
                             </div>
                         </div>
@@ -84,19 +89,21 @@
                             <div class="form-group">
                                 <label>End User:</label>
                                 <select class="select2 form-control" id="end_user" name="end_user">
-                                    <option value="" class="text-muted" selected>Choose Employee...</option>
-                                    <?php
-                                                $result = mysqli_query($con,"SELECT * FROM employee WHERE division_id != 0;");
+                                <option selected>Choose Employee...
+                                        </option>
+                                        <?php
+                                                $result = mysqli_query($con,"SELECT * FROM employee where division_id != 0;");
                                                 $rowCount = mysqli_num_rows($result);
                                                 if($rowCount > 0){
                                                     while($row = mysqli_fetch_assoc($result)){ ?>
-                                    <option value="<?php echo $row['employee_id']; ?>">
-                                        <?php echo $row['firstname']." ".$row['lastname']; ?>
-                                    </option>
+                                        <option value="<?php echo $row['employee_id'];?>"
+                                            <?php if($row['employee_id'] == $view['employee_id']){echo 'selected';} ?>>
+                                            <?php echo $row['firstname'] ." ".$row['lastname']; ?>
+                                        </option>
 
-                                    <?php   }
-                                                }
-                                            ?>
+                                        <?php   }
+                                            }
+                                        ?>
                                 </select>
                             </div>
                         </div>
