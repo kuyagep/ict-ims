@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <!-- small box -->
                         <div class="small-box bg-white callout callout-danger">
                             <div class="inner">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <!-- small box -->
                         <div class="small-box bg-white callout callout-warning">
                             <div class="inner">
@@ -79,10 +79,7 @@
                         </div>
                     </div>
                     <!-- ./col -->
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <!-- small box -->
                         <div class="small-box bg-white callout callout-success">
                             <div class="inner">
@@ -103,7 +100,7 @@
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <!-- small box -->
                         <div class="small-box  callout callout-info">
                             <div class="inner">
@@ -130,6 +127,10 @@
                         </div>
                     </div>
                     <!-- ./col -->
+                </div>
+
+                <div class="row">
+                    
                 </div>
             </div>
             <div class="col-md-4">
