@@ -28,7 +28,7 @@
                                 <h3>
 
                                     <?php
-                                            $sql = "SELECT * from pmr_table";
+                                            $sql = "SELECT * from inv_ict";
                                             if ($result = mysqli_query($con, $sql)) {
                                                 // Return the number of rows in result set
                                                 $rowcount = mysqli_num_rows( $result );
@@ -52,13 +52,13 @@
                             <div class="inner">
                                 <h3>
                                     <?php 
-                     $result = mysqli_query($con,"SELECT * FROM pmr_table;");
+                     $result = mysqli_query($con,"SELECT * FROM inv_ict;");
                      $rowCount = mysqli_num_rows($result);
                      if($rowCount > 0){
                         $count=0;
                         $delivered=0;
                          while($row = mysqli_fetch_assoc($result)){
-                            if($row['pstatus_id'] == 1){
+                            if($row['deleted'] == 1){
                                 $delivered++;
                             }
                             $count++;
@@ -109,7 +109,7 @@
                             <div class="inner">
                                 <h3>
                                     <?php
-                                            $sql = "SELECT * from pmr_table";
+                                            $sql = "SELECT * from inv_ict";
                                             $amount = 0;
                                             if ($result = mysqli_query($con, $sql)) {
                                                 // Return the number of rows in result set
@@ -157,7 +157,7 @@
 
 
                         <!-- Content Here -->
-                        <table id="dataTable" class="table table-hover table-responsive-lg " width="100%"
+                        <table id="dataTable" class="table table-hover table-responsive" width="100%"
                             cellspacing="0"">
                             <thead >
                             <tr>

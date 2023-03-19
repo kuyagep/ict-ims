@@ -6,7 +6,8 @@
         header('Location: ../index.php?session=expired');
     }
     include('header.php'); ?>
-<?php include('../conf/config.php');?>
+<?php //include('../conf/config.php');
+require_once '../conf/config.php';?>
 
 <body class="hold-transition sidebar-mini  layout-fixed layout-navbar-fixed">
     <div class="wrapper">

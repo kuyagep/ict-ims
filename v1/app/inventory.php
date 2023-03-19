@@ -40,7 +40,7 @@
 
 
                         <!-- Content Here -->
-                        <table id="dataTable" class="table table-hover table-responsive-lg " width="100%"
+                        <table id="dataTable" class="table table-hover table-responsive" width="100%"
                             cellspacing="0"">
                             <thead >
                             <tr>
@@ -59,6 +59,7 @@
                             </tr>
                             </thead>
                             <tbody>
+                           
                                 <?php
                                 //SELECT inv_ict.particulars FROM inv_ict INNER JOIN employee ON `employee`.`office_id`=inv_ict.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=inv_ict.pcategory_id ORDER BY `inv_ict`.`updated_at` DESC;
                                 $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`inv_ict`.`inv_no`, `office`.`office_name`, `employee`.`firstname`, `employee`.`lastname`, 
