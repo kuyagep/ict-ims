@@ -33,78 +33,12 @@ $view = mysqli_fetch_array($query);
     <div class="container py-5">
         <form action="action/admin/update-employee.php" method="POST" enctype="multipart/form-data">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="">
                     <!-- Widget: user widget style 1 -->
-                    <div class="card card-widget widget-user ">
-                        <!-- Add the bg color to the header using any of the bg-* classes -->
-                        <?php 
-                                if($view['picture']==""){
-                                    $img = "default2-1-1.jpg";
-                                }else{
-                                    $img = $view['picture'];
-                                }
-                            ?>
-                        <div class="widget-user-header text-white"
-                            style="background: url('dist/img/photo1.png') center center;">
-                            <h3 class="widget-user-username text-right">
-                                <?php echo $view['firstname']." ".$view['lastname']; ?></h3>
-                            <h5 class="widget-user-desc text-right"><?php
-                                    $result = mysqli_query($con,"SELECT * FROM position;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
-
-                                <?php if($row['position_id'] == $view['position_id']){echo $row['position_name'];} ?>
-                                <?php   }
-                                    }
-                                ?></h5>
-                        </div>
-                        <div class="widget-user-image">
-                            <img class="img-circle" src="dist/img/users/<?php echo $img; ?>" alt="User Avatar">
-                        </div>
-                        <div class="card-footer p-0">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Purchase Orders <span class="float-right badge bg-primary">
-                                            <?php
-                                            $sql = "SELECT * from pmr_table  WHERE employee_id='".$view['employee_id']."'";
-                                            if ($result = mysqli_query($con, $sql)) {
-                                                // Return the number of rows in result set
-                                                $rowcount = mysqli_num_rows( $result );
-                                                echo $rowcount;
-                                            }
-                                    ?>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Total Amount <span class="float-right badge bg-info">
-
-                                            <?php
-                                        $result = mysqli_query($con,"SELECT * from pmr_table WHERE employee_id='".$view['employee_id']."'");
-                                            if ($result) {
-                                                // Return the number of rows in result set
-                                                $rowcount = mysqli_num_rows( $result );
-                                                $amount = 0;
-                                                while($row = mysqli_fetch_assoc($result)){
-                                                    $amount = $amount + $row['amount'];
-
-                                                }
-                                                echo number_format($amount,2);
-                                            }
-                                        ?>
-                                        </span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
+                   
                     <!-- /.widget-user -->
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="card mb-4 card-outline card-red">
                         <div class="card-header">
                             <h3>Edit Profile</h3>

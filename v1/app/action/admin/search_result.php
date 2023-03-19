@@ -3,10 +3,10 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $category = validate($_POST['category']);
         $office = validate($_POST['office']);
-        $employee = validate($_POST['employee']);
+        $employee = validate($_POST['end_user']);
         $search = validate($_POST['search']);
 
-        header("location: ../../index.php?page=enhance_results&c='".$category."'&o='".$office."'&e='".$employee."'&s='".$search."'");
+        header("location: ../../index.php?page=enhance_results&c=$category&e=$employee&s=$search");
     }  
 
     function validate($data){
