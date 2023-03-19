@@ -97,3 +97,11 @@ $(document).ready(function() {
     $('#dataTable').DataTable();
 });
 </script>
+
+<!-- <script src="dist/js/demo.js"></script> -->
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<script>
+    $(function () {
+      $('.select2').select2()
+    });
+</script>

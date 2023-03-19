@@ -51,7 +51,7 @@
         
         <li class="nav-header">Components</li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link ">
                 <i class="fas fa-link"></i>
                 <p>
                     Components
@@ -77,8 +77,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="purchase-category"
-                        class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "purchase-category"){ echo 'active'; } ?>">
+                    <a href="category"
+                        class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "category"){ echo 'active'; } ?>">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Classification

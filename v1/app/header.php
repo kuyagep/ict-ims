@@ -42,5 +42,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="dist/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="dist/img/favicon-16x16.png">
     <link rel="manifest" href="dist/img/site.webmanifest">
+    <!-- Select2 -->
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
 
 </head>
