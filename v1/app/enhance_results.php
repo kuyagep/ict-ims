@@ -130,7 +130,7 @@
                 $query = mysqli_query($con,"SELECT * FROM inv_ict WHERE item_name LIKE '%$s_search%' OR category_id='".$s_category."' 
                 OR employee_id = '".$s_employee."'");
                 $rowCount = mysqli_num_rows($query);
-            }
+            
            
 
         ?>
@@ -163,6 +163,7 @@
                         }else{
                             echo "<h3>No Result Found!</h3>";
                         }
+                    }
                     ?>
                 </div>
             </div>
