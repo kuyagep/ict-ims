@@ -1,7 +1,7 @@
 <?php
     include('../../../conf/config.php');
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $category = validate($_POST['search']);
+        $search = validate($_POST['search']);
 
         header("location: ../../index.php?page=enhance_results&s=$search");
     }  

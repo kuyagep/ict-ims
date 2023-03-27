@@ -127,7 +127,9 @@
                 // $s_office = $_GET['o'];
                 $s_employee = !empty($_GET['e']);
                 $s_search = !empty($_GET['e']);
-                $query = mysqli_query($con,"SELECT * FROM inv_ict WHERE item_name LIKE '%$s_search%' OR category_id LIKE '%$s_category%' OR employee_id LIKE '%$s_employee%' ");
+                $s_search = !empty($_GET['s']);
+                $query = mysqli_query($con,"SELECT * FROM inv_ict WHERE item_name LIKE '%$s_search%' OR category_name LIKE '%$s_search%' OR employee_name LIKE '%$s_search%' FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
+                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` ");
                 $rowCount = mysqli_num_rows($query);
             
            
