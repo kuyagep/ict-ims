@@ -123,12 +123,11 @@
             // $query = mysqli_query($con,"SELECT * FROM inv_ict WHERE CONCAT(item_name,specs) LIKE '%$s_search%' OR category_id = $s_category OR employee_id = $s_employee; ");
             // }
             if (isset($_GET['s']) || isset($_GET['c']) || isset($_GET['e'])) {
-                $s_category = $_GET['c'];
+                $s_category = !empty($_GET['c']);
                 // $s_office = $_GET['o'];
-                $s_employee = $_GET['e'];
-                $s_search = $_GET['s'];
-                $query = mysqli_query($con,"SELECT * FROM inv_ict WHERE item_name LIKE '%$s_search%' OR category_id='".$s_category."' 
-                OR employee_id = '".$s_employee."'");
+                $s_employee = !empty($_GET['e']);
+                $s_search = !empty($_GET['e']);
+                $query = mysqli_query($con,"SELECT * FROM inv_ict WHERE item_name LIKE '%$s_search%' OR category_id LIKE '%$s_category%' OR employee_id LIKE '%$s_employee%' ");
                 $rowCount = mysqli_num_rows($query);
             
            

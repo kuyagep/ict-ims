@@ -13,8 +13,7 @@
                                     $img = $_SESSION['session_picture'];
                                 }
                             ?>
-                    <img class="img-circle elevation-0" src="dist/img/users/<?php echo $img; ?>"
-                        alt="Profile Picture" />
+                    <img class="img-circle elevation-0" src="dist/img/users/<?php echo $img; ?>" alt="Profile Picture" />
                 </span>
             </span>
         </div>
@@ -27,14 +26,16 @@
 
     <!-- SidebarSearch Form -->
     <!-- <div class="form-inline">
+        <form action="action/admin/search_result_sidebar.php" method="get">
         <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control form-control-sidebar" type="search" name="search" placeholder="Search" aria-label="Search">
             <div class="input-group-append">
-                <button class="btn btn-sidebar">
+                <button class="btn btn-sidebar" type="submit" name="submit_search">
                     <i class="fas fa-search fa-fw"></i>
                 </button>
             </div>
         </div>
+        </form>
     </div> -->
 
     <!-- Sidebar Menu -->
