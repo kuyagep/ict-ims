@@ -210,7 +210,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        <table id="dataTable" class="table table-hover table-responsive" width="100%" cellspacing="0"">
+                        <table id="dataTable" class="table table-hover " width="100%" cellspacing="0"">
                             <thead >
                             <tr>
                                 <th>No.</th>

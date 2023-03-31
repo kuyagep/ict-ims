@@ -130,55 +130,51 @@ $view = mysqli_fetch_array($query);
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        <table id="dataTable" class="table table-hover table-responsive-lg " width="100%"
+                        <table id="dataTable" class="table table-hover table-responsive" width="100%"
                             cellspacing="0"">
                             <thead class=" thead-dark">
                             <tr>
-                                <th>PR #</th>
-                                <th>PO #</th>
-                                <th>Category</th>
-                                <th>Particular</th>
+                                <th>Inventory No</th>
+                                <th>Office Name</th>
+                                <th>Item Name</th>
+                                <th>Specs</th>
                                 <th>Amount</th>
-                                <th>Source of Fund</th>
-                                <th>Office/Section</th>
-                                <th>Delivered</th>
-                                <th>Remarks</th>
+                                <th>Serial No.</th>
+                                <th>Date Acquired</th>
+                                <th>Category</th>
+                                <th>Inspected by</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $result = mysqli_query($con,"SELECT pmr_table.pmr_id, pmr_table.pr_no, procurement_category.category_name, pmr_table.po_no, pmr_table.particulars, 
-                                pmr_table.amount, pmr_table.src_fund, employee.firstname, employee.lastname, office.office_name, po_status.pstatus_name, pmr_table.remarks 
-                                FROM pmr_table LEFT JOIN employee ON pmr_table.employee_id=employee.employee_id INNER JOIN office ON employee.office_id=office.office_id 
-                                INNER JOIN procurement_category ON procurement_category.pcategory_id=pmr_table.pcategory_id  INNER JOIN po_status 
-                                ON po_status.pstatus_id=pmr_table.pstatus_id WHERE pmr_table.employee_id='$idx' ORDER BY `pmr_table`.`updated_at` DESC;");
+                                $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`inv_ict`.`inv_no`, `office`.`office_name`,`employee`.`employee_id`, `employee`.`firstname`, `employee`.`lastname`, 
+                                `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
+                                `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`
+                                FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
+                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE `employee`.`employee_id` ='$idx'   ORDER BY `inv_ict`.`updated_at` DESC;");
                                 $count=1;
                                 $rowCount = mysqli_num_rows($result);
                                 if($rowCount > 0){
                                     while($row = mysqli_fetch_assoc($result)){
-                                         $id=$row['pmr_id'];
+                                         $id=$row['inv_id'];
                                          ?>
                                 <tr>
-                                    <td><?php echo $row['pr_no']; ?></td>
-                                    <td><?php echo $row['po_no']; ?></td>
-                                    <td><?php echo $row['category_name']; ?></td>
-                                    <td><?php echo $row['particulars']; ?></td>
+                                    <td><?php echo $row['inv_no']; ?></td>
+                                    <td><?php echo $row['office_name']; ?></td>
+                                    <td><?php echo $row['item_name']; ?></td>
+                                    <td><?php echo $row['specs']; ?></td>
                                     <td><?php 
                                     echo number_format($row['amount'], 2);
                                     ?></td>
-                                    <td><?php echo $row['src_fund']; ?></td>
+                                    <td><?php echo $row['serial_no']; ?></td>
 
-                                    <td><?php echo $row['office_name']; ?></td>
+                                    <td><?php echo $row['date_acquired']; ?></td>
                                     <td>
-                                        <?php 
-                                            if ($row['pstatus_name']=="Delivered") {
-                                                # code...
-                                            }
-                                        ?>
-                                        <span class="badge badge-primary"><?php echo $row['pstatus_name']; ?></span>
+                                        
+                                        <span class="badge badge-primary"><?php echo $row['category_name']; ?></span>
                                     </td>
-                                    <td><?php echo $row['remarks']; ?></td>
+                                    <td><?php echo $row['inspected_by']; ?></td>
 
                                     <td style='width: 100px;'>
                                         <a href="index.php?page=pmr-edit&id=<?php echo $id; ?>" class="text-primary "
