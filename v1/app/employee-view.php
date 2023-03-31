@@ -117,14 +117,12 @@ $view = mysqli_fetch_array($query);
             <div class="col-sm-12">
                 <div class="card card-outline card-red">
                     <div class="card-header">
-                        <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>List
-                                of
-                                Purchase Order</STRONG></h3>
+                        <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>List of Inventory</STRONG></h3>
 
                         <button type="button" class="btn bg-gradient-danger float-right" data-toggle="modal"
                             data-target="#add-purchase-order">
                             <i class="fas fa-solid fa-tag mr-2"></i>
-                            Add Purchase Order
+                            Add Inventory
                         </button>
                     </div>
                     <!-- /.card-header -->
