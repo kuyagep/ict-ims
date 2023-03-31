@@ -40,7 +40,7 @@
 
 
                         <!-- Content Here -->
-                        <table id="dataTable" class="table table-hover table-responsive" width="100%"
+                        <table id="dataTable" class="table table-hover table-responsive col-12" style="width: 100%;"
                             cellspacing="0"">
                             <thead >
                             <tr>
@@ -55,7 +55,7 @@
                                 <th>CLASSIFICATION</th>
                                 <th>DATE OF INSPECTION</th>
                                 <th>INSPECTED BY</th>
-                                <th>ACTION</th>
+                                <th style='width: 100px;'>ACTION</th>
                             </tr>
                             </thead>
                             <tbody>
