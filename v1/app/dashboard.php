@@ -170,84 +170,57 @@
 
                     </div>
                     <div class="col-md-8">
-                    <div class="card">
-<div class="card-header">
-<h3 class="card-title">Recently Added Inventory</h3>
-<div class="card-tools">
-<button type="button" class="btn btn-tool" data-card-widget="collapse">
-<i class="fas fa-minus"></i>
-</button>
-<button type="button" class="btn btn-tool" data-card-widget="remove">
-<i class="fas fa-times"></i>
-</button>
-</div>
-</div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Recently Added Inventory</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
 
-<div class="card-body p-0">
-<ul class="products-list product-list-in-card pl-2 pr-2">
-<li class="item">
-<div class="product-img">
-<img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-</div>
-<div class="product-info">
-<a href="javascript:void(0)" class="product-title">Samsung TV
-<span class="badge badge-warning float-right">$1800</span></a>
-<span class="product-description">
-Samsung 32" 1080p 60Hz LED Smart HDTV.
-</span>
-</div>
-</li>
+                            <div class="card-body p-0">
+                                <ul class="products-list product-list-in-card pl-2 pr-2">
 
-<li class="item">
-<div class="product-img">
-<img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-</div>
-<div class="product-info">
-<a href="javascript:void(0)" class="product-title">Bicycle
-<span class="badge badge-info float-right">$700</span></a>
-<span class="product-description">
-26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-</span>
-</div>
-</li>
+                                    <?php
+                                        $sql = "SELECT item_name, specs, amount from inv_ict ORDER BY created_at DESC limit 4";
+                                        if ($result = mysqli_query($con, $sql)) {
+                                            // Return the number of rows in result set
+                                            $rowcount = mysqli_num_rows( $result );
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                     ?>
+                                        <li class="item">
+                                        <div class="product-img">
+                                            <img src="dist/img/default-150x150.png" alt="Product Image"
+                                                class="img-size-50">
+                                        </div>
+                                        <div class="product-info">
+                                            <a href="javascript:void(0)" class="product-title"><?=$row['item_name']?>
+                                                <span class="badge badge-success float-right"><?=$row['amount']?></span></a>
+                                            <span class="product-description">
+                                            <?=$row['specs']?>
+                                            </span>
+                                        </div>
+                                    </li> 
 
-<li class="item">
-<div class="product-img">
-<img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-</div>
-<div class="product-info">
-<a href="javascript:void(0)" class="product-title">
-Xbox One <span class="badge badge-danger float-right">
-$350
-</span>
-</a>
-<span class="product-description">
-Xbox One Console Bundle with Halo Master Chief Collection.
-</span>
-</div>
-</li>
+                                    <?php
+                                            }
+                                        }
+                                    ?>
+                                                                       
 
-<li class="item">
-<div class="product-img">
-<img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-</div>
-<div class="product-info">
-<a href="javascript:void(0)" class="product-title">PlayStation 4
-<span class="badge badge-success float-right">$399</span></a>
-<span class="product-description">
-PlayStation 4 500GB Console (PS4)
-</span>
-</div>
-</li>
+                                </ul>
+                            </div>
 
-</ul>
-</div>
+                            <div class="card-footer text-center">
+                                <a href="inventory" class="uppercase">View All Inventory</a>
+                            </div>
 
-<div class="card-footer text-center">
-<a href="javascript:void(0)" class="uppercase">View All Products</a>
-</div>
-
-</div>
+                        </div>
                     </div>
                 </div>
             </div>

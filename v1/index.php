@@ -83,7 +83,11 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                     <!-- <p class="login-box-msg">Sign in to start your session</p> -->
 
 
-                    <p class="text-center text-dark">Login to start your session</p>
+                    <p class="text-center text-dark">Login to start your session<br>
+                    <i>
+                        username: admin@gmail.com <br>
+                        password: 123456 </i>
+                    </p>
                     <!-- Alert when login error -->
                     <hr>
                     <?php 

@@ -17,8 +17,6 @@ RewriteRule ^profile/?$ index.php?page=profile [NC,L]
 RewriteRule ^role/?$ index.php?page=role [NC,L]
 RewriteRule ^advance_search/?$ index.php?page=advance_search [NC,L]
 RewriteRule ^inventory/?$ index.php?page=inventory [NC,L]
-RewriteRule ^pmr-report/?$ index.php?page=pmr-report [NC,L]
-RewriteRule ^purchase-category/?$ index.php?page=pcategory [NC,L]
 #users
 RewriteRule ^user-dashboard/?$ index.php?page=user-dashboard [NC,L]
 RewriteRule ^profile/?$ index.php?page=profile [NC,L]
