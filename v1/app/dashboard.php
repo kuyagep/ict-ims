@@ -130,7 +130,47 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-md-4">
 
+                        <div class="info-box mb-3 bg-warning">
+                            <span class="info-box-icon"><i class="fas fa-tag"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Laptop</span>
+                                <span class="info-box-number">5,200</span>
+                            </div>
+
+                        </div>
+
+                        <div class="info-box mb-3 bg-success">
+                            <span class="info-box-icon"><i class="far fa-heart"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Tablet</span>
+                                <span class="info-box-number">92,050</span>
+                            </div>
+
+                        </div>
+
+                        <div class="info-box mb-3 bg-danger">
+                            <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">PC</span>
+                                <span class="info-box-number">114,381</span>
+                            </div>
+
+                        </div>
+
+                        <div class="info-box mb-3 bg-info">
+                            <span class="info-box-icon"><i class="far fa-comment"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Others</span>
+                                <span class="info-box-number">163,921</span>
+                            </div>
+
+                        </div>
+
+                        
+
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">

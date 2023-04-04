@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 04:39 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Apr 04, 2023 at 07:37 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,13 +30,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `category` (
   `category_id` int(55) NOT NULL,
   `category_name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
+(0, 'IT Equipment'),
 (1, 'Equipment'),
 (2, 'Goods & Services'),
 (4, 'Consumables');
@@ -50,7 +51,7 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 CREATE TABLE `division` (
   `division_id` int(11) NOT NULL,
   `division_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `division`
@@ -82,7 +83,7 @@ CREATE TABLE `employee` (
   `password` varchar(250) NOT NULL,
   `role_id` int(55) NOT NULL,
   `added_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee`
@@ -90,7 +91,7 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`employee_id`, `picture`, `firstname`, `middlename`, `lastname`, `emp_contact_no`, `emp_email_add`, `position_id`, `office_id`, `division_id`, `username`, `password`, `role_id`, `added_at`) VALUES
 (0, '', '', '', '', '', '', 0, 0, 0, '', '$2y$10$FybLdGyTw0jUxUfXeyng/.E4sacSjqnI8Zuww1Gshau3UVyfQizZ2', 0, '2023-03-19 14:40:19'),
-(1, '_DSC0128 (2).JPG', 'Geperson', 'Camporedondo', 'Mamalias', '09317562740', 'geperson.ph@gmail.com', 7, 9, 0, 'geperson', '$2y$10$77qr92YiqHUMn4c.BVo8ZufBN.K3srkdBeBwxsNDYrGuYBGfLeUSi', 2, '2022-06-05 16:02:24'),
+(1, '71656167_505788180258528_2948843735623925760_n.jpg', 'Geperson', 'C.', 'Mamalias', '09317562740', 'geperson.ph@gmail.com', 7, 9, 0, 'geperson', '$2y$10$a9Clue1W6bTIsaQ4YVfIlO6jPNEiKIFFWsF8pLrDnuSfU9cfKif1C', 0, '2022-06-05 16:02:24'),
 (71, '', 'Admin', 'Admin', 'Admin', '09123456789', 'admin@gmail.com', 1, 1, 0, 'admin@gmail.com', '$2y$10$77qr92YiqHUMn4c.BVo8ZufBN.K3srkdBeBwxsNDYrGuYBGfLeUSi', 2, '2022-10-22 09:18:43'),
 (72, '', 'User', 'User', 'User', '09123456789', 'user@gmail.com', 1, 1, 0, 'user@gmail.com', '$2y$10$aoF3GO5Wyf6qLSG8MhbDaO4hjb8VID9A9NEnfqr6gvxaqJHA3jrwO', 3, '2022-10-22 09:20:09'),
 (73, '', 'Superadmin', 'Superadmin', 'Superadmin', '09123456789', 'superadmin@gmail.com', 3, 1, 0, 'superadmin@gmail.com', '$2y$10$9cKb.z/gAsSZwlK10oSX1OPQsNE1HtkJYouQouw0CaJ4pc6wL6WI.', 1, '2022-10-22 09:21:26'),
@@ -132,7 +133,7 @@ CREATE TABLE `inv_ict` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted` tinyint(4) NOT NULL DEFAULT 1,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `inv_ict`
@@ -155,7 +156,7 @@ INSERT INTO `inv_ict` (`inv_id`, `inv_no`, `employee_id`, `item_name`, `specs`, 
 CREATE TABLE `office` (
   `office_id` int(55) NOT NULL,
   `office_name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `office`
@@ -186,7 +187,7 @@ CREATE TABLE `position` (
   `position_id` int(55) NOT NULL,
   `position_name` varchar(250) NOT NULL,
   `position_desc` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `position`
@@ -215,7 +216,7 @@ INSERT INTO `position` (`position_id`, `position_name`, `position_desc`) VALUES
 CREATE TABLE `role` (
   `role_id` int(55) NOT NULL,
   `role_desc` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `role`
