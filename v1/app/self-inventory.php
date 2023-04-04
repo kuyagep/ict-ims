@@ -66,7 +66,7 @@
                                 `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
                                 `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`
                                 FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
-                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id`  ORDER BY `inv_ict`.`updated_at` DESC;");
+                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE `inv_ict`.`employee_id` = $_SESSION["id"]  ORDER BY `inv_ict`.`updated_at` DESC;");
                                 $count=1;
                                 $rowCount = mysqli_num_rows($result);
                                 if($rowCount > 0){

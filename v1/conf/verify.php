@@ -12,8 +12,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	   return $data;
 	}
 
-	$email = validate($_POST['email']);
-	$pass = validate($_POST['password']);
+	$email = $_POST['email'];
+	$pass = $_POST['password'];
     if(empty($email) && empty($pass)){
         header("location: ../index.php?error=Email Add and Password is required");
 	    exit();

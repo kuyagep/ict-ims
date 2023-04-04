@@ -23,10 +23,10 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="index.php?page=user-pmr" class="nav-link">
+            <a href="index.php?page=self-inventory" class="nav-link">
             <i class="fas fa-tag nav-icon"></i>
                 <p>
-                    Purchase Order
+                    Inventory
                     <span class="right badge badge-success">New</span>
                 </p>
             </a>
