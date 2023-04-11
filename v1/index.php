@@ -103,7 +103,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
                     <form action="conf/verify.php" method="post">
                         <div class="input-group mb-3 ">
-                            <input type="text" class="form-control" placeholder="Enter Email Address" name="email">
+                            <input type="text" class="form-control" placeholder="Enter Email Address" name="email" autocomplete required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -111,7 +111,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                             </div>
                         </div>
                         <div class="input-group mb-3 input-group">
-                            <input type="password" class="form-control" placeholder="Enter password" name="password">
+                            <input type="password" class="form-control" placeholder="Enter password" name="password" autocomplete required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>

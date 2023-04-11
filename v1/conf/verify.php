@@ -44,6 +44,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
                                     
                  header("location: ../app/dashboard");
+
+				 if($_SESSION['role_id'] == '1'){
+					header("location: ../app/dashboard");
+				}elseif($_SESSION['role_id'] == '2'){
+					header("location: ../app/dashboard");
+				}elseif($_SESSION['role_id'] == '3'){
+					header("location: ../app/self-inventory");
+				} 
 		        exit();
             }else{
 				header("Location: ../index.php?error=Incorect password");

@@ -140,7 +140,10 @@
                 $query = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`inv_ict`.`inv_no`, `office`.`office_name`,`employee`.`employee_id`, `employee`.`firstname`, `employee`.`lastname`, 
                 `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
                 `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`, `inv_ict`.`created_at` FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
+
                 INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE `item_name` LIKE '%$s_search%' OR `firstname` LIKE '%$s_search%' OR `lastname` LIKE '%$s_search%' OR `office_name` LIKE '%$s_search%'  OR `category_name` LIKE '%$s_search%' ");
+
+
                 $rowCount = mysqli_num_rows($query);
         ?>                
                 
@@ -157,11 +160,11 @@
                             <div class="row">
                                 <div class="col px-4">
                                     <div>
-                                        <div class="float-right"><?php echo $row['created_at']; ?></div>
+                                        <div class="float-right"><a href="index.php?page=employee-view&&id=<?=$row['employee_id']?>"> <?php echo $row['firstname']." ".$row['lastname'] ." > ".$row['office_name']; ?> </a></div>
                                         <a href=""><h3><?php echo $row['item_name']; ?></h3></a>
                                         <p class="mb-0">
                                             <?php echo $row['specs']; ?> <br>
-                                            <a href="index.php?page=employee-view&&id=<?=$row['employee_id']?>"> <?php echo $row['firstname']." ".$row['lastname'] ." > ".$row['office_name']; ?> </a>
+                                            
                                         </p>
                                     </div>
                                 </div>
