@@ -16,7 +16,16 @@ require_once '../conf/config.php';?>
         <?php include('preloader.php'); ?>
 
         <!-- Navbar -->
-        <?php include('navbar.php'); ?>
+        <?php 
+        
+            if($_SESSION['role_id'] == '1'){
+                include('navbar.php');
+            }elseif($_SESSION['role_id'] == '2'){
+                include('navbar.php');
+            }elseif($_SESSION['role_id'] == '3'){
+                include('navbar-user.php');
+            } 
+         ?>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
@@ -54,13 +63,12 @@ require_once '../conf/config.php';?>
                         }elseif($_SESSION['role_id'] == '2'){
                             $page = 'dashboard.php';
                         }elseif($_SESSION['role_id'] == '3'){
-                            $page = 'user-dashboard.php';
+                            $page = 'self-inventory.php';
                         } 
                 }
 
                 if (file_exists($page)) {
                     require_once $page; 
-                   
                 }else{
                     require_once 'error-404.php';
                 }

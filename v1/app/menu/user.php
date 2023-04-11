@@ -13,18 +13,18 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a href="index.php?page=user-dashboard" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                     Dashboard
-                    <!-- <span class="right badge badge-danger">New</span> -->
+                  
                 </p>
             </a>
-        </li>
+        </li> -->
         <li class="nav-item">
-            <a href="index.php?page=self-inventory" class="nav-link">
-            <i class="fas fa-tag nav-icon"></i>
+            <a href="index.php?page=self-inventory"  class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "self-inventory"){ echo 'active'; } ?>">
+            <i class="nav-icon fas fa-th"></i>
                 <p>
                     Inventory
                     <span class="right badge badge-success">New</span>

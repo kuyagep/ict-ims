@@ -7,7 +7,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">Inventory</li>
                 </ol>
             </div><!-- /.col -->
@@ -25,15 +25,16 @@
                 <div class="card">
                     <div class="card-header p-2">
                         <div class="float-left">
-                            <h4>Inventory List</h4>
+                        
+                            <h4><i class="fas fa-tools"></i> Accountability List</h4>
                         </div>
-                        <div class="float-right">
+                        <!-- <div class="float-right">
                             <button type="button" class="btn bg-gradient-success float-right" data-toggle="modal"
                                 data-target="#add-purchase-order">
                                 <i class="fas fa-plus mr-2"></i>
                                 Add Inventory
                             </button>
-                        </div>
+                        </div> -->
 
                     </div><!-- /.card-header -->
                     <div class="card-body">
