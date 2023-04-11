@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <!-- small box -->
-                        <div class="small-box bg-white callout callout-danger">
+                        <div class="small-box info-box mb-3 bg-warning">
                             <div class="inner">
                                 <h3>
 
@@ -37,7 +37,7 @@
                                     ?>
                                 </h3>
 
-                                <p>Inventory</p>
+                                <p>Laptop</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-laptop"></i>
@@ -48,7 +48,7 @@
                     <!-- ./col -->
                     <div class="col-md-3">
                         <!-- small box -->
-                        <div class="small-box bg-white callout callout-warning">
+                        <div class="small-box info-box mb-3 bg-success">
                             <div class="inner">
                                 <h3>
                                     <?php 
@@ -70,10 +70,10 @@
                                     <sup style="font-size: 20px"></sup>
                                 </h3>
 
-                                <p>Inventory Percentage</p>
+                                <p>Tablet</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
+                                <i class="fas fa-solid fa-tablet"></i>
                             </div>
                             <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                         </div>
@@ -81,7 +81,7 @@
                     <!-- ./col -->
                     <div class="col-md-3">
                         <!-- small box -->
-                        <div class="small-box bg-white callout callout-success">
+                        <div class="small-box info-box mb-3 bg-danger">
                             <div class="inner">
                                 <h3><?php
                                             $sql = "SELECT * from employee WHERE division_id != 0";
@@ -91,10 +91,10 @@
                                                 echo $rowcount;
                                             }
                                     ?></h3>
-                                <p>Employees</p>
+                                <p>PC</p>
                             </div>
                             <div class="icon">
-                                <i class="fas fa-users"></i>
+                                <i class="fas fa-sharp fa-solid fa-desktop"></i>
                             </div>
                             <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                         </div>
@@ -102,7 +102,7 @@
                     <!-- ./col -->
                     <div class="col-md-3">
                         <!-- small box -->
-                        <div class="small-box  callout callout-info">
+                        <div class="small-box  info-box mb-3 bg-info">
                             <div class="inner">
                                 <h3>
                                     <?php
@@ -118,10 +118,10 @@
                                     ?>
                                 </h3>
 
-                                <p>Total Amount</p>
+                                <p>Others</p>
                             </div>
                             <div class="icon">
-                                <i class="fas fa-dollar-sign"></i>
+                                <i class="fas fa-solid fa-clipboard"></i>
                             </div>
                             <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                         </div>
@@ -129,102 +129,6 @@
                     <!-- ./col -->
                 </div>
 
-                <div class="row">
-                    <div class="col-md-4">
-
-                        <div class="info-box mb-3 bg-warning">
-                            <span class="info-box-icon"><i class="fas fa-solid fa-laptop"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Laptop</span>
-                                <span class="info-box-number">5,200</span>
-                            </div>
-
-                        </div>
-
-                        <div class="info-box mb-3 bg-success">
-                            <span class="info-box-icon"><i class="fas fa-solid fa-tablet"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Tablet</span>
-                                <span class="info-box-number">92,050</span>
-                            </div>
-
-                        </div>
-
-                        <div class="info-box mb-3 bg-danger">
-                            <span class="info-box-icon"><i class="fas fa-sharp fa-solid fa-desktop"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">PC</span>
-                                <span class="info-box-number">114,381</span>
-                            </div>
-
-                        </div>
-
-                        <div class="info-box mb-3 bg-info">
-                            <span class="info-box-icon"><i class="fas fa-solid fa-clipboard"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Others</span>
-                                <span class="info-box-number">163,921</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Recently Added Inventory</h3>
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="card-body p-0">
-                                <ul class="products-list product-list-in-card pl-2 pr-2">
-
-                                    <?php
-                                        $sql = "SELECT item_name, specs, amount from inv_ict ORDER BY created_at DESC limit 4";
-                                        if ($result = mysqli_query($con, $sql)) {
-                                            // Return the number of rows in result set
-                                            $rowcount = mysqli_num_rows( $result );
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                     ?>
-                                        <li class="item">
-                                        <div class="product-img">
-                                            <img src="dist/img/default-150x150.png" alt="Product Image"
-                                                class="img-size-50">
-                                        </div>
-                                        <div class="product-info">
-                                            <a href="javascript:void(0)" class="product-title"><?=$row['item_name']?>
-                                                <span class="badge badge-success float-right"><?=$row['amount']?></span></a>
-                                            <span class="product-description">
-                                            <?=$row['specs']?>
-                                            </span>
-                                        </div>
-                                    </li> 
-
-                                    <?php
-                                            }
-                                        }
-                                    ?>
-                                                                       
-
-                                </ul>
-                            </div>
-
-                            <div class="card-footer text-center">
-                                <a href="inventory" class="uppercase">View All Inventory</a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
 
             </div>
         </div>

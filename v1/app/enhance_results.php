@@ -43,7 +43,7 @@
                                                 $rowCount = mysqli_num_rows($result);
                                                 if($rowCount > 0){
                                                     while($row = mysqli_fetch_assoc($result)){ ?>
-                                    <option value="<?php echo $row['category_id']; ?>">
+                                    <option value="<?php echo $row['category_name']; ?>">
                                         <?php echo $row['category_name']; ?>
                                     </option>
                                     <?php   }
@@ -62,7 +62,7 @@
                                                 $rowCount = mysqli_num_rows($result);
                                                 if($rowCount > 0){
                                                     while($row = mysqli_fetch_assoc($result)){ ?>
-                                    <option value="<?php echo $row['office_id']; ?>">
+                                    <option value="<?php echo $row['office_name']; ?>">
                                         <?php echo $row['office_name']; ?>
                                     </option>
                                     <?php   }
@@ -123,11 +123,16 @@
             // $s_search = $_GET['s'];
             // $query = mysqli_query($con,"SELECT * FROM inv_ict WHERE CONCAT(item_name,specs) LIKE '%$s_search%' OR category_id = $s_category OR employee_id = $s_employee; ");
             // }
-            if(!empty($_GET['s'])){
+            if(!empty($_GET['s']) || !empty($_GET['c'])){
 
             
             // if (isset($_GET['s']) || isset($_GET['c']) || isset($_GET['e'])) {
-            //     $s_category = !empty($_GET['c']);
+                if(isset($_GET['c'])){
+                    $s_category = $_GET['c'];
+                }else{
+                    $s_category = '';
+                }
+           
             //     // $s_office = $_GET['o'];
             //     $s_employee = !empty($_GET['e']);
             //     $s_search = !empty($_GET['e']);
@@ -135,9 +140,10 @@
                 $query = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`inv_ict`.`inv_no`, `office`.`office_name`,`employee`.`employee_id`, `employee`.`firstname`, `employee`.`lastname`, 
                 `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
                 `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`, `inv_ict`.`created_at` FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
-                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE `item_name` LIKE '%$s_search%' OR `firstname` LIKE '%$s_search%' ");
+                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE `item_name` LIKE '%$s_search%' OR `firstname` LIKE '%$s_search%' OR `lastname` LIKE '%$s_search%' OR `office_name` LIKE '%$s_search%'  OR `category_name` LIKE '%$s_search%' ");
                 $rowCount = mysqli_num_rows($query);
-        ?>
+        ?>                
+                
         <div class="row mt-3">
             <div class="col-md-10 offset-md-1">
                 <div class="list-group">
