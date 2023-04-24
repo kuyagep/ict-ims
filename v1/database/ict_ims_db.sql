@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2023 at 07:45 AM
+-- Generation Time: Apr 24, 2023 at 08:00 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -39,6 +39,7 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
 (1, 'ICT Equipment'),
 (2, 'Goods & Services'),
+(3, 'Laptop'),
 (4, 'Consumables');
 
 -- --------------------------------------------------------
@@ -274,6 +275,12 @@ ALTER TABLE `role`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `category_id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `inv_ict`
