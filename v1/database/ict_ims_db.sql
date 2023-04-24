@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2023 at 08:58 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 24, 2023 at 07:45 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,15 +30,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `category` (
   `category_id` int(55) NOT NULL,
   `category_name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
-(0, 'IT Equipment'),
-(1, 'Equipment'),
+(1, 'ICT Equipment'),
 (2, 'Goods & Services'),
 (4, 'Consumables');
 
@@ -51,7 +50,7 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 CREATE TABLE `division` (
   `division_id` int(11) NOT NULL,
   `division_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `division`
@@ -83,23 +82,23 @@ CREATE TABLE `employee` (
   `password` varchar(250) NOT NULL,
   `role_id` int(55) NOT NULL,
   `added_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`employee_id`, `picture`, `firstname`, `middlename`, `lastname`, `emp_contact_no`, `emp_email_add`, `position_id`, `office_id`, `division_id`, `username`, `password`, `role_id`, `added_at`) VALUES
-(1, '71656167_505788180258528_2948843735623925760_n.jpg', 'Geperson', 'C.', 'Mamalias', '09317562740', 'geperson.ph@gmail.com', 7, 9, 0, 'geperson', '$2y$10$a9Clue1W6bTIsaQ4YVfIlO6jPNEiKIFFWsF8pLrDnuSfU9cfKif1C', 0, '2022-06-05 16:02:24'),
+(0, '', '', '', '', '', '', 0, 0, 0, '', '$2y$10$FybLdGyTw0jUxUfXeyng/.E4sacSjqnI8Zuww1Gshau3UVyfQizZ2', 0, '2023-03-19 14:40:19'),
+(1, '_DSC0128 (2).JPG', 'Geperson', 'Camporedondo', 'Mamalias', '09317562740', 'geperson.ph@gmail.com', 7, 9, 0, 'geperson', '$2y$10$77qr92YiqHUMn4c.BVo8ZufBN.K3srkdBeBwxsNDYrGuYBGfLeUSi', 2, '2022-06-05 16:02:24'),
 (71, '', 'Admin', 'Admin', 'Admin', '09123456789', 'admin@gmail.com', 1, 1, 0, 'admin@gmail.com', '$2y$10$77qr92YiqHUMn4c.BVo8ZufBN.K3srkdBeBwxsNDYrGuYBGfLeUSi', 2, '2022-10-22 09:18:43'),
 (72, '', 'User', 'User', 'User', '09123456789', 'user@gmail.com', 1, 1, 0, 'user@gmail.com', '$2y$10$aoF3GO5Wyf6qLSG8MhbDaO4hjb8VID9A9NEnfqr6gvxaqJHA3jrwO', 3, '2022-10-22 09:20:09'),
 (73, '', 'Superadmin', 'Superadmin', 'Superadmin', '09123456789', 'superadmin@gmail.com', 3, 1, 0, 'superadmin@gmail.com', '$2y$10$9cKb.z/gAsSZwlK10oSX1OPQsNE1HtkJYouQouw0CaJ4pc6wL6WI.', 1, '2022-10-22 09:21:26'),
 (79, '', 'Mario', 'C', 'Mondejar', '09123456789', 'mario.mondejar@deped.gov.ph', 5, 10, 3, 'mario.mondejar@deped.gov.ph', '$2y$10$Q4Aj8XdABONmVLcGiOI0x.4kJr5uYJuSknrdIj70pJ71a77nDE6Hy', 3, '2023-01-23 14:17:53'),
+(80, '', 'ROMEO', 'M.', 'YTING', '09123456789', 'romeo.yting@deped.gov.ph', 10, 9, 0, 'romeo.yting@deped.gov.ph', '$2y$10$XX5C2T8CNIagi1VAZIy/Yul6XWz.1wrQAEMZvZhdnl4wVI1GleGfm', 3, '2023-01-23 14:25:04'),
 (81, '', 'ARIEL', 'D.', 'DUCO', '09123456789', 'ariel.duco@deped.gov.ph', 1, 14, 3, 'ariel.duco@deped.gov.ph', '$2y$10$Juwlpg4C7LBkJNKPhBKlqe.SIHG0ebIYBb6eSieWrOF2KFk9ahRtm', 3, '2023-01-24 15:03:41'),
 (82, '', 'JENNY ROSE', 'A', 'ALITANA', '09123456789', 'jenny.solitana@deped.gov.ph', 1, 10, 3, 'jenny.solitana@deped.gov.ph', '$2y$10$eTqLLCwGiNaJN4xz327LGeR2r.AahJBSfIHcPMd8VtszIdnY.zxWC', 3, '2023-01-24 15:05:48'),
 (83, '', 'JESSIE', 'S', 'SAJOL', '09123456789', 'jessie.sajol@deped.gov.ph', 1, 10, 3, 'jessie.sajol@deped.gov.ph', '$2y$10$q.vmR5xocuLpKB1EbiFaUu2gP0u8S4sU9UyyFb6nGNgg4fd7Y54Ky', 3, '2023-01-24 15:09:07'),
-(84, '', 'BERNIE', 'G.', 'QUILATON', '09123456789', 'bernie.quilaton@deped.gov.ph', 1, 10, 3, 'bernie.quilaton@deped.gov.ph', '$2y$10$AETKDEU2/7FjI9/nGL6uN.UQAeA.MH47nqfHCj2t3wPOFGkJXBARe', 3, '2023-01-24 15:10:05'),
-(85, '', 'CHERRY JOY', 'C.', 'CHICOTE', '09123456789', 'cherry.chicote@deped.gov.ph', 1, 10, 3, 'cherry.chicote@deped.gov.ph', '$2y$10$u7f4jXlRMsmay5TsrwI6LeVslI0UGLk2ylaNqV38nB4J3OpVh/ZcW', 3, '2023-01-24 15:10:59'),
 (86, '', 'KIRK SONNY  GIL', 'P.', 'HERUELA', '09123456789', 'kirk.heruela@deped.gov.ph', 1, 10, 3, 'kirk.heruela@deped.gov.ph', '$2y$10$iC6corxsLcnVlpkkelwsV.qlgc9qIKcc0X3Kl72rT/uQ6YgrDVOc.', 3, '2023-01-24 15:13:05'),
 (87, '', 'AMY', 'P.', 'CORRAL', '09123456789', 'amy.corral@deped.gov.ph', 1, 10, 3, 'amy.corral@deped.gov.ph', '$2y$10$Yhnpn/lDmvk8uCgYKuygI.H67ZnQxjXyeUiSB0tpb4jeob3kqwyrC', 3, '2023-01-24 15:31:25'),
 (88, '', 'JOVETH', 'G.', 'TUBIANO', '09123456789', 'joveth.tubiano@deped.gov.ph', 1, 10, 3, 'joveth.tubiano@deped.gov.ph', '$2y$10$OxbNb9UzCJJO.WXEy3f0be8PTmA2IwSnTau5LvhYEvtEceH72Q9Gm', 3, '2023-01-24 15:32:22'),
@@ -108,7 +107,7 @@ INSERT INTO `employee` (`employee_id`, `picture`, `firstname`, `middlename`, `la
 (91, '', 'CHRISTINE', 'P.', 'LIMBUJAN', '09123456789', 'christine.limbujan@deped.gov.ph', 1, 10, 3, 'christine.limbujan@deped.gov.ph', '$2y$10$Kz1Wg/ehnkljzioljg17Ue3WODI7nEBGX3s.JJfrQ3znuzkCroprK', 3, '2023-01-24 15:35:24'),
 (92, '', 'Janette', 'G.', 'VELOSO', '09123456789', 'janette.veloso@deped.gov.ph', 1, 15, 1, 'janette.veloso@deped.gov.ph', '$2y$10$oCiDeIYAOkOLF8qKEWUWt.x1UxUjsFS/HGQmLG4J0al7OcXsQKM46', 3, '2023-01-24 15:37:44'),
 (93, '', 'CHEERYLYN', 'C', 'COMETA', '09123456789', 'cheerylyn.cometa@deped.gov.ph', 11, 4, 2, 'cheerylyn.cometa@deped.gov.ph', '$2y$10$VnGQEKr3fy4ppJENPUWzGuhtu7Ea5eU2Uuf7ZZQ4yX.u4l70FVmEe', 3, '2023-01-25 09:23:05'),
-(94, '', 'ROMEO', 'M.', 'YTING', '09123456789', 'romeo.yting@deped.gov.ph', 1, 9, 1, 'romeo.yting@deped.gov.ph', '$2y$10$QSbPEofbYhhxrU8c7ZnXS.pksHzfQrA.wKZKzfKVl82FqKNpE9uJ2', 3, '2023-01-30 15:37:44');
+(94, '', 'ROMEO', 'M.', 'YTING', '09123456789', 'romeo.yting@deped.gov.ph', 1, 9, 1, 'romeo.yting@deped.gov.ph', '$2y$10$QSbPEofbYhhxrU8c7ZnXS.pksHzfQrA.wKZKzfKVl82FqKNpE9uJ2', 2, '2023-01-30 15:37:44');
 
 -- --------------------------------------------------------
 
@@ -131,7 +130,7 @@ CREATE TABLE `inv_ict` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted` tinyint(4) NOT NULL DEFAULT 1,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `inv_ict`
@@ -139,7 +138,7 @@ CREATE TABLE `inv_ict` (
 
 INSERT INTO `inv_ict` (`inv_id`, `inv_no`, `employee_id`, `item_name`, `specs`, `amount`, `serial_no`, `date_acquired`, `category_id`, `date_inspection`, `inspected_by`, `created_at`, `deleted`, `updated_at`) VALUES
 (1, 'SDFGHJKL4567GHJK', 79, 'Laptop', 'Core i7', 45000, 'FGHJ87LY', '2023-03-18', 1, '2023-03-18', 'ARIEL VILLAREAL', '2023-03-18 04:14:34', 0, '0000-00-00 00:00:00'),
-(2, 'SDFGHJKL45', 81, 'laptop', 'SAMPLE', 45000, 'ERTYUIO', '2023-03-18', 1, '2023-03-18', 'ARIEL VILLAREAL', '2023-03-18 04:23:06', 1, '0000-00-00 00:00:00'),
+(2, 'SDFGHJKL45', 81, 'laptop', 'SAMPLE', 45000, 'ERTYUIO', '2023-03-18', 1, '2023-03-18', 'ARIEL VILLAREAL', '2023-03-18 04:23:06', 0, '0000-00-00 00:00:00'),
 (3, 'FYUG', 82, 'Printer', 'WERTYUIO', 7000, 'HGFDSDF', '2023-03-18', 1, '2023-03-18', 'ARIEL VILLAREAL', '2023-03-18 04:37:48', 1, '0000-00-00 00:00:00'),
 (4, 'FYUG1234', 82, 'Laptop', 'sample specs', 2000, 'FGHJ87LY', '2023-03-19', 2, '2023-03-19', 'ARIEL VILLAREAL', '2023-03-19 10:27:04', 1, '0000-00-00 00:00:00'),
 (5, 'ASD12DS', 94, 'Tablet', '64 GB', 3000, 'LKJHGFDSTYU5432', '2023-03-19', 2, '2023-03-19', 'ARIEL VILLAREAL', '2023-03-19 13:41:27', 1, '0000-00-00 00:00:00'),
@@ -154,7 +153,7 @@ INSERT INTO `inv_ict` (`inv_id`, `inv_no`, `employee_id`, `item_name`, `specs`, 
 CREATE TABLE `office` (
   `office_id` int(55) NOT NULL,
   `office_name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `office`
@@ -185,7 +184,7 @@ CREATE TABLE `position` (
   `position_id` int(55) NOT NULL,
   `position_name` varchar(250) NOT NULL,
   `position_desc` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `position`
@@ -214,7 +213,7 @@ INSERT INTO `position` (`position_id`, `position_name`, `position_desc`) VALUES
 CREATE TABLE `role` (
   `role_id` int(55) NOT NULL,
   `role_desc` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `role`
