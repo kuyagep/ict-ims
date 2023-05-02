@@ -119,14 +119,14 @@ $view = mysqli_fetch_array($query);
                                 <label for="date_inspection" class="col-sm-3 col-form-label">Date of Ins.</label>
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" name="date_inspection" id="date_inspection""
-                                        value=" <?php echo $view['date_inspection']; ?>">
+                                        value=" <?php echo date('Y-m-d',strtotime($view['date_inspection']));?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inspected_by" class="col-sm-3 col-form-label">Inspected by</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="inspected_by"
-                                        value="<?php echo $view['inspected_by']; ?>">
+                                        value="<?php echo $view['inspected_by']; ?>" required>
                                 </div>
                             </div>
                         </div>
