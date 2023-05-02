@@ -108,11 +108,11 @@
 
             
             // if (isset($_GET['s']) || isset($_GET['c']) || isset($_GET['e'])) {
-                if(isset($_GET['c'])){
-                    $s_category = $_GET['c'];
-                }else{
-                    $s_category = '';
-                }
+                // if(isset($_GET['c'])){
+                //     $s_category = $_GET['c'];
+                // }else{
+                //     $s_category = '';
+                // }
            
             //     // $s_office = $_GET['o'];
             //     $s_employee = !empty($_GET['e']);

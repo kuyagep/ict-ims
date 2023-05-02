@@ -2,6 +2,7 @@
     include('../../../conf/config.php');
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $end_user = validate($_POST["end_user"]);
+        $item_name = validate($_POST["item_name"]);
         $specs = validate($_POST["specs"]);
         $quantity = validate($_POST["quantity"]);
         $price = validate($_POST["price"]);
