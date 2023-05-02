@@ -115,11 +115,13 @@ $view = mysqli_fetch_array($query);
                                     </select>
                                 </div>
                             </div>
+                           
                             <div class="form-group row">
                                 <label for="date_inspection" class="col-sm-3 col-form-label">Date of Ins.</label>
+                               <?php $dt = new DateTime($view['date_inspection']); ?>
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" name="date_inspection" id="date_inspection""
-                                        value=" <?php echo date('Y-m-d',strtotime($view['date_inspection']));?>" required>
+                                        value=" <?php echo $view['date_inspection'];?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
