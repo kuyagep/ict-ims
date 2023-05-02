@@ -132,7 +132,7 @@ $view = mysqli_fetch_array($query);
                             cellspacing="0">
                             <thead class=" thead-dark">
                             <tr>
-                                <th>Inventory No</th>
+                                <th>Item Classification</th>
                                 <th>Office Name</th>
                                 <th>Item Name</th>
                                 <th>Specs</th>

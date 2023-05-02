@@ -13,8 +13,8 @@
 
 
 
-        $query=mysqli_query($con,"INSERT INTO `inv_ict`(`employee_id`, `specs`, `quantity`, `price`, `serial_no`, `date_acquired`, `category_id`, `date_inspection`, `inspected_by`) 
-                                  VALUES ('".$end_user."','".$specs."','".$quantity."','".$price."','".$serial_no."','".$date_acquired."','".$category."','".$date_inspection."','".$inspected_by."')" );
+        $query=mysqli_query($con,"INSERT INTO `inv_ict`(`employee_id`, `item_name`, `specs`, `quantity`, `price`, `serial_no`, `date_acquired`, `category_id`, `date_inspection`, `inspected_by`) 
+                                  VALUES ('".$end_user."','".$item_name."','".$specs."','".$quantity."','".$price."','".$serial_no."','".$date_acquired."','".$category."','".$date_inspection."','".$inspected_by."')" );
    
         header("location: ../../index.php?page=inventory&d=1");
       }

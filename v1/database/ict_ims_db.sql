@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2023 at 08:00 AM
+-- Generation Time: May 02, 2023 at 09:13 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -37,10 +37,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
-(1, 'ICT Equipment'),
-(2, 'Goods & Services'),
-(3, 'Laptop'),
-(4, 'Consumables');
+(5, 'Laptop'),
+(6, 'Desktop'),
+(7, 'Tablet'),
+(8, 'Others');
 
 -- --------------------------------------------------------
 
@@ -118,12 +118,12 @@ INSERT INTO `employee` (`employee_id`, `picture`, `firstname`, `middlename`, `la
 
 CREATE TABLE `inv_ict` (
   `inv_id` int(11) NOT NULL,
-  `inv_no` varchar(250) NOT NULL,
   `employee_id` int(11) NOT NULL,
-  `item_name` varchar(250) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
   `specs` varchar(255) NOT NULL,
-  `amount` int(250) NOT NULL,
+  `quantity` int(250) NOT NULL,
   `serial_no` varchar(250) NOT NULL,
+  `price` int(11) NOT NULL,
   `date_acquired` date NOT NULL,
   `category_id` int(11) NOT NULL,
   `date_inspection` date NOT NULL,
@@ -137,13 +137,8 @@ CREATE TABLE `inv_ict` (
 -- Dumping data for table `inv_ict`
 --
 
-INSERT INTO `inv_ict` (`inv_id`, `inv_no`, `employee_id`, `item_name`, `specs`, `amount`, `serial_no`, `date_acquired`, `category_id`, `date_inspection`, `inspected_by`, `created_at`, `deleted`, `updated_at`) VALUES
-(1, 'SDFGHJKL4567GHJK', 79, 'Laptop', 'Core i7', 45000, 'FGHJ87LY', '2023-03-18', 1, '2023-03-18', 'ARIEL VILLAREAL', '2023-03-18 04:14:34', 0, '0000-00-00 00:00:00'),
-(2, 'SDFGHJKL45', 81, 'laptop', 'SAMPLE', 45000, 'ERTYUIO', '2023-03-18', 1, '2023-03-18', 'ARIEL VILLAREAL', '2023-03-18 04:23:06', 0, '0000-00-00 00:00:00'),
-(3, 'FYUG', 82, 'Printer', 'WERTYUIO', 7000, 'HGFDSDF', '2023-03-18', 1, '2023-03-18', 'ARIEL VILLAREAL', '2023-03-18 04:37:48', 1, '0000-00-00 00:00:00'),
-(4, 'FYUG1234', 82, 'Laptop', 'sample specs', 2000, 'FGHJ87LY', '2023-03-19', 2, '2023-03-19', 'ARIEL VILLAREAL', '2023-03-19 10:27:04', 1, '0000-00-00 00:00:00'),
-(5, 'ASD12DS', 94, 'Tablet', '64 GB', 3000, 'LKJHGFDSTYU5432', '2023-03-19', 2, '2023-03-19', 'ARIEL VILLAREAL', '2023-03-19 13:41:27', 1, '0000-00-00 00:00:00'),
-(6, 'FYUG64', 81, 'Tablet', '128GB', 5000, '3456GGGG', '2023-03-19', 2, '2023-03-19', 'ARIEL VILLAREAL', '2023-03-19 13:55:24', 1, '0000-00-00 00:00:00');
+INSERT INTO `inv_ict` (`inv_id`, `employee_id`, `item_name`, `specs`, `quantity`, `serial_no`, `price`, `date_acquired`, `category_id`, `date_inspection`, `inspected_by`, `created_at`, `deleted`, `updated_at`) VALUES
+(17, 82, 'Acer', 'sample', 7, '1232dew123', 32, '2023-05-02', 8, '2023-05-02', 'Maning', '2023-05-02 06:51:45', 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -280,13 +275,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `category_id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `inv_ict`
 --
 ALTER TABLE `inv_ict`
-  MODIFY `inv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `inv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `office`
