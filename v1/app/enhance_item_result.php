@@ -129,10 +129,10 @@ $view = mysqli_fetch_array($query);
                     <div class="card-body">
 
                         <table id="dataTable" class="table table-hover table-responsive" width="100%"
-                            cellspacing="0"">
+                            cellspacing="0">
                             <thead class=" thead-dark">
                             <tr>
-                                <th>Inventory No</th>
+                                <th>Item Classification</th>
                                 <th>Office Name</th>
                                 <th>Item Name</th>
                                 <th>Specs</th>

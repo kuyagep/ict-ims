@@ -44,15 +44,15 @@
                             cellspacing="0">
                             <thead >
                             <tr>
-                                <th>INVENTORY NO</th>
+                                <th>ITEM CLASS</th>
                                 <th>OFFICE</th>
                                 <th>END USER</th>
                                 <th>ITEM NAME</th>
-                                <th>SPECS</th>
-                                <th>AMOUNT</th>
-                                <th>S/N</th>
+                                <th>SPECIFICATIONS</th>
+                                <th>UNIT PRICE</th>
+                                <th>QUANTITY</th>
+                                <th>SERIAL</th>
                                 <th>DATE ACQUIRED</th>
-                                <th>CLASSIFICATION</th>
                                 <th>DATE OF INSPECTION</th>
                                 <th>INSPECTED BY</th>
                                 <th style='width: 100px;'>ACTION</th>
@@ -62,11 +62,11 @@
                            
                                 <?php
                                 //SELECT inv_ict.particulars FROM inv_ict INNER JOIN employee ON `employee`.`office_id`=inv_ict.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=inv_ict.pcategory_id ORDER BY `inv_ict`.`updated_at` DESC;
-                                $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`inv_ict`.`inv_no`, `office`.`office_name`, `employee`.`firstname`, `employee`.`lastname`, 
-                                `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
+                                $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`, `office`.`office_name`, `employee`.`firstname`, `employee`.`lastname`, 
+                                `inv_ict`.`item_name`,`inv_ict`.`specs`, `inv_ict`.`price`, `inv_ict`.`quantity`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
                                 `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`
                                 FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
-                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE deleted != 0  ORDER BY `inv_ict`.`updated_at` DESC;");
+                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE deleted != 0  ORDER BY `inv_ict`.`inv_id` DESC;");
                                 $count=1;
                                 $rowCount = mysqli_num_rows($result);
                                 if($rowCount > 0){
@@ -74,17 +74,15 @@
                                          $id=$row['inv_id'];
                                          ?>
                                 <tr>
-                                    <td style='width: 100px;'><?php echo $row['inv_no']; ?></td>
+                                    <td style='width: 100px;'><?php echo $row['category_name']; ?></td>
                                     <td style='width: 100px;'><?php echo $row['office_name']; ?></td>
                                     <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
                                     <td><?php echo $row['item_name']; ?></td>
                                     <td><?php echo $row['specs']; ?></td>
-                                    <td><?php 
-                                    echo number_format($row['amount'], 2);
-                                    ?></td>
+                                    <td><?php echo $row['quantity'];?></td>
                                     <td><?php echo $row['serial_no']; ?></td>
+                                    <td><?php echo number_format($row['price'], 2); ?></td>
                                     <td><?php echo $row['date_acquired']; ?></td>
-                                    <td><?php echo $row['category_name']; ?></td>
 
                                     <td><?php echo $row['date_inspection']; ?></td>
                                     <td><?php echo $row['inspected_by']; ?></td>

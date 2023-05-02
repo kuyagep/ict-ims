@@ -32,12 +32,11 @@
                                     </select>
                                 </div>
                             </div> -->
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
-                                <label>Item Category:</label>
+                                <label>Item Classification:</label>
                                 <select class="select2 form-control" id="category" name="category">
-                                    <option selected>Choose Classification...
-                                    <option value="" class="text-muted" selected>Choose Category...</option>
+                                    <option value="" class="text-muted" selected>Select...</option>
                                     <?php
                                                 $result = mysqli_query($con,"SELECT * FROM category;");
                                                 $rowCount = mysqli_num_rows($result);
@@ -52,11 +51,11 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label>Office:</label>
                                 <select class="select2 form-control" id="office" name="office">
-                                    <option value="" class="text-muted" selected>Choose Office...</option>
+                                    <option value="" class="text-muted" selected>Select...</option>
                                     <?php
                                                 $result = mysqli_query($con,"SELECT * FROM office;");
                                                 $rowCount = mysqli_num_rows($result);
@@ -71,11 +70,11 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label>End User:</label>
                                 <select class="select2 form-control" id="end_user" name="end_user">
-                                    <option value="" class="text-muted" selected>Choose Employee...</option>
+                                    <option value="" class="text-muted" selected>Select...</option>
                                     <?php
                                                 $result = mysqli_query($con,"SELECT * FROM employee where division_id !=0;");
                                                 $rowCount = mysqli_num_rows($result);
@@ -87,15 +86,6 @@
                                     <?php   }
                                                 }
                                             ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <label>Sort Order:</label>
-                                <select class="select2 form-control" style="width: 100%;">
-                                    <option selected>ASC</option>
-                                    <option>DESC</option>
                                 </select>
                             </div>
                         </div>
@@ -137,8 +127,8 @@
             //     $s_employee = !empty($_GET['e']);
             //     $s_search = !empty($_GET['e']);
                     $s_search = $_GET['s'];
-                $query = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`inv_ict`.`inv_no`, `office`.`office_name`,`employee`.`employee_id`, `employee`.`firstname`, `employee`.`lastname`, 
-                `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`amount`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
+                $query = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`office`.`office_name`,`employee`.`employee_id`, `employee`.`firstname`, `employee`.`lastname`, 
+                `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`price`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
                 `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`, `inv_ict`.`created_at` FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
 
                 INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE `item_name` LIKE '%$s_search%' OR `firstname` LIKE '%$s_search%' OR `lastname` LIKE '%$s_search%' OR `office_name` LIKE '%$s_search%'  OR `category_name` LIKE '%$s_search%' ");
