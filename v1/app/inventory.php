@@ -77,12 +77,12 @@
                                     <td style='width: 100px;'><?php echo $row['category_name']; ?></td>
                                     <td style='width: 100px;'><?php echo $row['office_name']; ?></td>
                                     <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
+                                    <td><?php echo $row['item_name']; ?></td>
                                     <td><?php echo $row['specs']; ?></td>
+                                    <td><?php echo number_format($row['price'], 2); ?></td>
                                     <td><?php echo $row['quantity'];?></td>
                                     <td><?php echo $row['serial_no']; ?></td>
-                                    <td><?php echo number_format($row['price'], 2); ?></td>
                                     <td><?php echo $row['date_acquired']; ?></td>
-
                                     <td><?php echo $row['date_inspection']; ?></td>
                                     <td><?php echo $row['inspected_by']; ?></td>
                                     <td style='width: 100px;'>
