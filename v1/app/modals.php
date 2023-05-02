@@ -25,7 +25,7 @@
 
 <!-- Add Purchase Order -->
 <div class="modal fade" id="add-purchase-order" data-backdrop="static" data-keyboard="true" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form class="form-horizontal" action="action/admin/add-inventory.php" method="POST">
                 <div class="modal-header">
@@ -36,17 +36,29 @@
                 </div>
                 <div class="modal-body">
 
-                    <!-- form -->
                     <div class="form-group row">
-                        <label for="pr" class="col-sm-3 col-form-label">Inv. No. <span class="text-danger">
-                                *</span> </label>
+                        <label for="category" class="col-sm-3 col-form-label"> Item Classification <span class="text-danger">
+                                *</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inv_no" name="inv_no"
-                                placeholder="Enter Inventory Number" required>
+                            <select class="custom-select" id="category" name="category" required>
+                                <option value="" class="text-muted" selected>Choose Classification...</option>
+                                <?php
+                                $result = mysqli_query($con,"SELECT * FROM category;");
+                                $rowCount = mysqli_num_rows($result);
+                                if($rowCount > 0){
+                                    while($row = mysqli_fetch_assoc($result)){ ?>
+                                <option value="<?php echo $row['category_id']; ?>">
+                                    <?php echo $row['category_name']; ?>
+                                </option>
+
+                                <?php   }
+                                }
+                            ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="end_user" class="col-sm-3 col-form-label">End User <span class="text-danger">
+                        <label for="end_user" class="col-sm-3 col-form-label">End User<span class="text-danger">
                                 *</span></label>
                         <div class="col-sm-9">
                             <select class="custom-select" id="end_user" name="end_user" required>
@@ -75,7 +87,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="specs" class="col-sm-3 col-form-label">Specs. <span class="text-danger">
+                        <label for="specs" class="col-sm-3 col-form-label">Specifications <span class="text-danger">
                                 *</span></label>
                         <div class="col-sm-9">
                             <textarea class="form-control" name="specs" placeholder="Enter Specifications" id="specs"
@@ -83,51 +95,38 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="amount" class="col-sm-3 col-form-label">Amount <span class="text-danger">
+                        <label for="quantity" class="col-sm-3 col-form-label">Item Quantity <span class="text-danger">
                                 *</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter Amount"
+                            <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity"
                                 required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="serial_no" class="col-sm-3 col-form-label">Serial No. <span class="text-danger">
+                        <label for="serial_no" class="col-sm-3 col-form-label">Device Serial <span class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="serial_no" name="serial_no"
+                            <input type="text" class="form-control" id="serial_n    o" name="serial_no"
                                 placeholder="Enter Serial Number" required>
                         </div>
                     </div>
+                        <div class="form-group row">
+                        <label for="serial_no" class="col-sm-3 col-form-label">Unit Price <span class="text-danger">
+                                *</span> </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="price    o" name="price"
+                                placeholder="Enter Amount" required>
+                        </div>
+                    </div>
                     <div class="form-group row">
-                        <label for="date_acquired" class="col-sm-3 col-form-label">Date Acq. <span class="text-danger">
+                        <label for="date_acquired" class="col-sm-3 col-form-label">Date Acquired <span class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">
                             <input type="date" class="form-control" id="date_acquired" name="date_acquired" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="category" class="col-sm-3 col-form-label">Classification <span class="text-danger">
-                                *</span></label>
-                        <div class="col-sm-9">
-                            <select class="custom-select" id="category" name="category" required>
-                                <option value="" class="text-muted" selected>Choose Classification...</option>
-                                <?php
-                                $result = mysqli_query($con,"SELECT * FROM category;");
-                                $rowCount = mysqli_num_rows($result);
-                                if($rowCount > 0){
-                                    while($row = mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo $row['category_id']; ?>">
-                                    <?php echo $row['category_name']; ?>
-                                </option>
-
-                                <?php   }
-                                }
-                            ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="date_inspection" class="col-sm-3 col-form-label">Date of Ins. <span
+                        <label for="date_inspection" class="col-sm-3 col-form-label">Date of Inspection <span
                                 class="text-danger">
                                 *</span> </label>
                         <div class="col-sm-9">

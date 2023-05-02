@@ -28,69 +28,18 @@
                                 <h3>
 
                                     <?php
-                                            $sql = "SELECT * from inv_ict";
+                                            $sql = "SELECT * from inv_ict WHERE category_id = 5";
+                                            $quantity = 0;
                                             if ($result = mysqli_query($con, $sql)) {
                                                 // Return the number of rows in result set
-                                                $rowcount = mysqli_num_rows( $result );
-                                                echo $rowcount;
+                                                while($row = mysqli_fetch_assoc($result)){
+                                                    $quantity = $quantity + $row['quantity'];
+                                                }
+                                                echo $quantity;
                                             }
                                     ?>
                                 </h3>
 
-                                <p>Laptop</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fas fa-laptop"></i>
-                            </div>
-                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-md-3">
-                        <!-- small box -->
-                        <div class="small-box info-box mb-3 bg-success">
-                            <div class="inner">
-                                <h3>
-                                    <?php 
-                     $result = mysqli_query($con,"SELECT * FROM inv_ict;");
-                     $rowCount = mysqli_num_rows($result);
-                     if($rowCount > 0){
-                        $count=0;
-                        $delivered=0;
-                         while($row = mysqli_fetch_assoc($result)){
-                            if($row['deleted'] == 1){
-                                $delivered++;
-                            }
-                            $count++;
-                         }
-                    }
-                    $cal =  ($delivered/$count)*100;
-                    echo  number_format($cal,2).'% ';
-                ?>
-                                    <sup style="font-size: 20px"></sup>
-                                </h3>
-
-                                <p>Tablet</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fas fa-solid fa-tablet"></i>
-                            </div>
-                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-md-3">
-                        <!-- small box -->
-                        <div class="small-box info-box mb-3 bg-danger">
-                            <div class="inner">
-                                <h3><?php
-                                            $sql = "SELECT * from employee WHERE division_id != 0";
-                                            if ($result = mysqli_query($con, $sql)) {
-                                                // Return the number of rows in result set
-                                                $rowcount = mysqli_num_rows( $result );
-                                                echo $rowcount;
-                                            }
-                                    ?></h3>
                                 <p>PC</p>
                             </div>
                             <div class="icon">
@@ -102,18 +51,70 @@
                     <!-- ./col -->
                     <div class="col-md-3">
                         <!-- small box -->
+                        <div class="small-box info-box mb-3 bg-success">
+                            <div class="inner">
+                                <h3> 
+                      <?php
+                      $sql = "SELECT * from inv_ict WHERE category_id = 7";
+                      $quantity = 0;
+                      if ($result = mysqli_query($con, $sql)) {
+                          // Return the number of rows in result set
+                          while($row = mysqli_fetch_assoc($result)){
+                              $quantity = $quantity + $row['quantity'];
+                          }
+                          echo $quantity;
+                      }
+              ?>
+                                    <sup style="font-size: 20px"></sup>
+                                </h3>
+
+                                <p>Laptop</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-solid fa-laptop"></i>
+                            </div>
+                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-md-3">
+                        <!-- small box -->
+                        <div class="small-box info-box mb-3 bg-danger">
+                            <div class="inner">
+                                <h3> <?php
+                                            $sql = "SELECT * from inv_ict WHERE category_id = 6";
+                                            $quantity = 0;
+                                            if ($result = mysqli_query($con, $sql)) {
+                                                // Return the number of rows in result set
+                                                while($row = mysqli_fetch_assoc($result)){
+                                                    $quantity = $quantity + $row['quantity'];
+                                                }
+                                                echo $quantity;
+                                            }
+                                    ?></h3>
+                                <p>Tablet</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-sharp fa-solid fa-tablet"></i>
+                            </div>
+                            <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-md-3">
+                        <!-- small box -->
                         <div class="small-box  info-box mb-3 bg-info">
                             <div class="inner">
                                 <h3>
-                                    <?php
-                                            $sql = "SELECT * from inv_ict";
-                                            $amount = 0;
+                                <?php
+                                            $sql = "SELECT * from inv_ict WHERE category_id = 8";
+                                            $quantity = 0;
                                             if ($result = mysqli_query($con, $sql)) {
                                                 // Return the number of rows in result set
-                                               while($row = mysqli_fetch_assoc($result)){
-                                                    $amount = $amount + $row['amount'];
+                                                while($row = mysqli_fetch_assoc($result)){
+                                                    $quantity = $quantity + $row['quantity'];
                                                 }
-                                                echo number_format($amount,2);
+                                                echo $quantity;
                                             }
                                     ?>
                                 </h3>
