@@ -35,13 +35,7 @@ $view = mysqli_fetch_array($query);
                         <div class="card-body">
 
                             <input type="hidden" name="id" value="<?php echo $view['inv_id']; ?>">
-                            <div class="form-group row">
-                                <label for="inv_no" class="col-sm-3 col-form-label">Inv. No.</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="inv_no" id="inv_no"
-                                        value="<?php echo $view['inv_no']; ?>">
-                                </div>
-                            </div>
+                            
                             <div class="form-group row">
                                 <label for="end_user" class="col-sm-3 col-form-label">End User</label>
                                 <div class="col-sm-9">
@@ -79,10 +73,10 @@ $view = mysqli_fetch_array($query);
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="amount" class="col-sm-3 col-form-label">Amount</label>
+                                <label for="price" class="col-sm-3 col-form-label">Price</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="amount" id="amount""
-                                        value=" <?php echo $view['amount']; ?>">
+                                    <input type="text" class="form-control" name="price" id="price""
+                                        value=" <?php echo $view['price']; ?>">
                                 </div>
                             </div>
                             <div class="form-group row">

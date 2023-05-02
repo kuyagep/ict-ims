@@ -21,17 +21,8 @@
         <form action="action/admin/search_result.php" method="post">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
-                    <div class="row">
-                        <!-- <div class="col-6">
-                                <div class="form-group">
-                                    <label>Result Type:</label>
-                                    <select class="form-control" multiple="multiple" data-placeholder="Any" style="width: 100%;">
-                                        <option>Text only</option>
-                                        <option>Images</option>
-                                        <option>Video</option>
-                                    </select>
-                                </div>
-                            </div> -->
+                    <!-- <div class="row">
+                        
                         <div class="col-4">
                             <div class="form-group">
                                 <label>Item Classification:</label>
@@ -89,7 +80,7 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <div class="input-group input-group-lg">
                             <input type="search" class="form-control form-control-lg"

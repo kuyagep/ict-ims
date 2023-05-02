@@ -8,7 +8,7 @@
                 <span class="aui-avatar-inner">
                     <?php 
                                 if($_SESSION['session_picture']==""){
-                                    $img = "default2-1-1.jpg";
+                                    $img = "user1-128x128.jpg";
                                 }else{
                                     $img = $_SESSION['session_picture'];
                                 }
