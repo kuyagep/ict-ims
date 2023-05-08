@@ -90,7 +90,7 @@ $view = mysqli_fetch_array($query);
                                 <label for="date_acquired" class="col-sm-3 col-form-label">Date Acquired</label>
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" name="date_acquired" id="date_acquired"
-                                        value=" <?php echo $view['date_acquired']; ?>">
+                                        value=" <?php echo $view['date_acquired']; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -118,7 +118,6 @@ $view = mysqli_fetch_array($query);
                            
                             <div class="form-group row">
                                 <label for="date_inspection" class="col-sm-3 col-form-label">Date of Ins.</label>
-                               <?php $dt = new DateTime($view['date_inspection']); ?>
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" name="date_inspection" id="date_inspection"
                                         value=" <?php echo $view['date_inspection'];?>" required>
