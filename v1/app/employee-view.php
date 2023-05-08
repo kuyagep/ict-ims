@@ -116,17 +116,17 @@ $view = mysqli_fetch_array($query);
                     <div class="card-body">
 
                         <table id="dataTable" class="table table-hover " width="100%"
-                            cellspacing="0"">
+                            cellspacing="0">
                             <thead class=" thead-dark">
                             <tr>
                                 <!-- <th>Inventory No</th> -->
-                                <th>Office Name</th>
+                                <!-- <th>Office Name</th> -->
                                 <th>Item Name</th>
-                                <th>Specs</th>
-                                <th>Amount</th>
+                                <th>Specifications</th>
+                                <th>Unit Price</th>
                                 <th>Serial No.</th>
                                 <th>Date Acquired</th>
-                                <th>Category</th>
+                                <th>Item Category</th>
                                 <th>Inspected by</th>
                                 <!-- <th>Action</th> -->
                             </tr>
@@ -146,7 +146,6 @@ $view = mysqli_fetch_array($query);
                                          ?>
                                 <tr>
                                     
-                                    <td><?php echo $row['office_name']; ?></td>
                                     <td><?php echo $row['item_name']; ?></td>
                                     <td><?php echo $row['specs']; ?></td>
                                     <td><?php 
