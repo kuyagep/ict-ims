@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 08:44 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- Generation Time: May 02, 2023 at 09:13 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,19 +29,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `category_id` int(55) NOT NULL,
-  `category_name` varchar(250) NOT NULL,
-  `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `category_name` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`category_id`, `category_name`, `quantity`) VALUES
-(5, 'Laptop', 0),
-(6, 'Desktop', 0),
-(7, 'Tablet', 0),
-(8, 'Others', 0);
+INSERT INTO `category` (`category_id`, `category_name`) VALUES
+(5, 'Laptop'),
+(6, 'Desktop'),
+(7, 'Tablet'),
+(8, 'Others');
 
 -- --------------------------------------------------------
 
@@ -52,7 +51,7 @@ INSERT INTO `category` (`category_id`, `category_name`, `quantity`) VALUES
 CREATE TABLE `division` (
   `division_id` int(11) NOT NULL,
   `division_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `division`
@@ -84,7 +83,7 @@ CREATE TABLE `employee` (
   `password` varchar(250) NOT NULL,
   `role_id` int(55) NOT NULL,
   `added_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
@@ -132,7 +131,7 @@ CREATE TABLE `inv_ict` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted` tinyint(4) NOT NULL DEFAULT 1,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `inv_ict`
@@ -150,7 +149,7 @@ INSERT INTO `inv_ict` (`inv_id`, `employee_id`, `item_name`, `specs`, `quantity`
 CREATE TABLE `office` (
   `office_id` int(55) NOT NULL,
   `office_name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `office`
@@ -181,7 +180,7 @@ CREATE TABLE `position` (
   `position_id` int(55) NOT NULL,
   `position_name` varchar(250) NOT NULL,
   `position_desc` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `position`
@@ -210,7 +209,7 @@ INSERT INTO `position` (`position_id`, `position_name`, `position_desc`) VALUES
 CREATE TABLE `role` (
   `role_id` int(55) NOT NULL,
   `role_desc` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `role`
