@@ -81,7 +81,7 @@
                         class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "category"){ echo 'active'; } ?>">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
-                            Classification
+                            Item Category
                         </p>
                     </a>
                 </li>
