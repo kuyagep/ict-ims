@@ -37,8 +37,7 @@
                 <div class="modal-body">
 
                     <div class="form-group row">
-                        <label for="category" class="col-sm-3 col-form-label"> Item Classification <span class="text-danger">
-                                *</span></label>
+                        <label for="category" class="col-sm-3 col-form-label"> Item Classification</label>
                         <div class="col-sm-9">
                             <select class="custom-select" id="category" name="category" required>
                                 <option value="" class="text-muted" selected>Choose Classification...</option>
@@ -58,8 +57,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="end_user" class="col-sm-3 col-form-label">End User<span class="text-danger">
-                                *</span></label>
+                        <label for="end_user" class="col-sm-3 col-form-label">End User</label>
                         <div class="col-sm-9">
                             <select class="custom-select" id="end_user" name="end_user" required>
                                 <option value="" class="text-muted" selected>Choose Employee...</option>
@@ -79,68 +77,57 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="item_name" class="col-sm-3 col-form-label">Item Name <span class="text-danger">
-                                *</span> </label>
+                        <label for="item_name" class="col-sm-3 col-form-label">Item Name</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="item_name" name="item_name"
                                 placeholder="Enter Item Name" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="specs" class="col-sm-3 col-form-label">Specifications <span class="text-danger">
-                                *</span></label>
+                        <label for="specs" class="col-sm-3 col-form-label">Specifications</label>
                         <div class="col-sm-9">
                             <textarea class="form-control" name="specs" placeholder="Enter Specifications" id="specs"
                                 value="" required></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="quantity" class="col-sm-3 col-form-label">Item Quantity <span class="text-danger">
-                                *</span></label>
+                        <label for="quantity" class="col-sm-3 col-form-label">Item Quantity</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity"
-                                required>
+                            required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="serial_no" class="col-sm-3 col-form-label">Device Serial <span class="text-danger">
-                                *</span> </label>
+                        <label for="serial_no" class="col-sm-3 col-form-label">Device Serial</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="serial_n    o" name="serial_no"
-                                placeholder="Enter Serial Number" required>
+                                placeholder="Enter Serial Number">
                         </div>
                     </div>
                         <div class="form-group row">
-                        <label for="serial_no" class="col-sm-3 col-form-label">Unit Price <span class="text-danger">
-                                *</span> </label>
+                        <label for="serial_no" class="col-sm-3 col-form-label">Unit Price</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="price    o" name="price"
-                                placeholder="Enter Amount" required>
+                                placeholder="Enter Amount">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="date_acquired" class="col-sm-3 col-form-label">Date Acquired <span class="text-danger">
-                                *</span> </label>
+                        <label for="date_acquired" class="col-sm-3 col-form-label">Date Acquired</label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" id="date_acquired" name="date_acquired" required>
+                            <input type="date" class="form-control" id="date_acquired" name="date_acquired">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="date_inspection" class="col-sm-3 col-form-label">Date of Inspection <span
-                                class="text-danger">
-                                *</span> </label>
+                        <label for="date_inspection" class="col-sm-3 col-form-label">Date of Inspection</label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" id="date_inspection" name="date_inspection"
-                                required>
+                            <input type="date" class="form-control" id="date_inspection" name="date_inspection">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inspected_by" class="col-sm-3 col-form-label">Inspected by <span
-                                class="text-danger">
-                                *</span> </label>
+                        <label for="inspected_by" class="col-sm-3 col-form-label">Inspected by</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="inspected_by" name="inspected_by"
-                                placeholder="Inspected By" required>
+                                placeholder="Inspected By">
                         </div>
                     </div>
                     <div class="modal-footer justify-content-right">
