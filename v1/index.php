@@ -71,7 +71,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
         <div class="login-box">
             <!-- /.login-logo -->
             <div class="login-logo mb-2">
-                <img src="app/dist/img/division.png" alt="" style="width: 100px; height: 100px;"">
+                <img src="app/dist/img/division.png" alt="" style="width: 100px; height: 100px;">
             </div>
             <div class=" text-center mb-3">
                 <a href="index" class="h1 text-white" style="text-decoration: none;"><b>ICT - IMS
@@ -84,10 +84,6 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
 
                     <p class="text-center text-dark">Login to start your session<br>
-                    <i>
-                        username: admin@gmail.com <br>
-                        password: 123456 </i>
-                    </p>
                     <!-- Alert when login error -->
                     <hr>
                     <?php 
@@ -111,7 +107,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                             </div>
                         </div>
                         <div class="input-group mb-3 input-group">
-                            <input type="password" class="form-control" placeholder="Enter password" name="password" autocomplete required>
+                            <input type="password" class="form-control" placeholder="Enter password" name="password">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>

@@ -98,7 +98,7 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Position</th>
-                                <th>Descriptiom</th>
+                                <th>Description</th>
                                 <th>Action</th>
                             </tr>
                             </thead>

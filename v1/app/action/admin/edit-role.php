@@ -28,7 +28,7 @@
 $view = mysqli_fetch_array($query);
 ?>
 
-<section ">
+<section>
 <!-- style=" background-color: #eee; -->
     <div class="container py-5">
         <form action="action/admin/update-role.php" method="POST" enctype="multipart/form-data">

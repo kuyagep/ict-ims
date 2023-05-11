@@ -37,23 +37,21 @@
                     </div>
                     <!-- form -->
                     <div class="form-group row">
-                        <label for="firstname" class="col-sm-3 col-form-label">Firstname <span class="text-danger">
-                                *</span> </label>
+                        <label for="firstname" class="col-sm-3 col-form-label">Firstname</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="firstname" name="firstname"
                                 placeholder="Firstname" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="middlename" class="col-sm-3 col-form-label">M.N.</label>
+                        <label for="middlename" class="col-sm-3 col-form-label">Middlename</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="middlename" name="middlename"
                                 placeholder="Middlename">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="lastname" class="col-sm-3 col-form-label">Lastname <span class="text-danger">
-                                *</span></label>
+                        <label for="lastname" class="col-sm-3 col-form-label">Lastname</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Lastname"
                                 required>
@@ -67,16 +65,14 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="email" class="col-sm-3 col-form-label">Email <span class="text-danger">
-                                *</span></label>
+                        <label for="email" class="col-sm-3 col-form-label">Email</label>
                         <div class="col-sm-9">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email"
                                 required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="position" class="col-sm-3 col-form-label">Position <span class="text-danger">
-                                *</span></label>
+                        <label for="position" class="col-sm-3 col-form-label">Position</label>
                         <div class="col-sm-9">
                             <select class="custom-select" id="position" name="position" required>
                                 <option value="" selected>Choose Position...</option>
@@ -96,8 +92,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="division" class="col-sm-3 col-form-label">Division <span class="text-danger">
-                                *</span></label>
+                        <label for="division" class="col-sm-3 col-form-label">Division</label>
                         <div class="col-sm-9">
                             <select class="custom-select" id="division" name="division" required>
                                 <option value="" selected>Choose Division...</option>
@@ -117,8 +112,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="office" class="col-sm-3 col-form-label">Office <span class="text-danger">
-                                *</span></label>
+                        <label for="office" class="col-sm-3 col-form-label">Office</label>
                         <div class="col-sm-9">
                             <select class="custom-select" id="office" name="office" required>
                                 <option value="" selected>Choose Office...</option>
@@ -138,8 +132,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="role" class="col-sm-3 col-form-label">Role <span class="text-danger">
-                                *</span></label>
+                        <label for="role" class="col-sm-3 col-form-label">Role</label>
                         <div class="col-sm-9">
                             <select class="custom-select" id="role" name="role" required>
                                 <option value="" selected>Choose Role...</option>
