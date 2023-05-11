@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Category</h1>
+                <h1 class="m-0">Item Category</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item active">Category</li>
+                    <li class="breadcrumb-item active">Item Category</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -23,7 +23,7 @@
         <div class="modal-content">
             <form class="form-horizontal" action="action/admin/add-category.php" method="POST">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Category</h4>
+                    <h4 class="modal-title">Add New Classification</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -67,7 +67,7 @@
 
                         <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
                             data-target="#addModal"> <i class="fas fa-list"></i>
-                            Add Category
+                            Add New Classification
                         </button>
                     </div>
                     <!-- /.card-header -->
