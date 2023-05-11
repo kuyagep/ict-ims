@@ -62,7 +62,7 @@
 
                 <li class="nav-item">
                     <a href="position" class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "position"){ echo 'active'; } ?>">
-                        <i class="nav-icon fas fa-layer-group"></i>
+                        <i class="fas fa-users nav-icon"></i>
                         <p>
                             Position
                         </p>
