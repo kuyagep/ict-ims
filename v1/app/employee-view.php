@@ -9,13 +9,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Employee</h1>
+                <h1 class="m-0">Employee Profile</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
                     <li class="breadcrumb-item"><a href="employee">Employee</a></li>
-                    <li class="breadcrumb-item active">Edit Employee</li>
+                    <li class="breadcrumb-item active">View Profile</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
