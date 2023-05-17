@@ -29,7 +29,7 @@
 $view = mysqli_fetch_array($query);
 
     if($view['item_image']==""){
-        $img = "default2-1-1.jpg";
+        $img = "default-150x150.png";
     }else{
         $img = $view['item_image'];
     }
@@ -74,7 +74,7 @@ $view = mysqli_fetch_array($query);
                         <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover -->
                         </p>
                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Office:
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-user"></i></span> End User:
 
                                 <?php 
                                 $result = mysqli_query($con,"SELECT * FROM employee;");
@@ -88,17 +88,20 @@ $view = mysqli_fetch_array($query);
                                 }
                             ?>
                             </li>
-                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Contact #:
+                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-hashtag"></i></span> Device Serial:
                                 <?php echo $view['serial_no']; ?>
                             </li>
-                            <li class="small"><span class="fa-li"><i class="fas fa-envelope"></i></span> Email Address:
+                            <li class="small"><span class="fa-li"><i class="fas fa-wrench"></i></span> Specifications:
                                 <?php echo $view['specs']; ?>
+                            </li>
+                            <li class="small"><span class="fa-li"><i class="fas fa-list"></i></span> Quantity:
+                                <?php echo $view['quantity']; ?>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-5 text-center">
-                        <img src="dist/img/users/<?php echo $img; ?>" style="width: 100px;" alt="user-avatar"
-                            class="img-circle img-fluid">
+                    <div class="col-4 text-right">
+                        <img src="dist/img/items/<?php echo $img; ?>" style="width: 150px;" alt="user-avatar"
+                            class="img-fluid">
                     </div>
                 </div>
             </div>
