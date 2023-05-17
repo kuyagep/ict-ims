@@ -55,8 +55,7 @@ $view = mysqli_fetch_array($query);
                         </div> -->
                             <input type="hidden" name="id" value="<?php echo $view['employee_id']; ?>">
                             <div class="form-group row">
-                                <label for="input-file-now-custom-1" class="col-sm-3 col-form-label">Upload
-                                    Profile</label>
+                                <label for="input-file-now-custom-1" class="col-sm-3 col-form-label">Update Photo</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control file-upload" id="customFile"
                                         name="picture" />
@@ -200,7 +199,7 @@ $view = mysqli_fetch_array($query);
                         </div>
                         <div class="card-footer">
                             <button type="submit" name="updateEmployee" class="btn btn-primary float-right ml-3 ">
-                                <i class="fa-regular fa-floppy-disk mr-1"></i> Update </button>
+                                <i class="fa-regular fa-floppy-disk mr-1"></i> Update Profile </button>
                             <!-- <button type="button" class="btn btn-warning float-right ml-3 "> <i
                                     class="fa-solid fa-arrows-rotate mr-1"></i>
                                 Reset Password

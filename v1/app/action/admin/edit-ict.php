@@ -9,7 +9,7 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
                     <li class="breadcrumb-item"><a href="issued-items">Inventory</a></li>
-                    <li class="breadcrumb-item active">View</li>
+                    <li class="breadcrumb-item active">Edit Item</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,12 +30,19 @@ $view = mysqli_fetch_array($query);
                 <div class="col-lg-8">
                     <div class="card mb-4 card-outline card-red">
                         <div class="card-header">
-                            <h3>Edit Inventory</h3>
+                            <h3>Edit Item Profile</h3>
                         </div>
                         <div class="card-body">
 
                             <input type="hidden" name="id" value="<?php echo $view['inv_id']; ?>">
                             
+                            <div class="form-group row">
+                                <label for="input-file-now-custom-1" class="col-sm-3 col-form-label">Item Image</label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control file-upload" id="customFile"
+                                        name="item_image" />
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="end_user" class="col-sm-3 col-form-label">End User</label>
                                 <div class="col-sm-9">
@@ -66,7 +73,7 @@ $view = mysqli_fetch_array($query);
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="specs" class="col-sm-3 col-form-label">Specs</label>
+                                <label for="specs" class="col-sm-3 col-form-label">Specifications</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control" name="specs" placeholder="Enter Specification"
                                         id="specs" value="" rows="" cols=""><?php echo $view['specs']; ?></textarea>
@@ -80,7 +87,7 @@ $view = mysqli_fetch_array($query);
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="serial_no" class="col-sm-3 col-form-label">S/N</label>
+                                <label for="serial_no" class="col-sm-3 col-form-label">Device Serial</label>
                                 <div class="col-sm-9">
                                 <input type="text" class="form-control" name="serial_no" id="serial_no"
                                         value=" <?php echo $view['serial_no']; ?>">
@@ -117,7 +124,7 @@ $view = mysqli_fetch_array($query);
                             </div>
                            
                             <div class="form-group row">
-                                <label for="date_inspection" class="col-sm-3 col-form-label">Date of Ins.</label>
+                                <label for="date_inspection" class="col-sm-3 col-form-label">Date of Inspection</label>
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" name="date_inspection" id="date_inspection"
                                         value=" <?php echo $view['date_inspection'];?>" required>

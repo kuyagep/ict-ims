@@ -12,6 +12,10 @@ include('../../../conf/config.php');
     $category = validate($_POST["category"]);
     $date_inspection = validate($_POST["date_inspection"]);
     $inspected_by = validate($_POST["inspected_by"]);
+    $file_name = $_FILES['item_image']['name'];
+
+    $file_temp = $_FILES['item_image']['tmp_name'];
+    move_uploaded_file($file_temp, '../../dist/img/items/'.$file_name);
 
     $query=mysqli_query($con,"UPDATE `inv_ict` SET 
     `inv_id`='".$id."',
@@ -23,8 +27,9 @@ include('../../../conf/config.php');
     `date_acquired`='".$date_acquired."',
     `category_id`='".$category."',
     `date_inspection`='".$date_inspection."', 
-    `inspected_by`='".$inspected_by."' 
-    WHERE  `inv_id`='".$id."'");
+    `inspected_by`='".$inspected_by."',
+    `picture`='".$file_name."
+    `WHERE  `inv_id`='".$id."'");
     header("Location: ../../index.php?page=inventory");
     }
 
