@@ -28,10 +28,10 @@
 
 $view = mysqli_fetch_array($query);
 
-    if($view['picture']==""){
+    if($view['item_image']==""){
         $img = "default2-1-1.jpg";
     }else{
-        $img = $view['picture'];
+        $img = $view['item_image'];
     }
                             
 ?>
