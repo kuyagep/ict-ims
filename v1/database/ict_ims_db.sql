@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2023 at 09:13 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: May 17, 2023 at 10:55 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `category` (
   `category_id` int(55) NOT NULL,
   `category_name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -51,7 +51,7 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 CREATE TABLE `division` (
   `division_id` int(11) NOT NULL,
   `division_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `division`
@@ -83,7 +83,7 @@ CREATE TABLE `employee` (
   `password` varchar(250) NOT NULL,
   `role_id` int(55) NOT NULL,
   `added_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee`
@@ -107,8 +107,8 @@ INSERT INTO `employee` (`employee_id`, `picture`, `firstname`, `middlename`, `la
 (90, '', 'ELYN', 'L.', 'SUPRENTE', '09123456789', 'elyn.suprente@deped.gov.ph', 1, 10, 3, 'elyn.suprente@deped.gov.ph', '$2y$10$b2p13Rw5RkKfK7aPBzRHvuor6yzdMMZ9EEl/g.ID53a31MnmvGrCG', 3, '2023-01-24 15:34:24'),
 (91, '', 'CHRISTINE', 'P.', 'LIMBUJAN', '09123456789', 'christine.limbujan@deped.gov.ph', 1, 10, 3, 'christine.limbujan@deped.gov.ph', '$2y$10$Kz1Wg/ehnkljzioljg17Ue3WODI7nEBGX3s.JJfrQ3znuzkCroprK', 3, '2023-01-24 15:35:24'),
 (92, '', 'Janette', 'G.', 'VELOSO', '09123456789', 'janette.veloso@deped.gov.ph', 1, 15, 1, 'janette.veloso@deped.gov.ph', '$2y$10$oCiDeIYAOkOLF8qKEWUWt.x1UxUjsFS/HGQmLG4J0al7OcXsQKM46', 3, '2023-01-24 15:37:44'),
-(93, '', 'CHEERYLYN', 'C', 'COMETA', '09123456789', 'cheerylyn.cometa@deped.gov.ph', 11, 4, 2, 'cheerylyn.cometa@deped.gov.ph', '$2y$10$VnGQEKr3fy4ppJENPUWzGuhtu7Ea5eU2Uuf7ZZQ4yX.u4l70FVmEe', 3, '2023-01-25 09:23:05'),
-(94, '', 'ROMEO', 'M.', 'YTING', '09123456789', 'romeo.yting@deped.gov.ph', 1, 9, 1, 'romeo.yting@deped.gov.ph', '$2y$10$QSbPEofbYhhxrU8c7ZnXS.pksHzfQrA.wKZKzfKVl82FqKNpE9uJ2', 2, '2023-01-30 15:37:44');
+(93, 'avatar4.png', 'CHEERYLYN', 'C', 'COMETA', '09123456789', 'cheerylyn.cometa@deped.gov.ph', 11, 4, 2, 'cheerylyn.cometa@deped.gov.ph', '$2y$10$VnGQEKr3fy4ppJENPUWzGuhtu7Ea5eU2Uuf7ZZQ4yX.u4l70FVmEe', 3, '2023-01-25 09:23:05'),
+(94, 'avatar.png', 'ROMEO', 'M.', 'YTING', '09123456789', 'romeo.yting@deped.gov.ph', 1, 9, 1, 'romeo.yting@deped.gov.ph', '$2y$10$QSbPEofbYhhxrU8c7ZnXS.pksHzfQrA.wKZKzfKVl82FqKNpE9uJ2', 2, '2023-01-30 15:37:44');
 
 -- --------------------------------------------------------
 
@@ -118,6 +118,7 @@ INSERT INTO `employee` (`employee_id`, `picture`, `firstname`, `middlename`, `la
 
 CREATE TABLE `inv_ict` (
   `inv_id` int(11) NOT NULL,
+  `item_image` varchar(200) NOT NULL,
   `employee_id` int(11) NOT NULL,
   `item_name` varchar(255) NOT NULL,
   `specs` varchar(255) NOT NULL,
@@ -131,14 +132,15 @@ CREATE TABLE `inv_ict` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted` tinyint(4) NOT NULL DEFAULT 1,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `inv_ict`
 --
 
-INSERT INTO `inv_ict` (`inv_id`, `employee_id`, `item_name`, `specs`, `quantity`, `serial_no`, `price`, `date_acquired`, `category_id`, `date_inspection`, `inspected_by`, `created_at`, `deleted`, `updated_at`) VALUES
-(17, 82, 'Acer', 'sample', 7, '1232dew123', 32, '2023-05-02', 8, '2023-05-02', 'Maning', '2023-05-02 06:51:45', 1, '0000-00-00 00:00:00');
+INSERT INTO `inv_ict` (`inv_id`, `item_image`, `employee_id`, `item_name`, `specs`, `quantity`, `serial_no`, `price`, `date_acquired`, `category_id`, `date_inspection`, `inspected_by`, `created_at`, `deleted`, `updated_at`) VALUES
+(17, '', 82, 'Acer', 'sample', 7, '1232dew123', 32, '2023-05-02', 8, '2023-05-02', 'Maning', '2023-05-02 06:51:45', 1, '0000-00-00 00:00:00'),
+(18, '', 83, 'MSI', 'AMD series', 34, 'KBA123P097645', 54900, '2023-06-02', 6, '2023-06-09', 'maning', '2023-05-13 04:28:02', 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -149,7 +151,7 @@ INSERT INTO `inv_ict` (`inv_id`, `employee_id`, `item_name`, `specs`, `quantity`
 CREATE TABLE `office` (
   `office_id` int(55) NOT NULL,
   `office_name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `office`
@@ -180,7 +182,7 @@ CREATE TABLE `position` (
   `position_id` int(55) NOT NULL,
   `position_name` varchar(250) NOT NULL,
   `position_desc` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `position`
@@ -209,7 +211,7 @@ INSERT INTO `position` (`position_id`, `position_name`, `position_desc`) VALUES
 CREATE TABLE `role` (
   `role_id` int(55) NOT NULL,
   `role_desc` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `role`
@@ -281,7 +283,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `inv_ict`
 --
 ALTER TABLE `inv_ict`
-  MODIFY `inv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `inv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `office`
