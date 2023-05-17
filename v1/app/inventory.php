@@ -86,14 +86,17 @@
                                     <td><?php echo $row['date_inspection']; ?></td>
                                     <td><?php echo $row['inspected_by']; ?></td>
                                     <td style='width: 100px;'>
-                                        <a href="index.php?page=ict-edit&id=<?php echo $id; ?>" class="text-primary "
-                                            title="Edit">
-                                            <i class="fas fa-solid fa-pen"></i>
+                                    <a href="index.php?page=item_profile&&id=<?php echo $id; ?>"
+                                     class=" ">
+                                            <i class="fas text-info fa-solid fa-info"></i>
                                         </a>
-
-                                        <a onclick="delete_item('<?php echo $id; ?>')" class="text-danger ml-2"
-                                            title="Delete">
-                                            <i class="fas fa-solid fa-trash"></i></a>
+                                        <a href="index.php?page=ict-edit&id=<?php echo $id; ?>"
+                                         class=" ">
+                                            <i class="fas fa-solid fa-pen text-warning ml-2"></i>
+                                        </a>
+                                        <a onclick="delete_item('<?php echo $id; ?>')"
+                                         class=" ">
+                                            <i class="fas fa-solid fa-trash text-danger ml-2"></i></a>
                                     </td>
 
                                 </tr>
