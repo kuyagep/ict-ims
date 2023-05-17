@@ -18,7 +18,6 @@ include('../../../conf/config.php');
     move_uploaded_file($file_temp, '../../dist/img/items/'.$file_name);
 
     $query=mysqli_query($con,"UPDATE `inv_ict` SET 
-    `inv_id`='".$id."',
     `employee_id`='".$end_user."',
     `item_name`='".$item_name."',
     `specs`='".$specs."',
@@ -28,8 +27,7 @@ include('../../../conf/config.php');
     `category_id`='".$category."',
     `date_inspection`='".$date_inspection."', 
     `inspected_by`='".$inspected_by."',
-    `item_image`='".$file_name."'
-    WHERE  `inv_id`='".$id."'");
+    `item_image`='".$file_name."' WHERE  `inv_id`='".$id."'");
     header("Location: ../../index.php?page=inventory");
     }
 
