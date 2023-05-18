@@ -128,7 +128,7 @@ $view = mysqli_fetch_array($query);
                                 <th>Date Acquired</th>
                                 <th>Item Category</th>
                                 <th>Inspected by</th>
-                                <!-- <th>Action</th> -->
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -160,17 +160,19 @@ $view = mysqli_fetch_array($query);
                                     </td>
                                     <td><?php echo $row['inspected_by']; ?></td>
 
-                                    <!-- <td style='width: 100px;'>
-                                        <a href="index.php?page=pmr-edit&id=<?php echo $id; ?>" class="text-primary "
-                                            title="Edit">
-                                            <i class="fas fa-solid fa-pen"></i>
+                                    <td style='width: 100px;'>
+                                    <a href="index.php?page=item_profile&&id=<?php echo $id; ?>"
+                                     class=" ">
+                                            <i class="fas text-info fa-solid fa-info"></i>
                                         </a>
-
-                                        <a onclick="delete_item('<?php echo $id; ?>')" class="text-danger ml-2"
-                                            title="Delete">
-                                            <i class="fas fa-solid fa-trash"></i></a>
-                                    </td> -->
-
+                                        <a href="index.php?page=ict-edit&id=<?php echo $id; ?>"
+                                         class=" ">
+                                            <i class="fas fa-solid fa-pen text-warning ml-2"></i>
+                                        </a>
+                                        <a onclick="delete_item('<?php echo $id; ?>','<?php echo $idx; ?>')"
+                                         class=" ">
+                                            <i class="fas fa-solid fa-trash text-danger ml-2"></i></a>
+                                    </td>
                                 </tr>
                                 <?php
                                     $count++;
@@ -203,9 +205,8 @@ $view = mysqli_fetch_array($query);
 <script>
 $('.file-upload').file_upload();
 
-function delete_employee(data_id) {
-    //alert('ok');
-    // window.location = ("action/admin/delete-employee.php?id=" + data_id);
+function delete_item(data_id, id) {
+
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this Data!",
@@ -213,18 +214,16 @@ function delete_employee(data_id) {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Yes, delete it!',
+        closeOnConfirm: false,
+        closeOnCancel: false
     }).then((result) => {
         if (result.isConfirmed) {
-
-            window.location = ("action/admin/delete-employee.php?id=" + data_id);
-            // Swal.fire(
-            //             'Deleted!',
-            //             'The data has been deleted.',
-            //             'success'
-            // )
+            window.location = ("action/admin/delete-employee-item.php?id=" + data_id + "&profile_id=" + id);
         }
 
     })
+
+
 }
 </script>

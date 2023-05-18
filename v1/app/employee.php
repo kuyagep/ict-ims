@@ -191,9 +191,8 @@
 ?>
                 <div class="card card-outline card-red">
                     <div class="card-header">
-                        <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>List
-                                of
-                                Employee</STRONG></h3>
+                        <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i>
+                        <STRONG>List of Employee</STRONG></h3>
 
                         <button type="button" class="btn btn-info float-right" data-toggle="modal"
                             data-target="#employee"> <i class="fas fa-solid fa-user-plus"></i>
@@ -214,7 +213,7 @@
                                 <th>Office</th>
                                 <th>Division</th>
                                 <th>Role</th>
-                                <th style='width: 100px;'>Action</th>
+                                <th style='width: 100px;'>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
