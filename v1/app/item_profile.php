@@ -41,7 +41,7 @@ $view = mysqli_fetch_array($query);
 
     <div class="container">
         <div class="card bg-light d-flex flex-fill">
-            <div class="card-header text-muted border-bottom-0">
+            <div class="card-header text-center text-muted border-bottom-0"> Category: 
                 <?php 
                      $result = mysqli_query($con,"SELECT * FROM category;");
                      $rowCount = mysqli_num_rows($result);
@@ -56,8 +56,8 @@ $view = mysqli_fetch_array($query);
             </div>
             <div class="card-body pt-0">
                 <div class="row">
-                    <div class="col-7">
-                        <h2 class="lead"><b>
+                    <div class="col-6">
+                        <h2 class="large"><b>
                                 <?php 
                      $result = mysqli_query($con,"SELECT * FROM inv_ict;");
                      $rowCount = mysqli_num_rows($result);
@@ -74,7 +74,7 @@ $view = mysqli_fetch_array($query);
                         <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover -->
                         </p>
                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-user"></i></span> End User:
+                        <li class="medium"><span class="fa-li"><i class="fas fa-lg fa-user"></i></span> End User:
 
                                 <?php 
                                 $result = mysqli_query($con,"SELECT * FROM employee;");
@@ -88,19 +88,19 @@ $view = mysqli_fetch_array($query);
                                 }
                             ?>
                             </li>
-                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-hashtag"></i></span> Device Serial:
+                            <li class="medium"><span class="fa-li"><i class="fas fa-lg fa-hashtag"></i></span> Device Serial:
                                 <?php echo $view['serial_no']; ?>
                             </li>
-                            <li class="small"><span class="fa-li"><i class="fas fa-wrench"></i></span> Specifications:
+                            <li class="medium"><span class="fa-li"><i class="fas fa-wrench"></i></span> Specifications:
                                 <?php echo $view['specs']; ?>
                             </li>
-                            <li class="small"><span class="fa-li"><i class="fas fa-list"></i></span> Quantity:
+                            <li class="medium"><span class="fa-li"><i class="fas fa-list"></i></span> Quantity:
                                 <?php echo $view['quantity']; ?>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-5 text-right">
-                        <img src="dist/img/items/<?php echo $img; ?>" style="width: 150px;" alt="user-avatar"
+                    <div class="col-6 text-right">
+                        <img src="dist/img/items/<?php echo $img; ?>" style="width: 200px;" alt="PHOTO"
                             class="img-fluid">
                     </div>
                 </div>
