@@ -99,7 +99,7 @@ $view = mysqli_fetch_array($query);
                             </li>
                         </ul>
                     </div>
-                    <div class="col-4 text-right">
+                    <div class="col-5 text-right">
                         <img src="dist/img/items/<?php echo $img; ?>" style="width: 150px;" alt="user-avatar"
                             class="img-fluid">
                     </div>
