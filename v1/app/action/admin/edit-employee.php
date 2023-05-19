@@ -30,7 +30,7 @@ $view = mysqli_fetch_array($query);
 
 <section>
 <!-- style=" background-color: #eee; -->
-    <div class="container py-5">
+    <div class="container py-3">
         <form action="action/admin/update-employee.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="">
@@ -38,7 +38,7 @@ $view = mysqli_fetch_array($query);
                    
                     <!-- /.widget-user -->
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-8">
                     <div class="card mb-4 card-outline card-red">
                         <div class="card-header">
                             <h3>Edit Profile</h3>
@@ -199,12 +199,18 @@ $view = mysqli_fetch_array($query);
                         </div>
                         <div class="card-footer">
                             <button type="submit" name="updateEmployee" class="btn btn-primary float-right ml-3 ">
-                                <i class="fa-regular fa-floppy-disk mr-1"></i> Update Profile </button>
+                                <i class="nav-icon fas fa-user-circle"></i> Update Profile </button>
+                                
+                                <a href="employee">
+                                <button type="button" class="btn btn-danger float-right ml-3 "> <i
+                                        class="fas fa-arrow-left"></i>
+                                    Return
+                                </button>
+                            </a>
                             <!-- <button type="button" class="btn btn-warning float-right ml-3 "> <i
                                     class="fa-solid fa-arrows-rotate mr-1"></i>
                                 Reset Password
                             </button> -->
-
                         </div>
                     </div>
 
