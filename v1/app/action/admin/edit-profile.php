@@ -8,7 +8,6 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="index.php?page=employee">Profile</a></li>
                     <li class="breadcrumb-item active">My Profile</li>
                 </ol>
             </div><!-- /.col -->
@@ -24,12 +23,12 @@ $view = mysqli_fetch_array($query);
 
 <section>
 <!-- style=" background-color: #eee; -->
-    <div class="container py-5">
+    <div class="container py-3">
         <form action="action/admin/update-profile.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-4">
                     <!-- Widget: user widget style 1 -->
-                    <div class="card card-widget widget-user ">
+                    <div class="card-widget widget-user ">
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <?php 
                                 if($view['picture']==""){
@@ -100,7 +99,7 @@ $view = mysqli_fetch_array($query);
                                         name="picture" />
                                 </div>
                             </div>
-                            <hr>
+                            <!-- <hr>
                             <div class="form-group row">
                                 <label for="firstname" class="col-sm-3 col-form-label">Firstname</label>
                                 <div class="col-sm-9">
@@ -123,7 +122,7 @@ $view = mysqli_fetch_array($query);
                                     <input type="text" class="form-control" name="lastname"
                                         value="<?php echo $view['lastname']; ?>" placeholder="lastname" required>
                                 </div>
-                            </div>
+                            </div> -->
                             <hr>
                             <div class="form-group row">
                                 <label for="username" class="col-sm-3 col-form-label">Username</label>
