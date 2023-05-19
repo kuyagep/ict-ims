@@ -132,12 +132,13 @@ $view = mysqli_fetch_array($query);
                             </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`, `office`.`office_name`,`employee`.`employee_id`, `employee`.`firstname`, `employee`.`lastname`, 
-                                `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`price`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
+                            <?php
+                                //SELECT inv_ict.particulars FROM inv_ict INNER JOIN employee ON `employee`.`office_id`=inv_ict.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=inv_ict.pcategory_id ORDER BY `inv_ict`.`updated_at` DESC;
+                                $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`, `inv_ict`.`item_name`, `office`.`office_name`, `employee`.`firstname`, `employee`.`lastname`, 
+                                `inv_ict`.`item_name`,`inv_ict`.`specs`, `inv_ict`.`price`, `inv_ict`.`quantity`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
                                 `inv_ict`.`date_inspection`, `inv_ict`.`inspected_by`
                                 FROM `inv_ict` left JOIN `employee` ON `employee`.`employee_id`=`inv_ict`.`employee_id` INNER JOIN `office` ON `employee`.`office_id`=`office`.`office_id` 
-                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE `employee`.`employee_id` ='$idx'   ORDER BY `inv_ict`.`updated_at` DESC;");
+                                INNER JOIN category ON `category`.`category_id`=`inv_ict`.`category_id` WHERE deleted != 0  ORDER BY `inv_ict`.`inv_id` DESC;");
                                 $count=1;
                                 $rowCount = mysqli_num_rows($result);
                                 if($rowCount > 0){
@@ -148,18 +149,11 @@ $view = mysqli_fetch_array($query);
                                     
                                     <td><?php echo $row['item_name']; ?></td>
                                     <td><?php echo $row['specs']; ?></td>
-                                    <td><?php 
-                                    echo number_format($row['price'], 2);
-                                    ?></td>
+                                    <td><?php echo number_format($row['price'], 2);?></td>
                                     <td><?php echo $row['serial_no']; ?></td>
-
                                     <td><?php echo $row['date_acquired']; ?></td>
-                                    <td>
-                                        
-                                        <span class="badge badge-primary"><?php echo $row['category_name']; ?></span>
-                                    </td>
+                                    <td><span class="badge badge-primary"><?php echo $row['category_name']; ?></span></td>
                                     <td><?php echo $row['inspected_by']; ?></td>
-
                                     <td style='width: 100px;'>
                                     <a href="index.php?page=item_profile&&id=<?php echo $id; ?>"
                                      class=" ">
