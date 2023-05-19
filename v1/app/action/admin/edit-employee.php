@@ -214,42 +214,9 @@ $view = mysqli_fetch_array($query);
                         </div>
                     </div>
 
-
                 </div>
 
             </div>
         </form>
     </div>
 </section>
-<!-- /.content -->
-
-<!-- /.content-wrapper -->
-
-<script>
-$('.file-upload').file_upload();
-
-function delete_employee(data_id) {
-    //alert('ok');
-    // window.location = ("action/admin/delete-employee.php?id=" + data_id);
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this Data!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-
-            window.location = ("action/admin/delete-employee.php?id=" + data_id);
-            // Swal.fire(
-            //             'Deleted!',
-            //             'The data has been deleted.',
-            //             'success'
-            // )
-        }
-
-    })
-}
-</script>
