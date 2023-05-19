@@ -21,7 +21,7 @@
         `firstname`='".$firstname."',`middlename`='".$middlename."',`lastname`='".$lastname."',
         `emp_contact_no`='".$contact."',`emp_email_add`='".$email."',`position_id`='".$position."',`office_id`='".$office."',`division_id`='".$division."',`role_id`='".$role."', 
         `picture`='".$file_name."' WHERE  `employee_id`='".$id."'");
-         header("Location: ../../index.php?page=employee-edit&& id=".$id);
+         header("Location: ../../index.php?page=employee");
 
     }
 ?>
