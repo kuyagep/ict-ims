@@ -37,7 +37,7 @@ $view = mysqli_fetch_array($query);
                             <input type="hidden" name="id" value="<?php echo $view['inv_id']; ?>">
                             
                             <div class="form-group row">
-                                <label for="input-file-now-custom-1" class="col-sm-3 col-form-label">Item Image</label>
+                                <label for="input-file-now-custom-1" class="col-sm-3 col-form-label">Update Item Photo</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control file-upload" id="customFile"
                                         name="item_image" />
