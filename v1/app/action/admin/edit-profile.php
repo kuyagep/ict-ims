@@ -63,20 +63,10 @@ $view = mysqli_fetch_array($query);
                                     }
                                 ?></p>
 
-                            <!-- <ul class="list-group list-group-unbordered mb-3">
-                                <li class="list-group-item">
-                                    <b>Followers</b> <a class="float-right">1,322</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <b>Following</b> <a class="float-right">543</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <b>Friends</b> <a class="float-right">13,287</a>
-                                </li>
-                            </ul> -->
-
                             <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Update
                                     Profile</b></button>
+
+                            <button href="#" name=" " class="btn btn-warning btn-block"><b>Change Password</b></button>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -99,30 +89,6 @@ $view = mysqli_fetch_array($query);
                                         name="picture" />
                                 </div>
                             </div>
-                            <!-- <hr>
-                            <div class="form-group row">
-                                <label for="firstname" class="col-sm-3 col-form-label">Firstname</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="firstname"
-                                        value="<?php echo $view['firstname']; ?>" placeholder="Firstname" required>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="form-group row">
-                                <label for="middlename" class="col-sm-3 col-form-label">Middlename</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="middlename"
-                                        value="<?php echo $view['middlename']; ?>" placeholder="Middlename">
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="form-group row">
-                                <label for="lastname" class="col-sm-3 col-form-label">Lastname</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="lastname"
-                                        value="<?php echo $view['lastname']; ?>" placeholder="lastname" required>
-                                </div>
-                            </div> -->
                             <hr>
                             <div class="form-group row">
                                 <label for="username" class="col-sm-3 col-form-label">Username</label>
@@ -136,7 +102,7 @@ $view = mysqli_fetch_array($query);
                                 <label for="change_password" class="col-sm-3 col-form-label">Change Password</label>
                                 <div class="col-sm-9">
                                     <input type="password" class="form-control" name="change_password" value=""
-                                        placeholder="Enter New Password">
+                                        placeholder="Enter New Password"required>
                                 </div>
                             </div>
                             <hr>
@@ -180,30 +146,6 @@ $view = mysqli_fetch_array($query);
                                 </div>
                             </div>
                             <hr>
-                            <div class="form-group row">
-                                <label for="office" class="col-sm-3 col-form-label">Office</label>
-                                <div class="col-sm-9">
-                                    <select class="custom-select" id="office" name="office"
-                                        value="<?php echo $view['office']; ?>" required>
-                                        <option selected>Choose Office...
-                                        </option>
-                                        <?php
-                                    $result = mysqli_query($con,"SELECT * FROM office;");
-                                    $rowCount = mysqli_num_rows($result);
-                                    if($rowCount > 0){
-                                        while($row = mysqli_fetch_assoc($result)){ ?>
-                                        <option value="<?php echo $row['office_id'];?>"
-                                            <?php if($row['office_id'] == $view['office_id']){echo 'selected';} ?>>
-                                            <?php echo $row['office_name']; ?>
-                                        </option>
-
-                                        <?php   }
-                                    }
-                                ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <hr>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <p class="mb-0"><b>Role</b></p>
@@ -232,34 +174,3 @@ $view = mysqli_fetch_array($query);
         </form>
     </div>
 </section>
-<!-- /.content -->
-<!-- /.content-wrapper -->
-
-<script>
-$('.file-upload').file_upload();
-
-function delete_employee(data_id) {
-    //alert('ok');
-    // window.location = ("action/admin/delete-employee.php?id=" + data_id);
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this Data!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-
-            window.location = ("action/admin/delete-employee.php?id=" + data_id);
-            // Swal.fire(
-            //             'Deleted!',
-            //             'The data has been deleted.',
-            //             'success'
-            // )
-        }
-
-    })
-}
-</script>
