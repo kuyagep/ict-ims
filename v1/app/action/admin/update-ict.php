@@ -27,7 +27,7 @@ include('../../../conf/config.php');
     `category_id`='".$category."',
     `date_inspection`='".$date_inspection."', 
     `inspected_by`='".$inspected_by."',
-    `item_image`='".$file_name."' WHERE  `inv_id`='".$id."'");
+    `item_image`='".$file_name."' WHERE `inv_id`='".$id."'");
     header("Location: ../../index.php?page=inventory");
     }
 
