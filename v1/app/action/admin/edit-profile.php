@@ -15,48 +15,6 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- End Content Header -->
-
-<div class="modal fade" id="btn-changepass">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form class="form-horizontal" action="action/admin/update-profile.php" method="POST">
-                <div class="modal-header">
-                    <h4 class="modal-title">Change Password</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-            
-                    <!-- <div class="form-group row">
-                        <label for="position" class="col-sm-3 col-form-label">Old Password<span class="text-danger">
-                                *</span> </label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="position" name="position"
-                                placeholder="Enter Old Password" required>
-                        </div>
-                    </div> -->
-                    <div class="form-group row">
-                        <label for="change_password" class="col-sm-3 col-form-label">New Password</label>
-                        <div class="col-sm-9">
-                            <input type="password" class="form-control" name="change_password"
-                                placeholder="Enter New Password" required>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer justify-content-right">
-                    <button type="button" class="btn btn-danger " data-dismiss="modal"> Cancel </button>
-                    <button type="submit" name="update-profile" class="btn btn-primary "> Change Password </button>
-                </div>
-
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-
 <!-- Main content -->
 <?php
 $view = mysqli_fetch_array($query);
@@ -104,9 +62,6 @@ $view = mysqli_fetch_array($query);
 
                             <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Update
                                     Profile</b></button>
-
-                            <button type="button" class="btn btn-warning btn-block" data-toggle="modal"
-                            data-target="#btn-changepass"><b>Change Current Password</b></button>
                         </div>
                         <!-- /.card-body -->
                     </div>
