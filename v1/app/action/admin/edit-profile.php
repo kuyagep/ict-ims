@@ -39,7 +39,7 @@
                     <div class="form-group row">
                         <label for="change_password" class="col-sm-3 col-form-label">New Password</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="change_password"
+                            <input type="password" class="form-control" name="change_password"
                                 placeholder="Enter New Password" required>
                         </div>
                     </div>
