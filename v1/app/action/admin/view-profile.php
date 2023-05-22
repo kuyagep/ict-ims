@@ -5,7 +5,7 @@ $view = mysqli_fetch_array($query);
 <!-- style=" background-color: #eee; -->
     <div class="container py-3">
         <form action="action/admin/update-profile.php" method="POST" enctype="multipart/form-data">
-            <div class="row-right">
+            <div class="row-center">
                     <!-- Widget: user widget style 1 -->
                     <div class="card-widget widget-user ">
                         <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -40,8 +40,22 @@ $view = mysqli_fetch_array($query);
                                 <?php   }
                                     }
                                 ?></p>
+                            <div class="form-group row">
+                            <div class="col-sm-9">
                             <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Update
                                     Profile</b></button>
+                                    </div>
+                                    </div>
+                            <div class="form-group row">
+                            <button href="#" name="updateEmployee" class="btn btn-warning btn-block"><b>Upload 
+                                    Profile Photo</b></button>
+                                    </div>
+                            <div class="form-group row">
+                            <button href="#" name="updateEmployee" class="btn btn-success btn-block"><b>Change
+                                    Password</b></button>
+                                    </div>
+                        </div>
+                        </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
