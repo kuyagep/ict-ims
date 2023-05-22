@@ -21,7 +21,7 @@
         $query=mysqli_query($con,"UPDATE `employee` SET `username`='".$username."',
                          `emp_contact_no`='".$contact."',`emp_email_add`='".$email."',
                          `position_id`='".$position."',`office_id`='".$office."',
-                         `role_id`='".$role."', `picture`='".$file_name."' WHERE  `employee_id`='".$id."'");
+                         `picture`='".$file_name."' WHERE  `employee_id`='".$id."'");
          header("Location: ../../index.php?page=profile");
 >>>>>>> Stashed changes
 
