@@ -3,7 +3,7 @@ $view = mysqli_fetch_array($query);
 ?>
 <section>
 <!-- style=" background-color: #eee; -->
-    <div class="container py-3">
+    <div class="container py-5">
         <form action="action/admin/update-profile.php" method="POST" enctype="multipart/form-data">
             <div class="row-center">
                     <!-- Widget: user widget style 1 -->
