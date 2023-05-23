@@ -40,19 +40,24 @@ $view = mysqli_fetch_array($query);
                                 <?php   }
                                     }
                                 ?></p>
+                            
                             <div class="form-group row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-5">
                             <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Update
                                     Profile</b></button>
                                     </div>
                                     </div>
                             <div class="form-group row">
+                            <div class="col-sm-5">
                             <button href="#" name="updateEmployee" class="btn btn-warning btn-block"><b>Upload 
                                     Profile Photo</b></button>
                                     </div>
+                                    </div>
                             <div class="form-group row">
+                            <div class="col-sm-5">
                             <button href="#" name="updateEmployee" class="btn btn-success btn-block"><b>Change
                                     Password</b></button>
+                                    </div>
                                     </div>
                         </div>
                         </div>
