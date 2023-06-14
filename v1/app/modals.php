@@ -87,7 +87,7 @@
                         <label for="specs" class="col-sm-3 col-form-label">Specifications</label>
                         <div class="col-sm-9">
                             <textarea class="form-control" name="specs" placeholder="Enter Specifications" id="specs"
-                                value="" required></textarea>
+                                required></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -100,14 +100,14 @@
                     <div class="form-group row">
                         <label for="serial_no" class="col-sm-3 col-form-label">Device Serial</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="serial_n    o" name="serial_no"
+                            <input type="text" class="form-control" id="serial_no" name="serial_no"
                                 placeholder="Enter Serial Number">
                         </div>
                     </div>
                         <div class="form-group row">
                         <label for="serial_no" class="col-sm-3 col-form-label">Unit Price</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="price    o" name="price"
+                            <input type="text" class="form-control" id="price" name="price"
                                 placeholder="Enter Amount">
                         </div>
                     </div>
