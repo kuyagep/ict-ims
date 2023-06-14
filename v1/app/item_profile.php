@@ -91,16 +91,16 @@ $view = mysqli_fetch_array($query);
                             <li class="medium"><span class="fa-li"><i class="fas fa-lg fa-hashtag"></i></span> Device Serial:
                                 <?php echo $view['serial_no']; ?>
                             </li>
-                            <li class="medium"><span class="fa-li"><i class="fas fa-wrench"></i></span> Specifications:
-                                <?php echo $view['specs']; ?>
-                            </li>
+                            <!-- <li class="medium"><span class="fa-li"><i class="fas fa-wrench"></i></span> 
+
+                            </li> -->
                             <li class="medium"><span class="fa-li"><i class="fas fa-list"></i></span> Quantity:
                                 <?php echo $view['quantity']; ?>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-6 text-right">
-                        <img src="dist/img/items/<?php echo $img; ?>" style="width: 200px;" alt="PHOTO"
+                    <div class="col-lg-6 text-center">
+                        <img src="dist/img/items/<?php echo $img; ?>"style="width: 300px; height: 200px;" alt="PHOTO"
                             class="img-fluid">
                     </div>
                 </div>
@@ -111,20 +111,30 @@ $view = mysqli_fetch_array($query);
             <div class="col-sm-12">
                 <div class="card card-outline card-red">
                     <div class="card-header">
-                        <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>ACTIONS:</STRONG></h3>
+                        <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>Specifications:</STRONG></h3>
+                        <div class="row">
+                            <div class="col-lg-9 text-center">
+                                <?php echo $view['specs']; ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>Actions:</STRONG></h3>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                        <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Update
+                                    Profile</b></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-</section>
-<section class="content">
-    <div class="container-fluid">
-
-    </div>
-</section>
-</div>
 </section>
 <!-- /.content -->
 
