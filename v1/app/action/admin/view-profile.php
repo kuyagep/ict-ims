@@ -19,7 +19,7 @@ $view = mysqli_fetch_array($query);
                         
                     </div>
                     <!-- Profiles -->
-                    <div class="card card-primary card-outline"> 
+                    <div class="card card-danger card-outline"> 
                         <!-- style="background: url('dist/img/photo1.png') center center;" -->
                         <div class="card-body box-profile">
                             <div class="text-center">
@@ -40,30 +40,20 @@ $view = mysqli_fetch_array($query);
                                 <?php   }
                                     }
                                 ?></p>
-                            
-                            <div class="form-group row-center">
-                            
-                            <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Update
-                                    Profile</b></button>
-                                    </div>
-                                    
-                            <div class="form-group row-center">
-                            
-                            <button href="#" name="updateEmployee" class="btn btn-warning btn-block"><b>Upload 
-                                    Profile Photo</b></button>
-                                    </div>
-                                   
-                            <div class="form-group row-center">
-                            
-                            <button href="#" name="updateEmployee" class="btn btn-success btn-block"><b>Change
-                                    Password</b></button>
-                                    </div>
-                                    
-                        </div>
-                        </div>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
 
-                    <!-- /.widget-user -->
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <button href="#" name="updateEmployee" class="btn btn-info btn-block"><b>Update Your Profile Info</b></button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button href="#" name="updateEmployee" class="btn btn-warning btn-block"><b>Change Your Profile Picture</b></button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button href="#" name="updateEmployee" class="btn btn-danger btn-block"><b>Change Your Current Password</b></button>
+                                        </div>
+                                    </div>
+                    </div>
                 </div>
+            </div>   
+        </div>
+    </div>
