@@ -123,8 +123,13 @@ $view = mysqli_fetch_array($query);
                                 <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>Actions:</STRONG></h3>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                        <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Update
-                                    Profile</b></button>
+                                            <button href="index.php?page=employee-view&&id=" class="btn btn-primary btn-block"><b>Go to Employee Profile</b></button>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Edit Item</b></button>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <button href="#" name="updateEmployee" class="btn btn-primary btn-block"><b>Delete Item</b></button>
                                         </div>
                                     </div>
                                 </div>
