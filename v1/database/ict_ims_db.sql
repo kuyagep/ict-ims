@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2023 at 10:55 AM
+-- Generation Time: Jun 16, 2023 at 07:36 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -90,7 +90,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`employee_id`, `picture`, `firstname`, `middlename`, `lastname`, `emp_contact_no`, `emp_email_add`, `position_id`, `office_id`, `division_id`, `username`, `password`, `role_id`, `added_at`) VALUES
-(0, '', '', '', '', '', '', 0, 0, 0, '', '$2y$10$FybLdGyTw0jUxUfXeyng/.E4sacSjqnI8Zuww1Gshau3UVyfQizZ2', 0, '2023-03-19 14:40:19'),
+(0, '', '', '', '', '', '', 0, 0, 0, '', '$2y$10$1uTJYbUe6hw9tQdVQicgr.grrfMyBg1cBi33zPcurRC436XQl.O.W', 0, '2023-03-19 14:40:19'),
 (1, '_DSC0128 (2).JPG', 'Geperson', 'Camporedondo', 'Mamalias', '09317562740', 'geperson.ph@gmail.com', 7, 9, 0, 'geperson', '$2y$10$77qr92YiqHUMn4c.BVo8ZufBN.K3srkdBeBwxsNDYrGuYBGfLeUSi', 2, '2022-06-05 16:02:24'),
 (71, '', 'Admin', 'Admin', 'Admin', '09123456789', 'admin@gmail.com', 1, 1, 0, 'admin@gmail.com', '$2y$10$77qr92YiqHUMn4c.BVo8ZufBN.K3srkdBeBwxsNDYrGuYBGfLeUSi', 2, '2022-10-22 09:18:43'),
 (72, '', 'User', 'User', 'User', '09123456789', 'user@gmail.com', 1, 1, 0, 'user@gmail.com', '$2y$10$aoF3GO5Wyf6qLSG8MhbDaO4hjb8VID9A9NEnfqr6gvxaqJHA3jrwO', 3, '2022-10-22 09:20:09'),
@@ -140,7 +140,7 @@ CREATE TABLE `inv_ict` (
 
 INSERT INTO `inv_ict` (`inv_id`, `item_image`, `employee_id`, `item_name`, `specs`, `quantity`, `serial_no`, `price`, `date_acquired`, `category_id`, `date_inspection`, `inspected_by`, `created_at`, `deleted`, `updated_at`) VALUES
 (17, '', 82, 'Acer', 'sample', 7, '1232dew123', 32, '2023-05-02', 8, '2023-05-02', 'Maning', '2023-05-02 06:51:45', 1, '0000-00-00 00:00:00'),
-(18, '', 83, 'MSI', 'AMD series', 34, 'KBA123P097645', 54900, '2023-06-02', 6, '2023-06-09', 'maning', '2023-05-13 04:28:02', 1, '0000-00-00 00:00:00');
+(18, '', 83, 'MSI', 'WIFI KEY: 33100298 admin Globe@1B49 tech tech@B0057 superadmin U6@F5p2t24Wy2w263ny326ZJ', 34, 'KBA123P097645', 54900, '2023-06-02', 6, '2023-06-29', 'maning', '2023-05-13 04:28:02', 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
