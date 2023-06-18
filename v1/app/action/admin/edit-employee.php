@@ -202,8 +202,8 @@ $view = mysqli_fetch_array($query);
                                 <i class="nav-icon fas fa-user-circle"></i> Update Profile </button>
                                 
                                 <a href="employee">
-                                <button type="button" class="btn btn-danger float-right ml-3 "> <i
-                                        class="fas fa-arrow-left"></i>
+                                <button type="button" class="btn btn-danger float-right ml-3 ">
+                                    <i class="fas fa-arrow-left"></i>
                                     Return
                                 </button>
                             </a>

@@ -19,7 +19,7 @@ $view = mysqli_fetch_array($query);
                         
                     </div>
                     <!-- Profiles -->
-                    <div class="card card-danger card-outline"> 
+                    <div class="card card-success card-outline"> 
                         <!-- style="background: url('dist/img/photo1.png') center center;" -->
                         <div class="card-body box-profile">
                             <div class="text-center">

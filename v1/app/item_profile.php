@@ -123,13 +123,38 @@ $view = mysqli_fetch_array($query);
                                 <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>Actions:</STRONG></h3>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <button href="#" name="updateEmployee" class="btn btn-info btn-block"><b>Go to Employee Profile</b></button>
+                                        <a href="index.php?page=employee-view&&id=<?php 
+                                $result = mysqli_query($con,"SELECT * FROM employee;");
+                                $rowCount = mysqli_num_rows($result);
+                                if($rowCount > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        if($row['employee_id'] == $view['employee_id']){
+                                        echo $row['employee_id'];
+                                        }
+                                    }
+                                }
+                            ?>">
+                                <button type="button" class="btn btn-info float-right">
+                                <i class="nav-icon fas fa-user-circle"></i>
+                                <b>Go to User Profile</b>
+                                </button>
+                            </a>
                                         </div>
                                         <div class="col-sm-3">
-                                            <button href="#" name="updateEmployee" class="btn btn-warning btn-block"><b>Edit Item</b></button>
+                                        <a href="index.php?page=ict-edit&id=<?php echo $idx; ?>">
+                                <button type="button" class="btn btn-warning float-right">
+                                    <i class="fas fa-solid fa-pen"></i>
+                                    <b>Edit Item</b>
+                                </button>
+                            </a>
                                         </div>
                                         <div class="col-sm-3">
-                                            <button href="#" name="updateEmployee" class="btn btn-danger btn-block"><b>Delete Item</b></button>
+                                        <a onclick="delete_item('<?php echo $idx; ?>')">
+                                <button type="button" class="btn btn-danger float-right">
+                                    <i class="fas fa-solid fa-trash"></i>
+                                    <b>Delete Item</b>
+                                </button>
+                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -141,16 +166,10 @@ $view = mysqli_fetch_array($query);
     </div>
 
 </section>
-<!-- /.content -->
 
-<!-- /.content-wrapper -->
+<script>
+function delete_item(data_id) {
 
-<!-- <script>
-$('.file-upload').file_upload();
-
-function delete_employee(data_id) {
-    //alert('ok');
-    // window.location = ("action/admin/delete-employee.php?id=" + data_id);
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this Data!",
@@ -158,18 +177,16 @@ function delete_employee(data_id) {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Yes, delete it!',
+        closeOnConfirm: false,
+        closeOnCancel: false
     }).then((result) => {
         if (result.isConfirmed) {
-
-            window.location = ("action/admin/delete-employee.php?id=" + data_id);
-            // Swal.fire(
-            //             'Deleted!',
-            //             'The data has been deleted.',
-            //             'success'
-            // )
+            window.location = ("action/admin/delete-ict.php?id=" + data_id);
         }
 
     })
+
+
 }
-</script> -->
+</script>
