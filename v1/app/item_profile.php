@@ -134,7 +134,7 @@ $view = mysqli_fetch_array($query);
                                     }
                                 }
                             ?>">
-                                <button type="button" class="btn btn-info float-right">
+                                <button type="button" class="btn btn-info btn-block">
                                 <i class="nav-icon fas fa-user-circle"></i>
                                 <b>Go to User Profile</b>
                                 </button>
@@ -142,7 +142,7 @@ $view = mysqli_fetch_array($query);
                                         </div>
                                         <div class="col-sm-3">
                                         <a href="index.php?page=ict-edit&id=<?php echo $idx; ?>">
-                                <button type="button" class="btn btn-warning float-right">
+                                <button type="button" class="btn btn-warning btn-block">
                                     <i class="fas fa-solid fa-pen"></i>
                                     <b>Edit Item</b>
                                 </button>
@@ -150,7 +150,7 @@ $view = mysqli_fetch_array($query);
                                         </div>
                                         <div class="col-sm-3">
                                         <a onclick="delete_item('<?php echo $idx; ?>')">
-                                <button type="button" class="btn btn-danger float-right">
+                                <button type="button" class="btn btn-danger btn-block">
                                     <i class="fas fa-solid fa-trash"></i>
                                     <b>Delete Item</b>
                                 </button>
