@@ -41,7 +41,7 @@ $view = mysqli_fetch_array($query);
 
     <div class="container">
         <div class="card bg-light d-flex flex-fill">
-            <div class="card-header text-center text-muted border-bottom-0"> Category: 
+            <div class="card-header text-center text-muted border-bottom-0"> Category:
                 <?php 
                      $result = mysqli_query($con,"SELECT * FROM category;");
                      $rowCount = mysqli_num_rows($result);
@@ -59,25 +59,25 @@ $view = mysqli_fetch_array($query);
                     <div class="col-6">
                         <h2 class="large"><b>
                                 <?php 
-                     $result = mysqli_query($con,"SELECT * FROM inv_ict;");
-                     $rowCount = mysqli_num_rows($result);
-                     if($rowCount > 0){
-                         while($row = mysqli_fetch_assoc($result)){
-                            if($row['inv_id'] == $view['inv_id']){
-                                echo $row['item_name'];
-                            }
-                         }
-                    }
-                ?>
+                                    $result = mysqli_query($con,"SELECT * FROM inv_ict;");
+                                    $rowCount = mysqli_num_rows($result);
+                                    if($rowCount > 0){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            if($row['inv_id'] == $view['inv_id']){
+                                                echo $row['item_name'];
+                                            }
+                                        }
+                                    }
+                                ?>
 
                             </b></h2>
                         <!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover -->
                         </p>
                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="medium"><span class="fa-li"><i class="fas fa-lg fa-user"></i></span> End User:
+                            <li class="medium"><span class="fa-li"><i class="fas fa-lg fa-user"></i></span> End User:
 
                                 <?php 
-                                $result = mysqli_query($con,"SELECT * FROM employee;");
+                                $result = mysqli_query($con,"SELECT * FROM employee where employee_id = ".$view['employee_id'].";");
                                 $rowCount = mysqli_num_rows($result);
                                 if($rowCount > 0){
                                     while($row = mysqli_fetch_assoc($result)){
@@ -88,77 +88,81 @@ $view = mysqli_fetch_array($query);
                                 }
                             ?>
                             </li>
-                            <li class="medium"><span class="fa-li"><i class="fas fa-lg fa-hashtag"></i></span> Device Serial:
+                            <li class="medium"><span class="fa-li"><i class="fas fa-lg fa-hashtag"></i></span> Device
+                                Serial:
                                 <?php echo $view['serial_no']; ?>
                             </li>
-                            <!-- <li class="medium"><span class="fa-li"><i class="fas fa-wrench"></i></span> 
-
-                            </li> -->
                             <li class="medium"><span class="fa-li"><i class="fas fa-list"></i></span> Quantity:
                                 <?php echo $view['quantity']; ?>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-6 text-center">
-                        <img src="dist/img/items/<?php echo $img; ?>"style="width: 300px; height: 200px;" alt="PHOTO"
+                        <img src="dist/img/items/<?php echo $img; ?>" style="width: 300px; height: 200px;" alt="PHOTO"
                             class="img-fluid">
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card card-outline card-red">
                     <div class="card-header">
-                        <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>Specifications:</STRONG></h3>
+                        <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i>
+                            <STRONG>Specifications:</STRONG>
+                        </h3>
                         <div class="row">
                             <div class="col-lg-9 text-center">
-                                <?php echo $view['specs']; ?>
+                                <div class="form-group">
+
+                                    <textarea class="form-control" cols="200" rows="5"
+                                        disabled><?php echo $view['specs']; ?></textarea>
+                                </div>
                             </div>
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-sm-12">
-                                <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i> <STRONG>Actions:</STRONG></h3>
-                                    <div class="row">
-                                        <div class="col-sm-3">
+                            <div class="col-lg-12 ">
+
+                                <div class="row align-item-center">
+                                    <div class="col-lg-4">
                                         <a href="index.php?page=employee-view&&id=<?php 
-                                $result = mysqli_query($con,"SELECT * FROM employee;");
-                                $rowCount = mysqli_num_rows($result);
-                                if($rowCount > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        if($row['employee_id'] == $view['employee_id']){
-                                        echo $row['employee_id'];
-                                        }
-                                    }
-                                }
-                            ?>">
-                                <button type="button" class="btn btn-info btn-block">
-                                <i class="nav-icon fas fa-user-circle"></i>
-                                <b>Go to User Profile</b>
-                                </button>
-                            </a>
-                                        </div>
-                                        <div class="col-sm-3">
+                                            $result = mysqli_query($con,"SELECT * FROM employee;");
+                                            $rowCount = mysqli_num_rows($result);
+                                            if($rowCount > 0){
+                                                while($row = mysqli_fetch_assoc($result)){
+                                                    if($row['employee_id'] == $view['employee_id']){
+                                                    echo $row['employee_id'];
+                                                    }
+                                                }
+                                            }
+                                        ?>">
+                                            <button type="button" class="btn btn-info btn-block">
+                                                <i class="nav-icon fas fa-user-circle"></i>
+                                                <b>Go to User Profile</b>
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
                                         <a href="index.php?page=ict-edit&id=<?php echo $idx; ?>">
-                                <button type="button" class="btn btn-warning btn-block">
-                                    <i class="fas fa-solid fa-pen"></i>
-                                    <b>Edit Item</b>
-                                </button>
-                            </a>
-                                        </div>
-                                        <div class="col-sm-3">
+                                            <button type="button" class="btn btn-warning btn-block">
+                                                <i class="fas fa-solid fa-pen"></i>
+                                                <b>Edit Item</b>
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4">
                                         <a onclick="delete_item('<?php echo $idx; ?>')">
-                                <button type="button" class="btn btn-danger btn-block">
-                                    <i class="fas fa-solid fa-trash"></i>
-                                    <b>Delete Item</b>
-                                </button>
-                            </a>
-                                        </div>
+                                            <button type="button" class="btn btn-danger btn-block">
+                                                <i class="fas fa-solid fa-trash"></i>
+                                                <b>Delete Item</b>
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>

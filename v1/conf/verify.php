@@ -24,7 +24,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	    exit();
     }
 	// check if username if empty
-	if (empty($email)) {
+	if (empty($username)) {
         header("location: ../index.php?error=Username is required");
 	    exit();
 	}else if(empty($pass)){
@@ -68,17 +68,17 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		        exit();
 			}
             }else{
-                header("Location: ../index.php?error=Incorrect Email Address");
+                header("Location: ../index.php?error=Incorrect Username");
 		        exit();
             }
             
 		}else{
-			header("Location: ../index.php?error=Email Address not Exist.");
+			header("Location: ../index.php?error=Username not Exist.");
 	        exit();
 		}
 	}
 	
 }else{
-	header("Location: ../index.php?error=Email Address/Password is Required");
+	header("Location: ../index.php?error=Username/Password is Required");
 	exit();
 }
