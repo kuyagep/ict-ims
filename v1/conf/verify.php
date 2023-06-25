@@ -12,31 +12,31 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	   return $data;
 	}
 
-	$email = $_POST['email'];
+	$username = $_POST['username'];
 	$pass = $_POST['password'];
     if(empty($email) && empty($pass)){
-        header("location: ../index.php?error=Email Add and Password is required");
+        header("location: ../index.php?error=Username and Password is required");
 	    exit();
     }
 	if (empty($email)) {
-        header("location: ../index.php?error=Email Add is required");
+        header("location: ../index.php?error=Username is required");
 	    exit();
 	}else if(empty($pass)){
         header("location: ../index.php?error=Password is required");
 	    exit();
 	}else{
-		$sql = "SELECT * FROM employee WHERE emp_email_add='$email'";
+		$sql = "SELECT * FROM employee WHERE username='$username'";
 
 		$result = mysqli_query($con, $sql);
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-            if($row['emp_email_add'] === $email){
+            if($row['username'] === $username){
                 if (password_verify($pass, $row['password']) ) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION["loggedin"] = true;
 				$_SESSION["id"] = $row['employee_id'];
-				$_SESSION["session_picture"] = $row['profile_pic'];
+				$_SESSION["session_picture"] = $row['picture'];
                 $_SESSION["firstname"] = $row['firstname']; 
                 $_SESSION["lastname"] = $row['lastname']; 
                 $_SESSION["role_id"] = $row['role_id']; 
@@ -54,7 +54,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 				} 
 		        exit();
             }else{
-				header("Location: ../index.php?error=Incorect password");
+				header("Location: ../index.php?error=Incorrect password");
 		        exit();
 			}
             }else{

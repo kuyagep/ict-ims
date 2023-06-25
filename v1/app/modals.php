@@ -22,8 +22,47 @@
     </div>
 </div>
 
+<!-- change password -->
 
-<!-- Add Purchase Order -->
+<div class="modal fade" id="btn-changepass">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" action="action/admin/update-password.php" method="POST">
+                <div class="modal-header">
+                    <h4 class="modal-title">Change Password</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" value="<?= $_SESSION['id'] ?>">
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-3 col-form-label">New Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" name="password" required autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="confirm_password" class="col-sm-3 col-form-label">Confirm Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" name="confirm_password" required>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer justify-content-right">
+                    <button type="button" class="btn btn-danger " data-dismiss="modal"> Cancel </button>
+                    <button type="submit" class="btn btn-primary "> Change Password </button>
+                </div>
+
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- Add Inventory Order -->
 <div class="modal fade" id="add-purchase-order" data-backdrop="static" data-keyboard="true" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -93,8 +132,8 @@
                     <div class="form-group row">
                         <label for="quantity" class="col-sm-3 col-form-label">Item Quantity</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity"
-                            required>
+                            <input type="text" class="form-control" id="quantity" name="quantity"
+                                placeholder="Enter Quantity" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -104,11 +143,10 @@
                                 placeholder="Enter Serial Number">
                         </div>
                     </div>
-                        <div class="form-group row">
+                    <div class="form-group row">
                         <label for="serial_no" class="col-sm-3 col-form-label">Unit Price</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="price" name="price"
-                                placeholder="Enter Amount">
+                            <input type="text" class="form-control" id="price" name="price" placeholder="Enter Amount">
                         </div>
                     </div>
                     <div class="form-group row">

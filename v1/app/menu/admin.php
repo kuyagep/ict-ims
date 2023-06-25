@@ -42,16 +42,6 @@
                 </p>
             </a>
         </li>
-        <li class="nav-header">Reports</li>
-        <li class="nav-item">
-            <a href=""
-                class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "pmr-report"){ echo 'active'; } ?>">
-                <i class="fas fa-cubes nav-icon"></i>
-                <p>
-                    Reports
-                </p>
-            </a>
-        </li>
 
         <li class="nav-header">Components</li>
         <li class="nav-item">

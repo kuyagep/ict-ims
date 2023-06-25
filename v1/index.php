@@ -84,9 +84,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
 
                     <p class="text-center text-dark">Login to start your session<br>
-                    <!-- Alert when login error -->
-                    <hr>
-                    <?php 
+                        <!-- Alert when login error -->
+                        <hr>
+                        <?php 
                             if(isset($_GET['error'])){
                                 echo '<div class="alert alert-light text-center text-danger alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -99,7 +99,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
                     <form action="conf/verify.php" method="post">
                         <div class="input-group mb-3 ">
-                            <input type="text" class="form-control" placeholder="Enter Email Address" name="email" autocomplete required>
+                            <input type="text" class="form-control" placeholder="Enter your username" name="username"
+                                autocomplete required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -107,7 +108,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                             </div>
                         </div>
                         <div class="input-group mb-3 input-group">
-                            <input type="password" class="form-control" placeholder="Enter password" name="password" autocomplete required>
+                            <input type="password" class="form-control" placeholder="Enter your password"
+                                name="password" autocomplete required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
