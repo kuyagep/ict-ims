@@ -3,8 +3,9 @@
 session_start(); 
 include "config.php";
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
-
+if (isset($_POST['username']) && isset($_POST['password'])) {
+	
+	// validate data form login
 	function validate($data){
        $data = trim($data);
 	   $data = stripslashes($data);
@@ -12,12 +13,17 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	   return $data;
 	}
 
+	//saved data to a variable
 	$username = $_POST['username'];
 	$pass = $_POST['password'];
-    if(empty($email) && empty($pass)){
+
+
+	// check if all fields are empty
+    if(empty($username) && empty($pass)){
         header("location: ../index.php?error=Username and Password is required");
 	    exit();
     }
+	// check if username if empty
 	if (empty($email)) {
         header("location: ../index.php?error=Username is required");
 	    exit();
@@ -25,6 +31,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         header("location: ../index.php?error=Password is required");
 	    exit();
 	}else{
+		// fetch data from db
 		$sql = "SELECT * FROM employee WHERE username='$username'";
 
 		$result = mysqli_query($con, $sql);
@@ -32,7 +39,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
             if($row['username'] === $username){
+				// check hashed password
                 if (password_verify($pass, $row['password']) ) {
+
+				// add session the current login user
             	$_SESSION['username'] = $row['username'];
             	$_SESSION["loggedin"] = true;
 				$_SESSION["id"] = $row['employee_id'];
