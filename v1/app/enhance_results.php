@@ -97,26 +97,10 @@
             </div>
         </form>
         <?php 
-            // if(isset($_GET['c']) || isset($_GET['e']) || isset($_GET['s'])  ) {
-            // $s_category = $_GET['c'];
-            // $s_office = $_GET['o'];
-            // $s_employee = $_GET['e'];
-            // $s_search = $_GET['s'];
-            // $query = mysqli_query($con,"SELECT * FROM inv_ict WHERE CONCAT(item_name,specs) LIKE '%$s_search%' OR category_id = $s_category OR employee_id = $s_employee; ");
-            // }
+         
             if(!empty($_GET['s']) || !empty($_GET['c'])){
 
             
-            // if (isset($_GET['s']) || isset($_GET['c']) || isset($_GET['e'])) {
-                // if(isset($_GET['c'])){
-                //     $s_category = $_GET['c'];
-                // }else{
-                //     $s_category = '';
-                // }
-           
-            //     // $s_office = $_GET['o'];
-            //     $s_employee = !empty($_GET['e']);
-            //     $s_search = !empty($_GET['e']);
                     $s_search = $_GET['s'];
                 $query = mysqli_query($con,"SELECT `inv_ict`.`inv_id`,`office`.`office_name`,`employee`.`employee_id`, `employee`.`firstname`, `employee`.`lastname`, 
                 `inv_ict`.`item_name`, `inv_ict`.`specs`, `inv_ict`.`price`, `inv_ict`.`serial_no`, `inv_ict`.`date_acquired`, `category`.`category_name`, 
@@ -126,8 +110,8 @@
 
 
                 $rowCount = mysqli_num_rows($query);
-        ?>                
-                
+        ?>
+
         <div class="row mt-3">
             <div class="col-md-10 offset-md-1">
                 <div class="list-group">
@@ -136,22 +120,28 @@
                             while ($row = mysqli_fetch_assoc($query)) {
                                 $id=$row['inv_id'];
                     ?>
-                    
-                        <div class="list-group-item">
-                            <div class="row">
-                                <div class="col px-4">
-                                    <div>
-                                        <div class="float-right"><a href="index.php?page=employee-view&&id=<?=$row['employee_id']?>"> <?php echo $row['firstname']." ".$row['lastname'] ." > ".$row['office_name']; ?> </a></div>
-                                        <a href=""><h3><?php echo $row['item_name']; ?></h3></a>
-                                        <p class="mb-0">
-                                            <?php echo $row['specs']; ?> <br>
-                                            
-                                        </p>
-                                    </div>
+
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col px-4">
+                                <div>
+                                    <div class="float-right"><a
+                                            href="index.php?page=employee-view&&id=<?=$row['employee_id']?>">
+                                            <?php echo "<span class='badge badge-primary'>".$row['firstname']." ".$row['lastname'] ."</span> | <span class='badge badge-primary'>".$row['office_name']."</span>"; ?>
+                                        </a></div>
+                                    <a href="index.php?page=item_profile&&id=<?= $row['inv_id'] ?>">
+
+                                        <h3><?php echo $row['item_name']; ?></h3>
+                                    </a>
+                                    <p class="mb-0">
+                                        <?php echo $row['specs']; ?> <br>
+
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    
+                    </div>
+
                     <?php
                             }
                         }else{

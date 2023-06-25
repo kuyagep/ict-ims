@@ -20,6 +20,22 @@
 
 <section class="content">
     <div class="container-fluid">
+        <?php
+            if(isset($_GET['error'])){
+                echo '<div class="alert alert-danger alert-dismissible fade show">
+                <span>'
+                .$_GET['error'].        
+                '</span>
+            </div>';
+            }
+            if(isset($_GET['success'])){
+                echo '<div class="alert alert-success alert-dismissible fade show">
+                <span>'
+                .$_GET['success'].        
+                '</span>
+            </div>';
+            }
+        ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -42,24 +58,24 @@
                         <!-- Content Here -->
                         <table id="dataTable" class="table table-hover table-responsive col-12" style="width: 100%;"
                             cellspacing="0">
-                            <thead >
-                            <tr>
-                                <th>ITEM CLASS</th>
-                                <th>OFFICE</th>
-                                <th>END USER</th>
-                                <th>ITEM NAME</th>
-                                <th>SPECIFICATIONS</th>
-                                <th>UNIT PRICE</th>
-                                <th>QUANTITY</th>
-                                <th>SERIAL</th>
-                                <th>DATE ACQUIRED</th>
-                                <th>DATE OF INSPECTION</th>
-                                <th>INSPECTED BY</th>
-                                <th style='width: 100px;'>ACTION</th>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th>ITEM CLASS</th>
+                                    <th>OFFICE</th>
+                                    <th>END USER</th>
+                                    <th>ITEM NAME</th>
+                                    <th>SPECIFICATIONS</th>
+                                    <th>UNIT PRICE</th>
+                                    <th>QUANTITY</th>
+                                    <th>SERIAL</th>
+                                    <th>DATE ACQUIRED</th>
+                                    <th>DATE OF INSPECTION</th>
+                                    <th>INSPECTED BY</th>
+                                    <th style='width: 100px;'>ACTION</th>
+                                </tr>
                             </thead>
                             <tbody>
-                           
+
                                 <?php
                                 //SELECT inv_ict.particulars FROM inv_ict INNER JOIN employee ON `employee`.`office_id`=inv_ict.office_id INNER JOIN procurement_category ON procurement_category.pcategory_id=inv_ict.pcategory_id ORDER BY `inv_ict`.`updated_at` DESC;
                                 $result = mysqli_query($con,"SELECT `inv_ict`.`inv_id`, `inv_ict`.`item_name`, `office`.`office_name`, `employee`.`firstname`, `employee`.`lastname`, 
@@ -86,16 +102,13 @@
                                     <td><?php echo $row['date_inspection']; ?></td>
                                     <td><?php echo $row['inspected_by']; ?></td>
                                     <td style='width: 100px;'>
-                                    <a href="index.php?page=item_profile&&id=<?php echo $id; ?>"
-                                     class=" ">
+                                        <a href="index.php?page=item_profile&&id=<?php echo $id; ?>" class=" ">
                                             <i class="fas text-info fa-solid fa-info"></i>
                                         </a>
-                                        <a href="index.php?page=ict-edit&id=<?php echo $id; ?>"
-                                         class=" ">
+                                        <a href="index.php?page=ict-edit&id=<?php echo $id; ?>" class=" ">
                                             <i class="fas fa-solid fa-pen text-warning ml-2"></i>
                                         </a>
-                                        <a onclick="delete_item('<?php echo $id; ?>')"
-                                         class=" ">
+                                        <a onclick="delete_item('<?php echo $id; ?>')" class=" ">
                                             <i class="fas fa-solid fa-trash text-danger ml-2"></i></a>
                                     </td>
 

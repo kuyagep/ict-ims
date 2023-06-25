@@ -26,14 +26,13 @@
 <!-- Main content -->
 <?php
 
-$view = mysqli_fetch_array($query);
+    $view = mysqli_fetch_array($query);
 
     if($view['item_image']==""){
         $img = "default-150x150.png";
     }else{
         $img = $view['item_image'];
     }
-                            
 ?>
 
 
@@ -81,6 +80,7 @@ $view = mysqli_fetch_array($query);
                                 $rowCount = mysqli_num_rows($result);
                                 if($rowCount > 0){
                                     while($row = mysqli_fetch_assoc($result)){
+
                                         if($row['employee_id'] == $view['employee_id']){
                                         echo $row['firstname'] ." ".$row['lastname'];
                                         }
@@ -89,16 +89,15 @@ $view = mysqli_fetch_array($query);
                             ?>
                             </li>
                             <li class="medium"><span class="fa-li"><i class="fas fa-lg fa-hashtag"></i></span> Device
-                                Serial:
-                                <?php echo $view['serial_no']; ?>
+                                Serial: <?= $view['serial_no'] ?>
                             </li>
                             <li class="medium"><span class="fa-li"><i class="fas fa-list"></i></span> Quantity:
-                                <?php echo $view['quantity']; ?>
+                                <?= $view['quantity'] ?>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-6 text-center">
-                        <img src="dist/img/items/<?php echo $img; ?>" style="width: 300px; height: 200px;" alt="PHOTO"
+                        <img src="dist/img/items/<?= $img ?>" style="width: 300px; height: 200px;" alt="PHOTO"
                             class="img-fluid">
                     </div>
                 </div>
@@ -126,7 +125,7 @@ $view = mysqli_fetch_array($query);
                             <div class="col-lg-12 ">
 
                                 <div class="row align-item-center">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <a href="index.php?page=employee-view&&id=<?php 
                                             $result = mysqli_query($con,"SELECT * FROM employee;");
                                             $rowCount = mysqli_num_rows($result);
@@ -144,7 +143,7 @@ $view = mysqli_fetch_array($query);
                                             </button>
                                         </a>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <a href="index.php?page=ict-edit&id=<?php echo $idx; ?>">
                                             <button type="button" class="btn btn-warning btn-block">
                                                 <i class="fas fa-solid fa-pen"></i>
@@ -152,13 +151,21 @@ $view = mysqli_fetch_array($query);
                                             </button>
                                         </a>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <a onclick="delete_item('<?php echo $idx; ?>')">
                                             <button type="button" class="btn btn-danger btn-block">
                                                 <i class="fas fa-solid fa-trash"></i>
                                                 <b>Delete Item</b>
                                             </button>
                                         </a>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <form action="action/admin/remove-item-photo.php?id=<?= $idx ?>" method="post">
+                                            <button type=" submit" class="btn btn-danger btn-block">
+                                                <i class="fas fa-solid fa-trash"></i>
+                                                <b>Remove Item Photo</b>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
