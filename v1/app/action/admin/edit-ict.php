@@ -69,14 +69,14 @@ $view = mysqli_fetch_array($query);
                                 <label for="item_name" class="col-sm-3 col-form-label">Item Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="item_name" id="item_name"
-                                        value=" <?php echo $view['item_name']; ?>">
+                                        value=" <?php echo $view['item_name']; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="specs" class="col-sm-3 col-form-label">Specifications</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control" name="specs" placeholder="Enter Specification"
-                                        id="specs" value="" rows="" cols=""><?php echo $view['specs']; ?></textarea>
+                                        id="specs" value="" rows="" cols=""> <?php echo $view['specs']; ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -97,7 +97,7 @@ $view = mysqli_fetch_array($query);
                                 <label for="date_acquired" class="col-sm-3 col-form-label">Date Acquired</label>
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" name="date_acquired" id="date_acquired"
-                                        value=" <?php echo $view['date_acquired']; ?>" required>
+                                        value=" <?php echo $view['date_acquired']; ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -127,14 +127,14 @@ $view = mysqli_fetch_array($query);
                                 <label for="date_inspection" class="col-sm-3 col-form-label">Date of Inspection</label>
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" name="date_inspection" id="date_inspection"
-                                        value=" <?php echo $view['date_inspection'];?>" required>
+                                        value=" <?php echo $view['date_inspection'];?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inspected_by" class="col-sm-3 col-form-label">Inspected by</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="inspected_by"
-                                        value="<?php echo $view['inspected_by']; ?>" required>
+                                        value="<?php echo $view['inspected_by']; ?>">
                                 </div>
                             </div>
                         </div>
