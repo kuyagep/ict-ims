@@ -45,14 +45,6 @@
 
         <li class="nav-header">Components</li>
         <li class="nav-item">
-            <a href="" class="nav-link ">
-                <i class="fas fa-link"></i>
-                <p>
-                    Components
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
 
                 <li class="nav-item">
                     <a href="position"
@@ -81,11 +73,9 @@
                         </p>
                     </a>
                 </li>
-
-            </ul>
         </li>
 
-        <li class="nav-header">Setting</li>
+        <li class="nav-header">Settings</li>
         <li class="nav-item">
             <a href="profile"
                 class="nav-link <?php if (isset($_GET['page']) && $_GET['page'] == "profile"){ echo 'active'; } ?>">

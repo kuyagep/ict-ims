@@ -38,13 +38,13 @@
         ?>
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card card-danger card-outline">
                     <div class="card-header p-2">
                         <div class="float-left">
                             <h4>Inventory List</h4>
                         </div>
                         <div class="float-right">
-                            <button type="button" class="btn bg-gradient-success float-right" data-toggle="modal"
+                            <button type="button" class="btn bg-gradient-info float-right" data-toggle="modal"
                                 data-target="#add-purchase-order">
                                 <i class="fas fa-plus mr-2"></i>
                                 Add Inventory

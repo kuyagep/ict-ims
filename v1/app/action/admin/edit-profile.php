@@ -98,7 +98,7 @@
                     <!-- /.widget-user -->
 
                     <div class="col-lg-8 col-sm-12">
-                        <div class="card card-outline card-red">
+                        <div class="card card-outline card-danger">
                             <div class="card-header">
                                 <h3>Edit Profile</h3>
                             </div>

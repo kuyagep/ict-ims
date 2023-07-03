@@ -112,7 +112,7 @@
                             <STRONG>Specifications:</STRONG>
                         </h3>
                         <div class="row">
-                            <div class="col-lg-9 text-center">
+                            <div class="col-lg-11 text-center">
                                 <div class="form-group">
 
                                     <textarea class="form-control" cols="200" rows="5"
@@ -123,9 +123,11 @@
                         <hr>
                         <div class="row">
                             <div class="col-lg-12 ">
-
+                            <h3 class="card-title"> <i class="fa-solid fa-pen-to-square mr-2"></i>
+                            <STRONG>Actions:</STRONG>
+                        </h3>
                                 <div class="row align-item-center">
-                                    <div class="col-lg-3">
+                                    <div class="col-sm-3">
                                         <a href="index.php?page=employee-view&&id=<?php 
                                             $result = mysqli_query($con,"SELECT * FROM employee;");
                                             $rowCount = mysqli_num_rows($result);
@@ -143,7 +145,7 @@
                                             </button>
                                         </a>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-sm-3">
                                         <a href="index.php?page=ict-edit&id=<?php echo $idx; ?>">
                                             <button type="button" class="btn btn-warning btn-block">
                                                 <i class="fas fa-solid fa-pen"></i>
@@ -151,7 +153,7 @@
                                             </button>
                                         </a>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-sm-3">
                                         <a onclick="delete_item('<?php echo $idx; ?>')">
                                             <button type="button" class="btn btn-danger btn-block">
                                                 <i class="fas fa-solid fa-trash"></i>
@@ -159,9 +161,9 @@
                                             </button>
                                         </a>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-sm-3">
                                         <form action="action/admin/remove-item-photo.php?id=<?= $idx ?>" method="post">
-                                            <button type=" submit" class="btn btn-danger btn-block">
+                                            <button type=" submit" class="btn btn-dark btn-block">
                                                 <i class="fas fa-solid fa-trash"></i>
                                                 <b>Remove Item Photo</b>
                                             </button>

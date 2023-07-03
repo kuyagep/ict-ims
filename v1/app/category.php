@@ -65,7 +65,7 @@
                                 of
                                 Category</STRONG></h3>
 
-                        <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
+                        <button type="button" class="btn btn-dark float-right" data-toggle="modal"
                             data-target="#addModal"> <i class="fas fa-list"></i>
                             Add New Classification
                         </button>

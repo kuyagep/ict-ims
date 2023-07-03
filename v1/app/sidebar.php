@@ -18,8 +18,8 @@
             </span>
         </div>
         <div class="info"> <strong>
-                <a href="#" class="d-block"><?php 
-                    echo $_SESSION['firstname']." ".$_SESSION['lastname'];
+                <a href="" class="d-block"> Hello <?php 
+                    echo $_SESSION['firstname'];
              ?> </a> </strong>
         </div>
     </div>
