@@ -1,7 +1,7 @@
 <footer class="main-footer">
     <strong>Copyright &copy; 2023 <a href="index.php"
             style=" text-decoration: none; color: green;">ICT-IMS</a>.</strong>
-    All rights reserved | Developed by <a href="http://localhost/ict-ims/developer/">OJT.</a>
+    All rights reserved | Developed by <a href="http://localhost/ict-ims/dev/">OJT.</a>
     <div class="float-right d-none d-sm-inline-block">
         <b> Version</b> 0.0.1.1
     </div>
