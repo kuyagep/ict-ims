@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2023 at 07:36 AM
+-- Generation Time: Jul 04, 2023 at 07:54 AM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -90,7 +90,6 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`employee_id`, `picture`, `firstname`, `middlename`, `lastname`, `emp_contact_no`, `emp_email_add`, `position_id`, `office_id`, `division_id`, `username`, `password`, `role_id`, `added_at`) VALUES
-(0, '', '', '', '', '', '', 0, 0, 0, '', '$2y$10$1uTJYbUe6hw9tQdVQicgr.grrfMyBg1cBi33zPcurRC436XQl.O.W', 0, '2023-03-19 14:40:19'),
 (1, '_DSC0128 (2).JPG', 'Geperson', 'Camporedondo', 'Mamalias', '09317562740', 'geperson.ph@gmail.com', 7, 9, 0, 'geperson', '$2y$10$77qr92YiqHUMn4c.BVo8ZufBN.K3srkdBeBwxsNDYrGuYBGfLeUSi', 2, '2022-06-05 16:02:24'),
 (71, '', 'Admin', 'Admin', 'Admin', '09123456789', 'admin@gmail.com', 1, 1, 0, 'admin@gmail.com', '$2y$10$77qr92YiqHUMn4c.BVo8ZufBN.K3srkdBeBwxsNDYrGuYBGfLeUSi', 2, '2022-10-22 09:18:43'),
 (72, '', 'User', 'User', 'User', '09123456789', 'user@gmail.com', 1, 1, 0, 'user@gmail.com', '$2y$10$aoF3GO5Wyf6qLSG8MhbDaO4hjb8VID9A9NEnfqr6gvxaqJHA3jrwO', 3, '2022-10-22 09:20:09'),
@@ -108,7 +107,8 @@ INSERT INTO `employee` (`employee_id`, `picture`, `firstname`, `middlename`, `la
 (91, '', 'CHRISTINE', 'P.', 'LIMBUJAN', '09123456789', 'christine.limbujan@deped.gov.ph', 1, 10, 3, 'christine.limbujan@deped.gov.ph', '$2y$10$Kz1Wg/ehnkljzioljg17Ue3WODI7nEBGX3s.JJfrQ3znuzkCroprK', 3, '2023-01-24 15:35:24'),
 (92, '', 'Janette', 'G.', 'VELOSO', '09123456789', 'janette.veloso@deped.gov.ph', 1, 15, 1, 'janette.veloso@deped.gov.ph', '$2y$10$oCiDeIYAOkOLF8qKEWUWt.x1UxUjsFS/HGQmLG4J0al7OcXsQKM46', 3, '2023-01-24 15:37:44'),
 (93, 'avatar4.png', 'CHEERYLYN', 'C', 'COMETA', '09123456789', 'cheerylyn.cometa@deped.gov.ph', 11, 4, 2, 'cheerylyn.cometa@deped.gov.ph', '$2y$10$VnGQEKr3fy4ppJENPUWzGuhtu7Ea5eU2Uuf7ZZQ4yX.u4l70FVmEe', 3, '2023-01-25 09:23:05'),
-(94, 'avatar.png', 'ROMEO', 'M.', 'YTING', '09123456789', 'romeo.yting@deped.gov.ph', 1, 9, 1, 'romeo.yting@deped.gov.ph', '$2y$10$QSbPEofbYhhxrU8c7ZnXS.pksHzfQrA.wKZKzfKVl82FqKNpE9uJ2', 2, '2023-01-30 15:37:44');
+(94, 'avatar.png', 'ROMEO', 'M.', 'YTING', '09123456789', 'romeo.yting@deped.gov.ph', 1, 9, 1, 'romeo.yting@deped.gov.ph', '$2y$10$QSbPEofbYhhxrU8c7ZnXS.pksHzfQrA.wKZKzfKVl82FqKNpE9uJ2', 2, '2023-01-30 15:37:44'),
+(95, '', 'John', 'C', 'M', '0912456789', 'johnm@gmail.com', 1, 1, 1, 'johnm@gmail.com', '$2y$10$EboCaF71CwaGajgULDIH2OozWixpHXR.XHIIcJCGp008R4DuCPqtS', 3, '2023-07-04 13:39:31');
 
 -- --------------------------------------------------------
 
@@ -140,7 +140,8 @@ CREATE TABLE `inv_ict` (
 
 INSERT INTO `inv_ict` (`inv_id`, `item_image`, `employee_id`, `item_name`, `specs`, `quantity`, `serial_no`, `price`, `date_acquired`, `category_id`, `date_inspection`, `inspected_by`, `created_at`, `deleted`, `updated_at`) VALUES
 (17, '', 82, 'Acer', 'sample', 7, '1232dew123', 32, '2023-05-02', 8, '2023-05-02', 'Maning', '2023-05-02 06:51:45', 1, '0000-00-00 00:00:00'),
-(18, '', 83, 'MSI', 'WIFI KEY: 33100298 admin Globe@1B49 tech tech@B0057 superadmin U6@F5p2t24Wy2w263ny326ZJ', 34, 'KBA123P097645', 54900, '2023-06-02', 6, '2023-06-29', 'maning', '2023-05-13 04:28:02', 1, '0000-00-00 00:00:00');
+(18, '', 83, 'MSI', 'WIFI KEY: 33100298 admin Globe@1B49 tech tech@B0057 superadmin U6@F5p2t24Wy2w263ny326ZJ', 34, 'KBA123P097645', 54900, '2023-06-02', 6, '2023-06-29', 'maning', '2023-05-13 04:28:02', 1, '0000-00-00 00:00:00'),
+(19, '', 95, 'Headset', 'Headset 3.0', 1, '1qrq', 466, '2023-07-04', 5, '2023-07-04', 'Ako', '2023-07-04 05:50:38', 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -280,10 +281,16 @@ ALTER TABLE `category`
   MODIFY `category_id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `employee_id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+
+--
 -- AUTO_INCREMENT for table `inv_ict`
 --
 ALTER TABLE `inv_ict`
-  MODIFY `inv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `inv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `office`
