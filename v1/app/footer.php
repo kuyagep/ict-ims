@@ -1,7 +1,7 @@
 <footer class="main-footer">
     <strong>Copyright &copy; 2023 <a href="index.php"
             style=" text-decoration: none; color: green;">ICT-IMS</a>.</strong>
-    All rights reserved | Developed by OJT.
+    All rights reserved | Developed by <a href="http://localhost/ict-ims/developer/">OJT.</a>
     <div class="float-right d-none d-sm-inline-block">
         <b> Version</b> 0.0.1.1
     </div>
@@ -101,7 +101,7 @@ $(document).ready(function() {
 <!-- <script src="dist/js/demo.js"></script> -->
 <!-- <script src="plugins/select2/js/select2.full.min.js"></script> -->
 <script>
-    $(function () {
-      $('.select2').select2()
-    });
+$(function() {
+    $('.select2').select2()
+});
 </script>

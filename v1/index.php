@@ -141,7 +141,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
             <!-- /.card -->
             <div class="lockscreen-footer text-center text-white">
                 Copyright &copy; 2023 <b><a href="index" class="text-black">ICT-IMS </a></b> <br>
-                Developed by OJT
+                Developed by <a href="http://localhost/ict-ims/developer/">OJT</a>
             </div>
         </div>
     </div>
