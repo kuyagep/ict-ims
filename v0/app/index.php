@@ -5,25 +5,31 @@
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         header('Location: ../index.php?session=expired');
     }
-    include('header.php'); ?>
-<?php //include('../conf/config.php');
-require_once '../config/database.php';?>
+    
+    // Load centralized path configuration
+    require_once '../config/database.php';
+    require_once '../config/paths.php';
+    
+    // Include layout files using helper functions
+    include_layout('header.php');
+?>
+
 
 <body class="hold-transition sidebar-mini text-sm  layout-fixed layout-navbar-fixed">
     <div class="wrapper">
 
         <!-- Preloader -->
-        <?php include('preloader.php'); ?>
+        <?php include_layout('preloader.php'); ?>
 
         <!-- Navbar -->
         <?php 
         
             if($_SESSION['role_id'] == '1'){
-                include('navbar.php');
+                include_layout('navbar.php');
             }elseif($_SESSION['role_id'] == '2'){
-                include('navbar.php');
+                include_layout('navbar.php');
             }elseif($_SESSION['role_id'] == '3'){
-                include('navbar-user.php');
+                include_layout('navbar_user.php');
             } 
          ?>
         <!-- /.navbar -->
@@ -40,10 +46,10 @@ require_once '../config/database.php';?>
             ?> elevation-2">
 
             <!-- Brand Logo -->
-            <?php include('logo.php'); ?>
+            <?php include_component('logo.php'); ?>
 
             <!-- Sidebar -->
-            <?php include('sidebar.php'); ?>
+            <?php include_layout('sidebar.php'); ?>
             <!-- /.sidebar -->
         </aside>
 
@@ -56,30 +62,26 @@ require_once '../config/database.php';?>
             <!-- Main content -->
             <?php 
                 if(isset($_GET['page'])){
-                    $page =''.$_GET['page'].'.php';
+                    $page = 'pages/' . $_GET['page'] . '.php';
                 }else{
                         if($_SESSION['role_id'] == '1'){
-                            $page = 'dashboard.php';
+                            $page = 'pages/dashboard.php';
                         }elseif($_SESSION['role_id'] == '2'){
-                            $page = 'dashboard.php';
+                            $page = 'pages/dashboard.php';
                         }elseif($_SESSION['role_id'] == '3'){
-                            $page = 'self-inventory.php';
+                            $page = 'pages/self_inventory.php';
                         } 
                 }
 
                 if (file_exists($page)) {
                     require_once $page; 
                 }else{
-                    require_once 'error-404.php';
+                    require_once 'pages/error_404.php';
                 }
-            //include('dashboard.php'); 
-                
             ?>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -87,7 +89,7 @@ require_once '../config/database.php';?>
         </aside>
         <!-- /.control-sidebar -->
     </div>
-    <?php include('footer.php'); ?>
+    <?php include_layout('footer.php'); ?>
     <!-- ./wrapper -->
 </body>
 

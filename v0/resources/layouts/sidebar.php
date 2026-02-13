@@ -7,13 +7,19 @@
             <span class="aui-avatar aui-avatar-xxlarge">
                 <span class="aui-avatar-inner">
                     <?php 
-                                if($_SESSION['session_picture']==""){
-                                    $img = "user1-128x128.jpg";
-                                }else{
-                                    $img = $_SESSION['session_picture'];
-                                }
-                            ?>
-                    <img class="img-circle elevation-0" src="dist/img/users/<?php echo $img; ?>" alt="Profile Picture" />
+                        // Default fallback picture
+                        $default_picture = "user1-128x128.jpg";
+                        
+                        // Use session picture if set, otherwise use default
+                        $picture_file = !empty($_SESSION['session_picture']) ? $_SESSION['session_picture'] : $default_picture;
+                        
+                        // Verify the picture file exists, otherwise use default
+                        $picture_path = dirname(__DIR__) . '/dist/img/users/' . $picture_file;
+                        if (!file_exists($picture_path)) {
+                            $picture_file = $default_picture;
+                        }
+                    ?>
+                    <img class="img-circle elevation-0" src="dist/img/users/<?php echo htmlspecialchars($picture_file); ?>" alt="Profile Picture" />
                 </span>
             </span>
         </div>
@@ -26,7 +32,7 @@
 
     <!-- SidebarSearch Form -->
     <div class="form-inline">
-        <form action="action/admin/search_result_sidebar.php" method="get">
+        <form action="search/search_result_navbar.php" method="get">
         <div class="input-group" data-widget="sidebar-search">
             <input class="form-control form-control-sidebar" type="search" name="search" placeholder="Search" aria-label="Search">
             <div class="input-group-append">
@@ -40,12 +46,17 @@
 
     <!-- Sidebar Menu -->
     <?php 
+        // Load centralized path configuration if not already loaded
+        if (!defined('MENU_PATH')) {
+            require_once dirname(__FILE__) . '/../../config/paths.php';
+        }
+        
         if($_SESSION['role_id'] == '1'){
-            include('menu/superadmin.php');
+            include_menu('superadmin.php');
         }elseif($_SESSION['role_id'] == '2'){
-            include('menu/admin.php');
+            include_menu('admin.php');
         }elseif($_SESSION['role_id'] == '3'){
-            include('menu/user.php');
+            include_menu('user.php');
         } 
     ?>
     <!-- /.sidebar-menu -->
