@@ -1,6 +1,5 @@
 <?php
-    include('../conf/config.php');
-    
+    include('../conf/config.php');    
 ?>
 
 <!DOCTYPE html>

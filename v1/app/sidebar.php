@@ -25,7 +25,7 @@
     </div>
 
     <!-- SidebarSearch Form -->
-    <!-- <div class="form-inline">
+    <div class="form-inline">
         <form action="action/admin/search_result_sidebar.php" method="get">
         <div class="input-group" data-widget="sidebar-search">
             <input class="form-control form-control-sidebar" type="search" name="search" placeholder="Search" aria-label="Search">
@@ -36,7 +36,7 @@
             </div>
         </div>
         </form>
-    </div> -->
+    </div>
 
     <!-- Sidebar Menu -->
     <?php 

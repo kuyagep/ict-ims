@@ -6,12 +6,6 @@
         <b> Version</b> 0.0.1.1
     </div>
 
-    <!-- <div class="float-right d-none d-sm-inline-block mr-3">
-        <a href="#" style=" text-decoration: none;"><b>Disclaimer</b></a>
-    </div>
-    <div class="float-right d-none d-sm-inline-block mr-3">
-        <a href="#" style=" text-decoration: none;" data-toggle="modal" data-target="#"><b>Privacy Policy</b></a>
-    </div> -->
 </footer>
 <!-- Modals -->
 <?php

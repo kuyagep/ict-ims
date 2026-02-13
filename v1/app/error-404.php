@@ -25,7 +25,7 @@
 
             <p>
                 We could not find the page you were looking for.
-                Meanwhile, you may <a href="/property/app">return to dashboard</a> or try using the search
+                Meanwhile, you may <a href="/ict-ims">return to dashboard</a> or try using the search
                 form.
             </p>
 

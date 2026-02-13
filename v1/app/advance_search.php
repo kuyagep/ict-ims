@@ -23,17 +23,7 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="row">
-                        <!-- <div class="col-6">
-                                <div class="form-group">
-                                    <label>Result Type:</label>
-                                    <select class="form-control" multiple="multiple" data-placeholder="Any" style="width: 100%;">
-                                        <option>Text only</option>
-                                        <option>Images</option>
-                                        <option>Video</option>
-                                    </select>
-                                </div>
-                            </div> -->
-                        <div class="col-6">
+                      
                             <div class="form-group">
                                 <label>Result Type:</label>
                                 <select class="select2 form-control" style="width: 100%;">

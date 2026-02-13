@@ -16,7 +16,6 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- End Content Header -->
-
 <!-- Main content -->
 <?php
 

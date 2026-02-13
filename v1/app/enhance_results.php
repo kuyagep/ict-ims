@@ -21,13 +21,9 @@
         <form action="action/admin/search_result.php" method="post">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
-                    <!-- <div class="row">
+                    
                         
-                        <div class="col-4">
-                            <div class="form-group">
-                                <label>Item Classification:</label>
-                                <select class="select2 form-control" id="category" name="category">
-                                    <option value="" class="text-muted" selected>Select...</option>
+                      
                                     <?php
                                                 $result = mysqli_query($con,"SELECT * FROM category;");
                                                 $rowCount = mysqli_num_rows($result);
